@@ -1,0 +1,99 @@
+[gd_scene load_steps=8 format=3 uid="uid://ctsn7004v16s3"]
+
+[ext_resource type="Script" path="res://pause.gd" id="1_y08yt"]
+[ext_resource type="FontFile" uid="uid://b8tk3nvwcwfr4" path="res://Clayborn.ttf" id="2_rub8t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xfv1c"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="VisualShader" id="VisualShader_wmsed"]
+code = "shader_type canvas_item;
+
+
+"
+graph_offset = Vector2(-580.03, -15.2153)
+mode = 1
+flags/light_only = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_riy0t"]
+shader = SubResource("VisualShader_wmsed")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ococ"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_depia"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="pause" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y08yt")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TopSpacer" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxFlat_xfv1c")
+
+[node name="Paused" type="RichTextLabel" parent="VBoxContainer"]
+material = SubResource("ShaderMaterial_riy0t")
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/normal_font = ExtResource("2_rub8t")
+theme_override_font_sizes/normal_font_size = 150
+text = "Paused"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="MiddleSpacer" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxFlat_0ococ")
+
+[node name="Resume" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(0.772549, 0.772549, 0.772549, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_rub8t")
+theme_override_font_sizes/font_size = 100
+button_mask = 7
+text = "Resume"
+flat = true
+
+[node name="Menu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(0.772549, 0.772549, 0.772549, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_rub8t")
+theme_override_font_sizes/font_size = 100
+button_mask = 7
+text = "Menu"
+flat = true
+
+[node name="BottomSpacer" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxFlat_depia")
+
+[connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="VBoxContainer/Menu" to="." method="_on_menu_pressed"]

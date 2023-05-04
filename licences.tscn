@@ -1,0 +1,124 @@
+[gd_scene load_steps=10 format=3 uid="uid://b37glwj2oacca"]
+
+[ext_resource type="Script" path="res://licences.gd" id="1_1rjo1"]
+[ext_resource type="FontFile" uid="uid://b8tk3nvwcwfr4" path="res://Clayborn.ttf" id="2_00oex"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xy8bo"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="VisualShader" id="VisualShader_lo75a"]
+code = "shader_type canvas_item;
+
+
+"
+graph_offset = Vector2(-580.03, -15.2153)
+mode = 1
+flags/light_only = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_chplw"]
+shader = SubResource("VisualShader_lo75a")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dxv0f"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1b5dr"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pu5rq"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y81vc"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="licences" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1rjo1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TopSpacer" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxFlat_xy8bo")
+
+[node name="licencetext" type="RichTextLabel" parent="VBoxContainer"]
+material = SubResource("ShaderMaterial_chplw")
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/normal_font = ExtResource("2_00oex")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]Licence..."
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="MiddleSpacer" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxFlat_dxv0f")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxFlat_1b5dr")
+
+[node name="Back" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(0.772549, 0.772549, 0.772549, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_00oex")
+theme_override_font_sizes/font_size = 100
+button_mask = 7
+text = "back"
+flat = true
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxFlat_pu5rq")
+
+[node name="NEXT" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(0.772549, 0.772549, 0.772549, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_00oex")
+theme_override_font_sizes/font_size = 100
+button_mask = 7
+text = "NEXT"
+flat = true
+
+[node name="VSeparator3" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxFlat_y81vc")
+
+[node name="BottomSpacer" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxFlat_dxv0f")
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/NEXT" to="." method="_on_next_pressed"]

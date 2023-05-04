@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://g54wi6rdpo70"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_cqorg"]
+[ext_resource type="Shader" path="res://background.gdshader" id="1_gf3yw"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qjhq8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wdsa6"]
+render_priority = 0
+shader = ExtResource("1_gf3yw")
+
+[node name="main" type="Node3D"]
+script = ExtResource("1_cqorg")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="Background" type="MeshInstance3D" parent="."]
+transform = Transform3D(120, 0, 0, 0, -4.37114e-08, -120, 0, 1, -5.24537e-06, 0, 0, -64.0546)
+mesh = SubResource("PlaneMesh_qjhq8")
+surface_material_override/0 = SubResource("ShaderMaterial_wdsa6")
