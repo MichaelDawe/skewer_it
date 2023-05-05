@@ -1,5 +1,7 @@
 shader_type spatial;
-render_mode unshaded, cull_disabled;
+render_mode unshaded;
+
+uniform vec3 background;
 
 float random(vec2 par){
    return fract(sin(dot(par.xy,vec2(12.9898,78.233))) * 43758.5453);
@@ -11,9 +13,6 @@ vec2 random2(vec2 par){
 }
 
 void fragment() {
-	vec3 background = vec3(0.0, 0.1, 0.35);
-	vec3 colour = vec3(1.0, 1.0, 1.0);
-	
 	float t = TIME * 0.01;
     float layers = 6.0;
     vec2 centre = vec2(0.5, 0.5);
@@ -60,5 +59,5 @@ void fragment() {
     float vig = uv.x*uv.y * 10.0; //multiply with sth for intensity
     vig = pow(vig, 0.5) + 0.5; //change pow for modifying the extend of the  vignette
 	
-    ALBEDO = vec3(stars * 1.3, stars * 1.1, stars) * colour + background * vig;
+    ALBEDO = (vec3(stars) * (1.0 - background)) + (background * vig);
 }

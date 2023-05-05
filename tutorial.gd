@@ -14,10 +14,11 @@ func _process(_delta):
 func _on_close_pressed():
 	var file = FileAccess.open("user://data.res", FileAccess.WRITE)
 	file.store_var(true)
-	# set main scene into play mode
-	get_node("/root/main").mode = 1
+	file.close
 	# load the hud scene
 	var hud = preload("res://hud.tscn").instantiate()
 	get_node("/root/main").add_child(hud)
+	# set main scene into play mode
+	get_node("/root/main").mode = 1
 	# kill the tutorial
 	queue_free()

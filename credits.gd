@@ -18,4 +18,6 @@ func _on_back_pressed():
 
 
 func _on_licences_pressed():
-	pass # Replace with function body.
+	var licences = preload("res://licences.tscn").instantiate()
+	get_node("/root/main").add_child(licences)
+	queue_free()

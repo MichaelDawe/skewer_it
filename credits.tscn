@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://b70a83gtjoy60"]
 
+[ext_resource type="Script" path="res://credits.gd" id="1_ofx67"]
 [ext_resource type="FontFile" uid="uid://b8tk3nvwcwfr4" path="res://Clayborn.ttf" id="1_rno3s"]
-[ext_resource type="Script" path="res://credits.gd" id="1_w6sux"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n3y7q"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -28,7 +28,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_w6sux")
+script = ExtResource("1_ofx67")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -56,7 +56,7 @@ text = "[center]Developed by: Michael Dawe.
 
 Using Godot engine.
 
-source available on github - mikeredwood/skewer_it.
+source available on github - michaeldawe/skewer_it.
 
 Textures and sound from pixabay.com."
 fit_content = true

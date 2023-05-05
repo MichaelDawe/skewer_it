@@ -21,3 +21,9 @@ func _on_back_pressed():
 	var menu = preload("res://menu.tscn").instantiate()
 	get_node("/root/main").add_child(menu)
 	queue_free()
+
+
+func _on_reset_score_pressed():
+	var file = FileAccess.open("user://highscore.res", FileAccess.WRITE)
+	file.store_32(0)
+	file.close

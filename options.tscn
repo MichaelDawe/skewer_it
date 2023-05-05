@@ -83,5 +83,6 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/separator = SubResource("StyleBoxFlat_qhcnr")
 
+[connection signal="pressed" from="VBoxContainer/Reset Score" to="." method="_on_reset_score_pressed"]
 [connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]
