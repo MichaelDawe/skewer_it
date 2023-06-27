@@ -16,6 +16,6 @@ script = ExtResource("1_cqorg")
 [node name="Camera3D" type="Camera3D" parent="."]
 
 [node name="Background" type="MeshInstance3D" parent="."]
-transform = Transform3D(120, 0, 0, 0, -4.37114e-08, -120, 0, 1, -5.24537e-06, 0, 0, -64.0546)
+transform = Transform3D(120, 0, 0, 0, -4.37114e-08, -120, 0, 1, -5.24537e-06, 0, 0, -60)
 mesh = SubResource("PlaneMesh_qjhq8")
 surface_material_override/0 = SubResource("ShaderMaterial_wdsa6")

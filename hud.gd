@@ -9,10 +9,17 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
+	# detect if window loses focus and save highscore to file
+	
+	
 
 
 func _on_pause_pressed():
+	# spawn pause menu
 	get_node("/root/main").mode = 2
 	var pause = preload("res://pause.tscn").instantiate()
 	get_node("/root/main").add_child(pause)
 	queue_free()
+	# save highscore to file
+	
+	# send pause signal to main

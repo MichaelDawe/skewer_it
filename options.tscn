@@ -24,6 +24,24 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
+[node name="Spacer6" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxFlat_qhcnr")
+
+[node name="Difficulty" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(0.772549, 0.772549, 0.772549, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_h8oic")
+theme_override_font_sizes/font_size = 100
+button_mask = 7
+text = "Difficulty: Normal"
+flat = true
+
 [node name="Spacer" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -40,6 +58,24 @@ theme_override_fonts/font = ExtResource("2_h8oic")
 theme_override_font_sizes/font_size = 100
 button_mask = 7
 text = "reset highscore"
+flat = true
+
+[node name="Spacer5" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxFlat_qhcnr")
+
+[node name="Tutorial" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(0.772549, 0.772549, 0.772549, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_h8oic")
+theme_override_font_sizes/font_size = 100
+button_mask = 7
+text = "tutorial"
 flat = true
 
 [node name="Spacer2" type="HSeparator" parent="VBoxContainer"]
@@ -83,6 +119,8 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/separator = SubResource("StyleBoxFlat_qhcnr")
 
+[connection signal="pressed" from="VBoxContainer/Difficulty" to="." method="_on_difficulty_pressed"]
 [connection signal="pressed" from="VBoxContainer/Reset Score" to="." method="_on_reset_score_pressed"]
+[connection signal="pressed" from="VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]

@@ -8,6 +8,8 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="VisualShader" id="VisualShader_jew6v"]
 code = "shader_type canvas_item;
+render_mode blend_mix;
+
 
 
 "
@@ -61,7 +63,7 @@ Your score is based on your speed!
 The game will speed up over time, 
 so the longer you play the better your score!
 
-See if you can beat your friends highscores!
+See if you can beat your friends' highscores!
 
 And most importantly have fun!"
 fit_content = true
@@ -73,7 +75,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/separator = SubResource("StyleBoxFlat_1lsp0")
 
-[node name="Close" type="Button" parent="VBoxContainer"]
+[node name="Play" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -83,7 +85,7 @@ theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_tykps")
 theme_override_font_sizes/font_size = 100
 button_mask = 7
-text = "Close"
+text = "Play"
 flat = true
 
 [node name="BottomSpacer" type="HSeparator" parent="VBoxContainer"]
@@ -91,4 +93,4 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/separator = SubResource("StyleBoxFlat_1lsp0")
 
-[connection signal="pressed" from="VBoxContainer/Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_close_pressed"]
