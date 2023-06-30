@@ -1,22 +1,22 @@
-[gd_scene load_steps=20 format=3 uid="uid://g54wi6rdpo70"]
+[gd_scene load_steps=21 format=3 uid="uid://g54wi6rdpo70"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_cqorg"]
 [ext_resource type="Shader" path="res://background.gdshader" id="1_gf3yw"]
-[ext_resource type="PackedScene" uid="uid://bt1a18vfrci3b" path="res://models/Aubergine_out/Aubergine.gltf" id="3_qdim5"]
-[ext_resource type="PackedScene" uid="uid://cr4pdli6k332e" path="res://models/Garlic_out/Garlic.gltf" id="4_2ix2v"]
-[ext_resource type="PackedScene" uid="uid://baby8k5721eac" path="res://models/MaizeCob_out/MaizeCob.gltf" id="5_gyeib"]
-[ext_resource type="PackedScene" uid="uid://bqf8vlcsfup5t" path="res://models/GreenPepper_out/GreenPepper.gltf" id="6_5xsyb"]
-[ext_resource type="PackedScene" uid="uid://bkg2pf4mmuhv2" path="res://models/Gerkin_out/Gerkin.gltf" id="7_ohrsb"]
-[ext_resource type="PackedScene" uid="uid://didyk63pwmn3u" path="res://models/MarinatedTofu_out/MarinatedTofu.gltf" id="8_01npj"]
-[ext_resource type="PackedScene" uid="uid://3d6ay1bxs52s" path="res://models/Mushroom_out/Mushroom.gltf" id="9_a5joc"]
-[ext_resource type="PackedScene" uid="uid://dngb72ami16ut" path="res://models/Olive_out/Olive.gltf" id="10_d7i5a"]
-[ext_resource type="PackedScene" uid="uid://cm0k6qlqn1inr" path="res://models/Pineapple_out/Pineapple.gltf" id="11_r3uyc"]
-[ext_resource type="PackedScene" uid="uid://c8w23j1yilev4" path="res://models/RedPepper_out/RedPepper.gltf" id="12_wt477"]
-[ext_resource type="PackedScene" uid="uid://olpycombr42x" path="res://models/Sausage_out/Sausage.gltf" id="13_rt8t8"]
-[ext_resource type="PackedScene" uid="uid://c180gwajonq" path="res://models/Shallot_out/Shallot.gltf" id="14_ue3bm"]
-[ext_resource type="PackedScene" uid="uid://dea2vmdywh0ua" path="res://models/Tofu_out/Tofu.gltf" id="15_1iffn"]
-[ext_resource type="PackedScene" uid="uid://dds0ts5hhmeyr" path="res://models/Tomato_out/Tomato.gltf" id="16_srauk"]
-[ext_resource type="PackedScene" uid="uid://cudmo4a1n6b0b" path="res://models/YellowPepper_out/YellowPepper.gltf" id="17_kmdrc"]
+[ext_resource type="PackedScene" uid="uid://dwls2uigisdbk" path="res://models/aubergine.tscn" id="3_louga"]
+[ext_resource type="PackedScene" uid="uid://bhorj58aud2w8" path="res://models/garlic.tscn" id="4_8e7yx"]
+[ext_resource type="PackedScene" uid="uid://diflac5ykbp1g" path="res://models/gerkin.tscn" id="5_176xu"]
+[ext_resource type="PackedScene" uid="uid://dq2kqqbc6et5x" path="res://models/green_pepper.tscn" id="6_7crbu"]
+[ext_resource type="PackedScene" uid="uid://da38dy3remy2e" path="res://models/maize_cob.tscn" id="7_fe5qy"]
+[ext_resource type="PackedScene" uid="uid://bsig4wixtny6v" path="res://models/marinated_tofu.tscn" id="8_3u4d2"]
+[ext_resource type="PackedScene" uid="uid://edibojpv3of5" path="res://models/mushroom.tscn" id="9_a51ro"]
+[ext_resource type="PackedScene" uid="uid://cta43h3hjxarf" path="res://models/olive.tscn" id="10_xwte0"]
+[ext_resource type="PackedScene" uid="uid://bvm8h3rw0505h" path="res://models/pineapple.tscn" id="11_bc2w6"]
+[ext_resource type="PackedScene" uid="uid://o376dpfgjugy" path="res://models/red_pepper.tscn" id="12_cegi2"]
+[ext_resource type="PackedScene" uid="uid://doru5xr0gtsna" path="res://models/sausage.tscn" id="13_oxcnm"]
+[ext_resource type="PackedScene" uid="uid://cwisiano1c8c1" path="res://models/shallot.tscn" id="14_4ywgb"]
+[ext_resource type="PackedScene" uid="uid://dn1txlx2otuhq" path="res://models/tofu.tscn" id="15_727c4"]
+[ext_resource type="PackedScene" uid="uid://cg82lxhbvmxf5" path="res://models/tomato.tscn" id="16_v38lc"]
+[ext_resource type="PackedScene" uid="uid://dxngl0lrw2nts" path="res://models/yellow_pepper.tscn" id="17_w3rmc"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_qjhq8"]
 
@@ -25,81 +25,84 @@ render_priority = 0
 shader = ExtResource("1_gf3yw")
 shader_parameter/background = Vector3(0, 0.15, 0.45)
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_q41w5"]
+
 [node name="main" type="Node3D"]
 script = ExtResource("1_cqorg")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 64)
+fov = 55.0
 
 [node name="Background" type="MeshInstance3D" parent="."]
-transform = Transform3D(120, 0, 0, 0, -4.37114e-08, -120, 0, 1, -5.24537e-06, 0, 0, -60)
+transform = Transform3D(144.064, 0, 0, 0, -5.24772e-08, -144.064, 0, 1.20054, -6.29726e-06, 0, 0, -64)
 mesh = SubResource("PlaneMesh_qjhq8")
 surface_material_override/0 = SubResource("ShaderMaterial_wdsa6")
 
+[node name="HitPlane" type="MeshInstance3D" parent="."]
+transform = Transform3D(33.036, 0, 0, 0, -1.44405e-06, -33.036, 0, 33.036, -1.44405e-06, 0, 0, 0)
+visible = false
+mesh = SubResource("PlaneMesh_q41w5")
+
 [node name="Vegies" type="Node3D" parent="."]
-transform = Transform3D(128, 0, 0, 0, 128, 0, 0, 0, 128, 0, 0, -128)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -128)
 
-[node name="Aubergine" parent="Vegies" instance=ExtResource("3_qdim5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11899, 0)
-metadata/spawned = true
+[node name="Aubergine" parent="Vegies" instance=ExtResource("3_louga")]
+metadata/spawned = false
+metadata/rotation = Vector3(0, 0, 0)
 
-[node name="Garlic" parent="Vegies" instance=ExtResource("4_2ix2v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.162558, 0, 0)
-metadata/spawned = true
+[node name="Garlic" parent="Vegies" instance=ExtResource("4_8e7yx")]
+metadata/spawned = false
+metadata/rotation = Vector3(0, 0, 0)
 
-[node name="Maize" parent="Vegies" instance=ExtResource("5_gyeib")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.149957)
-metadata/spawned = true
+[node name="Gerkin" parent="Vegies" instance=ExtResource("5_176xu")]
+metadata/spawned = false
+metadata/rotation = Vector3(0, 0, 0)
 
-[node name="GreenPepper" parent="Vegies" instance=ExtResource("6_5xsyb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.180046)
-metadata/spawned = true
+[node name="GreenPepper" parent="Vegies" instance=ExtResource("6_7crbu")]
+metadata/spawned = false
+metadata/rotation = Vector3(0, 0, 0)
 
-[node name="Gerkin" parent="Vegies" instance=ExtResource("7_ohrsb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.171762, 0, 0)
-metadata/spawned = true
+[node name="MaizeCob" parent="Vegies" instance=ExtResource("7_fe5qy")]
+metadata/spawned = false
+metadata/rotation = Vector3(0, 0, 0)
 
-[node name="Marinated" parent="Vegies" instance=ExtResource("8_01npj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.132814, 0)
-metadata/spawned = true
+[node name="MarinatedTofu" parent="Vegies" instance=ExtResource("8_3u4d2")]
+metadata/spawned = false
+metadata/rotation = Vector3(0, 0, 0)
 
-[node name="Mushroom" parent="Vegies" instance=ExtResource("9_a5joc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.146088, 0, -0.164678)
-metadata/spawned = true
+[node name="Mushroom" parent="Vegies" instance=ExtResource("9_a51ro")]
+metadata/spawned = false
+metadata/rotation = Vector3(0, 0, 0)
 
-[node name="Olive" parent="Vegies" instance=ExtResource("10_d7i5a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.166194, 2.98023e-08, 0.162111)
-metadata/spawned = true
+[node name="Olive" parent="Vegies" instance=ExtResource("10_xwte0")]
+metadata/spawned = false
+metadata/rotation = Vector3(0, 0, 0)
 
-[node name="Pineapple" parent="Vegies" instance=ExtResource("11_r3uyc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.148489, 0, 0.153756)
-metadata/spawned = true
+[node name="Pineapple" parent="Vegies" instance=ExtResource("11_bc2w6")]
+metadata/spawned = false
+metadata/rotation = Vector3(0, 0, 0)
 
-[node name="RedPepper" parent="Vegies" instance=ExtResource("12_wt477")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.154841, 0, -0.147229)
-metadata/spawned = true
+[node name="RedPepper" parent="Vegies" instance=ExtResource("12_cegi2")]
+metadata/spawned = false
+metadata/rotation = Vector3(0, 0, 0)
 
-[node name="Sausage" parent="Vegies" instance=ExtResource("13_rt8t8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.121896, 0.166353)
-metadata/spawned = true
+[node name="Sausage" parent="Vegies" instance=ExtResource("13_oxcnm")]
+metadata/spawned = false
+metadata/rotation = Vector3(0, 0, 0)
 
-[node name="Shallot" parent="Vegies" instance=ExtResource("14_ue3bm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.127079, -0.165611)
-metadata/spawned = true
+[node name="Shallot" parent="Vegies" instance=ExtResource("14_4ywgb")]
+metadata/spawned = false
+metadata/rotation = Vector3(0, 0, 0)
 
-[node name="Tofu" parent="Vegies" instance=ExtResource("15_1iffn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.132634, 0.183713)
-metadata/spawned = true
+[node name="Tofu" parent="Vegies" instance=ExtResource("15_727c4")]
+metadata/spawned = false
+metadata/rotation = Vector3(0, 0, 0)
 
-[node name="Tomato" parent="Vegies" instance=ExtResource("16_srauk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.134616, -0.171044)
-metadata/spawned = true
+[node name="Tomato" parent="Vegies" instance=ExtResource("16_v38lc")]
+metadata/spawned = false
+metadata/rotation = Vector3(0, 0, 0)
 
-[node name="YellowPepper" parent="Vegies" instance=ExtResource("17_kmdrc")]
-metadata/spawned = true
-
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.8)
-light_energy = 16.0
-omni_range = 157.753
-omni_attenuation = 0.535887
+[node name="YellowPepper" parent="Vegies" instance=ExtResource("17_w3rmc")]
+metadata/spawned = false
+metadata/rotation = Vector3(0, 0, 0)

@@ -1,15 +1,15 @@
 extends Control
 
-var diffint = 3
-var difficulty = "*"
+var speedint = 3
+var speed = "*"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	diffint = get_node("/root/main").difficulty
-	difficulty = "normal"
-	if(diffint == 0): difficulty = "easy" 
-	elif(diffint == 2): difficulty = "hard"
-	$VBoxContainer/Difficulty.set_text("DIFFICULTY: " + difficulty)	
+	speedint = get_node("/root/main").speed
+	speed = "normal"
+	if(speedint == 0): speed = "easy" 
+	elif(speedint == 2): speed = "hard"
+	$VBoxContainer/Difficulty.set_text("SPEED: " + speed)	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -43,15 +43,15 @@ func _on_tutorial_pressed():
 
 func _on_difficulty_pressed():
 	# set value
-	diffint += 1
-	if(diffint == 3): diffint = 0
-	get_node("/root/main").difficulty = diffint
+	speedint += 1
+	if(speedint == 3): speedint = 0
+	get_node("/root/main").speed = speedint
 	# change text in button
-	difficulty = "normal"
-	if(diffint == 0): difficulty = "easy" 
-	elif(diffint == 2): difficulty = "hard"
-	$VBoxContainer/Difficulty.set_text("DIFFICULTY: " + difficulty)	
+	speed = "normal"
+	if(speedint == 0): speed = "easy" 
+	elif(speedint == 2): speed = "hard"
+	$VBoxContainer/Difficulty.set_text("SPEED: " + speed)	
 	# save to file
-	var file = FileAccess.open("user://difficulty.res", FileAccess.WRITE)
-	file.store_8(diffint)
+	var file = FileAccess.open("user://speed.res", FileAccess.WRITE)
+	file.store_8(speedint)
 	file.close()

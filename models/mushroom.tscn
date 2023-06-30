@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://edibojpv3of5"]
+
+[ext_resource type="PackedScene" uid="uid://3d6ay1bxs52s" path="res://models/Mushroom_out/Mushroom.gltf" id="1_63uqb"]
+[ext_resource type="Shader" path="res://material.gdshader" id="2_0mktr"]
+[ext_resource type="Texture2D" uid="uid://b2jhun38vmhyr" path="res://models/Mushroom_out/mushroom (20230629032001).png" id="3_k4mtw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bo2fa"]
+render_priority = 0
+shader = ExtResource("2_0mktr")
+shader_parameter/textureImage = ExtResource("3_k4mtw")
+
+[node name="Mushroom" instance=ExtResource("1_63uqb")]
+
+[node name="RootNode" parent="." index="0"]
+transform = Transform3D(128, 0, 0, 0, 128, 0, 0, 0, 128, 0, 0, 0)
+
+[node name="mushroom" parent="RootNode" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_bo2fa")

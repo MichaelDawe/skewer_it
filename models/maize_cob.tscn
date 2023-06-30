@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://da38dy3remy2e"]
+
+[ext_resource type="PackedScene" uid="uid://baby8k5721eac" path="res://models/MaizeCob_out/MaizeCob.gltf" id="1_i0r4k"]
+[ext_resource type="Shader" path="res://material.gdshader" id="2_83w32"]
+[ext_resource type="Texture2D" uid="uid://d2onuhv4e8715" path="res://models/MaizeCob_out/maize (20230628074548).png" id="3_ml3gq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pcl3b"]
+render_priority = 0
+shader = ExtResource("2_83w32")
+shader_parameter/textureImage = ExtResource("3_ml3gq")
+
+[node name="MaizeCob" instance=ExtResource("1_i0r4k")]
+
+[node name="RootNode" parent="." index="0"]
+transform = Transform3D(128, 0, 0, 0, 128, 0, 0, 0, 128, 0, 0, 0)
+
+[node name="maize" parent="RootNode" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_pcl3b")
