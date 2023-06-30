@@ -7,7 +7,7 @@ func _ready():
 	if FileAccess.file_exists("user://highscore.res"):
 		var file = FileAccess.open("user://highscore.res", FileAccess.READ)
 		highscore = "highscore: " + str(file.get_32())
-		file.close
+		file.close()
 	$VBoxContainer/Highscore.set_text(highscore)
 
 

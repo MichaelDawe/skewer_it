@@ -14,7 +14,7 @@ func _process(_delta):
 func _on_close_pressed():
 	var file = FileAccess.open("user://data.res", FileAccess.WRITE)
 	file.store_var(true)
-	file.close
+	file.close()
 	# load the hud scene
 	var hud = preload("res://hud.tscn").instantiate()
 	get_node("/root/main").add_child(hud)

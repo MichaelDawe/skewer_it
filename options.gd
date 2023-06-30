@@ -32,7 +32,7 @@ func _on_back_pressed():
 func _on_reset_score_pressed():
 	var file = FileAccess.open("user://highscore.res", FileAccess.WRITE)
 	file.store_32(0)
-	file.close
+	file.close()
 
 
 func _on_tutorial_pressed():
@@ -54,4 +54,4 @@ func _on_difficulty_pressed():
 	# save to file
 	var file = FileAccess.open("user://difficulty.res", FileAccess.WRITE)
 	file.store_8(diffint)
-	file.close
+	file.close()

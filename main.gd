@@ -10,14 +10,14 @@ func _ready():
 	if FileAccess.file_exists("user://difficulty.res"):
 		var file = FileAccess.open("user://difficulty.res", FileAccess.READ)
 		difficulty = file.get_8()
-		file.close
+		file.close()
 	# open menu scene
 	var menu = preload("res://menu.tscn").instantiate()
 	add_child(menu)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 	# process score
 	

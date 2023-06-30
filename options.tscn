@@ -39,7 +39,7 @@ theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_h8oic")
 theme_override_font_sizes/font_size = 100
 button_mask = 7
-text = "Difficulty: Normal"
+text = "SPEED: Normal"
 flat = true
 
 [node name="Spacer" type="HSeparator" parent="VBoxContainer"]
