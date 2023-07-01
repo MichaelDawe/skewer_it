@@ -1,31 +1,152 @@
-[gd_scene load_steps=21 format=3 uid="uid://g54wi6rdpo70"]
+[gd_scene load_steps=52 format=3 uid="uid://g54wi6rdpo70"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_cqorg"]
-[ext_resource type="Shader" path="res://background.gdshader" id="1_gf3yw"]
-[ext_resource type="PackedScene" uid="uid://dwls2uigisdbk" path="res://models/aubergine.tscn" id="3_louga"]
-[ext_resource type="PackedScene" uid="uid://bhorj58aud2w8" path="res://models/garlic.tscn" id="4_8e7yx"]
-[ext_resource type="PackedScene" uid="uid://diflac5ykbp1g" path="res://models/gerkin.tscn" id="5_176xu"]
-[ext_resource type="PackedScene" uid="uid://dq2kqqbc6et5x" path="res://models/green_pepper.tscn" id="6_7crbu"]
-[ext_resource type="PackedScene" uid="uid://da38dy3remy2e" path="res://models/maize_cob.tscn" id="7_fe5qy"]
-[ext_resource type="PackedScene" uid="uid://bsig4wixtny6v" path="res://models/marinated_tofu.tscn" id="8_3u4d2"]
-[ext_resource type="PackedScene" uid="uid://edibojpv3of5" path="res://models/mushroom.tscn" id="9_a51ro"]
-[ext_resource type="PackedScene" uid="uid://cta43h3hjxarf" path="res://models/olive.tscn" id="10_xwte0"]
-[ext_resource type="PackedScene" uid="uid://bvm8h3rw0505h" path="res://models/pineapple.tscn" id="11_bc2w6"]
-[ext_resource type="PackedScene" uid="uid://o376dpfgjugy" path="res://models/red_pepper.tscn" id="12_cegi2"]
-[ext_resource type="PackedScene" uid="uid://doru5xr0gtsna" path="res://models/sausage.tscn" id="13_oxcnm"]
-[ext_resource type="PackedScene" uid="uid://cwisiano1c8c1" path="res://models/shallot.tscn" id="14_4ywgb"]
-[ext_resource type="PackedScene" uid="uid://dn1txlx2otuhq" path="res://models/tofu.tscn" id="15_727c4"]
-[ext_resource type="PackedScene" uid="uid://cg82lxhbvmxf5" path="res://models/tomato.tscn" id="16_v38lc"]
-[ext_resource type="PackedScene" uid="uid://dxngl0lrw2nts" path="res://models/yellow_pepper.tscn" id="17_w3rmc"]
+[ext_resource type="Shader" path="res://shaders/background.gdshader" id="2_vwy7a"]
+[ext_resource type="ArrayMesh" uid="uid://cc6iu6dpx7w14" path="res://models/Aubergine.obj" id="3_w2r1g"]
+[ext_resource type="Shader" path="res://shaders/material.gdshader" id="4_6g46a"]
+[ext_resource type="Texture2D" uid="uid://4o75wuiclry5" path="res://textures/aubergine  (20230628020424).png" id="5_dia82"]
+[ext_resource type="ArrayMesh" uid="uid://c4gxgypufcvew" path="res://models/Garlic.obj" id="6_2t5ge"]
+[ext_resource type="Texture2D" uid="uid://sytdl5fhtgjm" path="res://textures/galic (20230628075115).png" id="7_5p7gu"]
+[ext_resource type="ArrayMesh" uid="uid://ejcbp2kgua65" path="res://models/Gerkin.obj" id="7_yslce"]
+[ext_resource type="ArrayMesh" uid="uid://ct5fs8f20fa7g" path="res://models/GreenPepper.obj" id="8_1pksx"]
+[ext_resource type="ArrayMesh" uid="uid://dxu1yykbfomaj" path="res://models/Maize.obj" id="9_qny88"]
+[ext_resource type="Texture2D" uid="uid://54n8b0x5u0qy" path="res://textures/gerkin (20230628011145).png" id="9_yo6to"]
+[ext_resource type="ArrayMesh" uid="uid://3u8kppup1r0m" path="res://models/MarinatedTofu.obj" id="10_5akmt"]
+[ext_resource type="Texture2D" uid="uid://ea7gb7atcdnx" path="res://textures/greenpepper  (20230628042917).png" id="11_2pxnw"]
+[ext_resource type="ArrayMesh" uid="uid://dre75lu6vvwyg" path="res://models/Mushroom.obj" id="11_3u7ha"]
+[ext_resource type="ArrayMesh" uid="uid://5jd5i0ay2264" path="res://models/Olive.obj" id="12_pxxnx"]
+[ext_resource type="Texture2D" uid="uid://cv2xm4k8ijoar" path="res://textures/maize (20230628074548).png" id="13_i3py4"]
+[ext_resource type="ArrayMesh" uid="uid://drtwqb0ljbelm" path="res://models/Pineapple.obj" id="13_mlim2"]
+[ext_resource type="ArrayMesh" uid="uid://ctsysmkgvoip8" path="res://models/RedPepper.obj" id="14_gk7ww"]
+[ext_resource type="ArrayMesh" uid="uid://bbrh83mvw8nby" path="res://models/Sausage.obj" id="15_4m00c"]
+[ext_resource type="Texture2D" uid="uid://cwirmxdg0aavo" path="res://textures/tofu2 (20230628010940).png" id="15_17qfx"]
+[ext_resource type="ArrayMesh" uid="uid://d1v4400cj0oi2" path="res://models/Shallot.obj" id="16_0tfja"]
+[ext_resource type="ArrayMesh" uid="uid://yt5qh8kalteg" path="res://models/Tofu.obj" id="17_ecc5e"]
+[ext_resource type="Texture2D" uid="uid://c3lk06qgdedif" path="res://textures/mushroom (20230629032001).png" id="17_smpgd"]
+[ext_resource type="ArrayMesh" uid="uid://clrf361ggk5r7" path="res://models/Tomato.obj" id="18_tjta7"]
+[ext_resource type="Texture2D" uid="uid://w2a1omfmkaeu" path="res://textures/olive (20230626074646).png" id="19_cgdbg"]
+[ext_resource type="ArrayMesh" uid="uid://bg380ssepk4vu" path="res://models/YellowPepper.obj" id="19_sglii"]
+[ext_resource type="Texture2D" uid="uid://dblnwp78gjb23" path="res://textures/pineapple (20230629021551).png" id="21_f3dqv"]
+[ext_resource type="Texture2D" uid="uid://bs7nvsivyiwpd" path="res://textures/redpepper (20230628014100).png" id="23_5ao0t"]
+[ext_resource type="Texture2D" uid="uid://dwd20kfhc3ays" path="res://textures/sausage3 (20230629083445).png" id="25_42v72"]
+[ext_resource type="Texture2D" uid="uid://la7n5rtkoqsg" path="res://textures/shallot (20230629015459).png" id="27_hhv0u"]
+[ext_resource type="Texture2D" uid="uid://btqusv8vuxx7c" path="res://textures/tofu1 (20230603030406).png" id="29_ep6vy"]
+[ext_resource type="Texture2D" uid="uid://b8dagkhbjie0s" path="res://textures/tomato (20230629021339).png" id="31_pd8id"]
+[ext_resource type="Texture2D" uid="uid://p10uyj641lrl" path="res://textures/yellowpepper  (20230628014237).png" id="33_jtmga"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_qjhq8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wdsa6"]
 render_priority = 0
-shader = ExtResource("1_gf3yw")
+shader = ExtResource("2_vwy7a")
 shader_parameter/background = Vector3(0, 0.15, 0.45)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_q41w5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wkfuj"]
+render_priority = 0
+shader = ExtResource("4_6g46a")
+shader_parameter/pozition = null
+shader_parameter/displayCatchOverlay = null
+shader_parameter/textureImage = ExtResource("5_dia82")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k6gds"]
+render_priority = 0
+shader = ExtResource("4_6g46a")
+shader_parameter/pozition = null
+shader_parameter/displayCatchOverlay = null
+shader_parameter/textureImage = ExtResource("7_5p7gu")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4bchg"]
+render_priority = 0
+shader = ExtResource("4_6g46a")
+shader_parameter/pozition = null
+shader_parameter/displayCatchOverlay = null
+shader_parameter/textureImage = ExtResource("9_yo6to")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hi0xi"]
+render_priority = 0
+shader = ExtResource("4_6g46a")
+shader_parameter/pozition = null
+shader_parameter/displayCatchOverlay = null
+shader_parameter/textureImage = ExtResource("11_2pxnw")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bycw5"]
+render_priority = 0
+shader = ExtResource("4_6g46a")
+shader_parameter/pozition = null
+shader_parameter/displayCatchOverlay = null
+shader_parameter/textureImage = ExtResource("13_i3py4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d2lm2"]
+render_priority = 0
+shader = ExtResource("4_6g46a")
+shader_parameter/pozition = null
+shader_parameter/displayCatchOverlay = null
+shader_parameter/textureImage = ExtResource("15_17qfx")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d5182"]
+render_priority = 0
+shader = ExtResource("4_6g46a")
+shader_parameter/pozition = null
+shader_parameter/displayCatchOverlay = null
+shader_parameter/textureImage = ExtResource("17_smpgd")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_30rt2"]
+render_priority = 0
+shader = ExtResource("4_6g46a")
+shader_parameter/pozition = null
+shader_parameter/displayCatchOverlay = null
+shader_parameter/textureImage = ExtResource("19_cgdbg")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lfqtr"]
+render_priority = 0
+shader = ExtResource("4_6g46a")
+shader_parameter/pozition = null
+shader_parameter/displayCatchOverlay = null
+shader_parameter/textureImage = ExtResource("21_f3dqv")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1hhqa"]
+render_priority = 0
+shader = ExtResource("4_6g46a")
+shader_parameter/pozition = null
+shader_parameter/displayCatchOverlay = null
+shader_parameter/textureImage = ExtResource("23_5ao0t")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_68a3i"]
+render_priority = 0
+shader = ExtResource("4_6g46a")
+shader_parameter/pozition = null
+shader_parameter/displayCatchOverlay = null
+shader_parameter/textureImage = ExtResource("25_42v72")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rls5l"]
+render_priority = 0
+shader = ExtResource("4_6g46a")
+shader_parameter/pozition = null
+shader_parameter/displayCatchOverlay = null
+shader_parameter/textureImage = ExtResource("27_hhv0u")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y86ag"]
+render_priority = 0
+shader = ExtResource("4_6g46a")
+shader_parameter/pozition = null
+shader_parameter/displayCatchOverlay = null
+shader_parameter/textureImage = ExtResource("29_ep6vy")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oaqbl"]
+render_priority = 0
+shader = ExtResource("4_6g46a")
+shader_parameter/pozition = null
+shader_parameter/displayCatchOverlay = null
+shader_parameter/textureImage = ExtResource("31_pd8id")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4h1v3"]
+render_priority = 0
+shader = ExtResource("4_6g46a")
+shader_parameter/pozition = null
+shader_parameter/displayCatchOverlay = null
+shader_parameter/textureImage = ExtResource("33_jtmga")
 
 [node name="main" type="Node3D"]
 script = ExtResource("1_cqorg")
@@ -45,64 +166,94 @@ visible = false
 mesh = SubResource("PlaneMesh_q41w5")
 
 [node name="Vegies" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -128)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -64)
 
-[node name="Aubergine" parent="Vegies" instance=ExtResource("3_louga")]
-metadata/spawned = false
-metadata/rotation = Vector3(0, 0, 0)
+[node name="Aubergine" type="MeshInstance3D" parent="Vegies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.334335, -1.13797, -0.251816)
+mesh = ExtResource("3_w2r1g")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_wkfuj")
 
-[node name="Garlic" parent="Vegies" instance=ExtResource("4_8e7yx")]
-metadata/spawned = false
-metadata/rotation = Vector3(0, 0, 0)
+[node name="Garlic" type="MeshInstance3D" parent="Vegies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0303326, -0.45319, 0.142258)
+mesh = ExtResource("6_2t5ge")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_k6gds")
 
-[node name="Gerkin" parent="Vegies" instance=ExtResource("5_176xu")]
-metadata/spawned = false
-metadata/rotation = Vector3(0, 0, 0)
+[node name="Gerkin" type="MeshInstance3D" parent="Vegies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0303326, -0.45319, 0.142258)
+mesh = ExtResource("7_yslce")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_4bchg")
 
-[node name="GreenPepper" parent="Vegies" instance=ExtResource("6_7crbu")]
-metadata/spawned = false
-metadata/rotation = Vector3(0, 0, 0)
+[node name="GreenPepper" type="MeshInstance3D" parent="Vegies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0303326, -0.45319, 0.142258)
+mesh = ExtResource("8_1pksx")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_hi0xi")
 
-[node name="MaizeCob" parent="Vegies" instance=ExtResource("7_fe5qy")]
-metadata/spawned = false
-metadata/rotation = Vector3(0, 0, 0)
+[node name="Maize" type="MeshInstance3D" parent="Vegies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0303326, -0.45319, 0.142258)
+mesh = ExtResource("9_qny88")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_bycw5")
 
-[node name="MarinatedTofu" parent="Vegies" instance=ExtResource("8_3u4d2")]
-metadata/spawned = false
-metadata/rotation = Vector3(0, 0, 0)
+[node name="MarinatedTofu" type="MeshInstance3D" parent="Vegies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0303326, -0.45319, 0.142258)
+mesh = ExtResource("10_5akmt")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_d2lm2")
 
-[node name="Mushroom" parent="Vegies" instance=ExtResource("9_a51ro")]
-metadata/spawned = false
-metadata/rotation = Vector3(0, 0, 0)
+[node name="Mushroom" type="MeshInstance3D" parent="Vegies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0303326, -0.45319, 0.142258)
+mesh = ExtResource("11_3u7ha")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_d5182")
 
-[node name="Olive" parent="Vegies" instance=ExtResource("10_xwte0")]
-metadata/spawned = false
-metadata/rotation = Vector3(0, 0, 0)
+[node name="Olive" type="MeshInstance3D" parent="Vegies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0303326, -0.45319, 0.142258)
+mesh = ExtResource("12_pxxnx")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_30rt2")
 
-[node name="Pineapple" parent="Vegies" instance=ExtResource("11_bc2w6")]
-metadata/spawned = false
-metadata/rotation = Vector3(0, 0, 0)
+[node name="Pineapple" type="MeshInstance3D" parent="Vegies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0303326, -0.45319, 0.142258)
+mesh = ExtResource("13_mlim2")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_lfqtr")
 
-[node name="RedPepper" parent="Vegies" instance=ExtResource("12_cegi2")]
-metadata/spawned = false
-metadata/rotation = Vector3(0, 0, 0)
+[node name="RedPepper" type="MeshInstance3D" parent="Vegies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0303326, -0.45319, 0.142258)
+mesh = ExtResource("14_gk7ww")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_1hhqa")
 
-[node name="Sausage" parent="Vegies" instance=ExtResource("13_oxcnm")]
-metadata/spawned = false
-metadata/rotation = Vector3(0, 0, 0)
+[node name="Sausage" type="MeshInstance3D" parent="Vegies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0303326, -0.45319, 0.142258)
+mesh = ExtResource("15_4m00c")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_68a3i")
 
-[node name="Shallot" parent="Vegies" instance=ExtResource("14_4ywgb")]
-metadata/spawned = false
-metadata/rotation = Vector3(0, 0, 0)
+[node name="Shallot" type="MeshInstance3D" parent="Vegies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0303326, -0.45319, 0.142258)
+mesh = ExtResource("16_0tfja")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_rls5l")
 
-[node name="Tofu" parent="Vegies" instance=ExtResource("15_727c4")]
-metadata/spawned = false
-metadata/rotation = Vector3(0, 0, 0)
+[node name="Tofu" type="MeshInstance3D" parent="Vegies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0303326, -0.45319, 0.142258)
+mesh = ExtResource("17_ecc5e")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_y86ag")
 
-[node name="Tomato" parent="Vegies" instance=ExtResource("16_v38lc")]
-metadata/spawned = false
-metadata/rotation = Vector3(0, 0, 0)
+[node name="Tomato" type="MeshInstance3D" parent="Vegies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0303326, -0.45319, 0.142258)
+mesh = ExtResource("18_tjta7")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_oaqbl")
 
-[node name="YellowPepper" parent="Vegies" instance=ExtResource("17_w3rmc")]
-metadata/spawned = false
-metadata/rotation = Vector3(0, 0, 0)
+[node name="YellowPepper" type="MeshInstance3D" parent="Vegies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0303326, -0.45319, 0.142258)
+mesh = ExtResource("19_sglii")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_4h1v3")

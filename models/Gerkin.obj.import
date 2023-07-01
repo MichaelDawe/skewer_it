@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ejcbp2kgua65"
+path="res://.godot/imported/Gerkin.obj-f97f3c014da8c11b779a546ff4365953.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Gerkin.obj-f97f3c014da8c11b779a546ff4365953.mesh"]
+
+source_file="res://models/Gerkin.obj"
+dest_files=["res://.godot/imported/Gerkin.obj-f97f3c014da8c11b779a546ff4365953.mesh", "res://.godot/imported/Gerkin.obj-f97f3c014da8c11b779a546ff4365953.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

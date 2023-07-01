@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ct5fs8f20fa7g"
+path="res://.godot/imported/GreenPepper.obj-ae1328c262cb3e363f91e6995d064412.mesh"
+
+[deps]
+
+files=["res://.godot/imported/GreenPepper.obj-ae1328c262cb3e363f91e6995d064412.mesh"]
+
+source_file="res://models/GreenPepper.obj"
+dest_files=["res://.godot/imported/GreenPepper.obj-ae1328c262cb3e363f91e6995d064412.mesh", "res://.godot/imported/GreenPepper.obj-ae1328c262cb3e363f91e6995d064412.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

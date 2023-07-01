@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://3u8kppup1r0m"
+path="res://.godot/imported/MarinatedTofu.obj-874d36950053a431929d1130943ad5c1.mesh"
+
+[deps]
+
+files=["res://.godot/imported/MarinatedTofu.obj-874d36950053a431929d1130943ad5c1.mesh"]
+
+source_file="res://models/MarinatedTofu.obj"
+dest_files=["res://.godot/imported/MarinatedTofu.obj-874d36950053a431929d1130943ad5c1.mesh", "res://.godot/imported/MarinatedTofu.obj-874d36950053a431929d1130943ad5c1.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

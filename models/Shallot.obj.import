@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d1v4400cj0oi2"
+path="res://.godot/imported/Shallot.obj-10e1f6980ec99c14dee3b60c1de69d4e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Shallot.obj-10e1f6980ec99c14dee3b60c1de69d4e.mesh"]
+
+source_file="res://models/Shallot.obj"
+dest_files=["res://.godot/imported/Shallot.obj-10e1f6980ec99c14dee3b60c1de69d4e.mesh", "res://.godot/imported/Shallot.obj-10e1f6980ec99c14dee3b60c1de69d4e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
