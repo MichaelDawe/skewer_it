@@ -1,7 +1,8 @@
-[gd_scene load_steps=52 format=3 uid="uid://g54wi6rdpo70"]
+[gd_scene load_steps=60 format=3 uid="uid://g54wi6rdpo70"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_cqorg"]
 [ext_resource type="Shader" path="res://shaders/background.gdshader" id="2_vwy7a"]
+[ext_resource type="Script" path="res://Background.gd" id="3_pwabm"]
 [ext_resource type="ArrayMesh" uid="uid://cc6iu6dpx7w14" path="res://models/Aubergine.obj" id="3_w2r1g"]
 [ext_resource type="Shader" path="res://shaders/material.gdshader" id="4_6g46a"]
 [ext_resource type="Texture2D" uid="uid://4o75wuiclry5" path="res://textures/aubergine  (20230628020424).png" id="5_dia82"]
@@ -33,13 +34,29 @@
 [ext_resource type="Texture2D" uid="uid://btqusv8vuxx7c" path="res://textures/tofu1 (20230603030406).png" id="29_ep6vy"]
 [ext_resource type="Texture2D" uid="uid://b8dagkhbjie0s" path="res://textures/tomato (20230629021339).png" id="31_pd8id"]
 [ext_resource type="Texture2D" uid="uid://p10uyj641lrl" path="res://textures/yellowpepper  (20230628014237).png" id="33_jtmga"]
+[ext_resource type="ArrayMesh" uid="uid://1nhv3lxo1dqm" path="res://models/Skewer.obj" id="34_m0car"]
+[ext_resource type="Shader" path="res://shaders/skewer.gdshader" id="35_ar3l0"]
+[ext_resource type="Texture2D" uid="uid://pfyulex635us" path="res://textures/skewer (20230701012348).png" id="35_m30ur"]
+[ext_resource type="Shader" path="res://shaders/post.gdshader" id="38_reqji"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_qjhq8"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wdsa6"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qbt2q"]
 render_priority = 0
 shader = ExtResource("2_vwy7a")
-shader_parameter/background = Vector3(0, 0.15, 0.45)
+shader_parameter/background = Vector3(0, 0.2, 0.6)
+
+[sub_resource type="QuadMesh" id="QuadMesh_gmgvh"]
+material = SubResource("ShaderMaterial_qbt2q")
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ac0uo"]
+render_priority = 0
+shader = ExtResource("38_reqji")
+
+[sub_resource type="QuadMesh" id="QuadMesh_sw2bk"]
+material = SubResource("ShaderMaterial_ac0uo")
+flip_faces = true
+size = Vector2(2, 2)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_q41w5"]
 
@@ -47,118 +64,117 @@ shader_parameter/background = Vector3(0, 0.15, 0.45)
 render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/pozition = null
-shader_parameter/displayCatchOverlay = null
 shader_parameter/textureImage = ExtResource("5_dia82")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k6gds"]
 render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/pozition = null
-shader_parameter/displayCatchOverlay = null
 shader_parameter/textureImage = ExtResource("7_5p7gu")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4bchg"]
 render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/pozition = null
-shader_parameter/displayCatchOverlay = null
 shader_parameter/textureImage = ExtResource("9_yo6to")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hi0xi"]
 render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/pozition = null
-shader_parameter/displayCatchOverlay = null
 shader_parameter/textureImage = ExtResource("11_2pxnw")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bycw5"]
 render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/pozition = null
-shader_parameter/displayCatchOverlay = null
 shader_parameter/textureImage = ExtResource("13_i3py4")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d2lm2"]
 render_priority = 0
 shader = ExtResource("4_6g46a")
-shader_parameter/pozition = null
-shader_parameter/displayCatchOverlay = null
+shader_parameter/pozition = 0.0
 shader_parameter/textureImage = ExtResource("15_17qfx")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d5182"]
 render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/pozition = null
-shader_parameter/displayCatchOverlay = null
 shader_parameter/textureImage = ExtResource("17_smpgd")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_30rt2"]
 render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/pozition = null
-shader_parameter/displayCatchOverlay = null
 shader_parameter/textureImage = ExtResource("19_cgdbg")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lfqtr"]
 render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/pozition = null
-shader_parameter/displayCatchOverlay = null
 shader_parameter/textureImage = ExtResource("21_f3dqv")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1hhqa"]
 render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/pozition = null
-shader_parameter/displayCatchOverlay = null
 shader_parameter/textureImage = ExtResource("23_5ao0t")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_68a3i"]
 render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/pozition = null
-shader_parameter/displayCatchOverlay = null
 shader_parameter/textureImage = ExtResource("25_42v72")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rls5l"]
 render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/pozition = null
-shader_parameter/displayCatchOverlay = null
 shader_parameter/textureImage = ExtResource("27_hhv0u")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y86ag"]
 render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/pozition = null
-shader_parameter/displayCatchOverlay = null
 shader_parameter/textureImage = ExtResource("29_ep6vy")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oaqbl"]
 render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/pozition = null
-shader_parameter/displayCatchOverlay = null
 shader_parameter/textureImage = ExtResource("31_pd8id")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4h1v3"]
 render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/pozition = null
-shader_parameter/displayCatchOverlay = null
 shader_parameter/textureImage = ExtResource("33_jtmga")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1u1wv"]
+render_priority = 0
+shader = ExtResource("35_ar3l0")
+shader_parameter/textureImage = ExtResource("35_m30ur")
 
 [node name="main" type="Node3D"]
 script = ExtResource("1_cqorg")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="MainCamera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 64)
+cull_mask = 1
 fov = 55.0
+near = 0.1
+far = 256.0
 
-[node name="Background" type="MeshInstance3D" parent="."]
-transform = Transform3D(144.064, 0, 0, 0, -5.24772e-08, -144.064, 0, 1.20054, -6.29726e-06, 0, 0, -64)
-mesh = SubResource("PlaneMesh_qjhq8")
-surface_material_override/0 = SubResource("ShaderMaterial_wdsa6")
+[node name="Background" type="MeshInstance3D" parent="MainCamera"]
+transform = Transform3D(100, 0, 0, 0, -100, 8.74228e-06, 0, -8.74228e-06, -100, 0, 0, -192)
+mesh = SubResource("QuadMesh_gmgvh")
+skeleton = NodePath("../..")
+script = ExtResource("3_pwabm")
+
+[node name="PostProcess" type="MeshInstance3D" parent="MainCamera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -192)
+visible = false
+mesh = SubResource("QuadMesh_sw2bk")
 
 [node name="HitPlane" type="MeshInstance3D" parent="."]
 transform = Transform3D(33.036, 0, 0, 0, -1.44405e-06, -33.036, 0, 33.036, -1.44405e-06, 0, 0, 0)
@@ -257,3 +273,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0303326, -0.45319, 0.142258
 mesh = ExtResource("19_sglii")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_4h1v3")
+
+[node name="Skewer" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.892981, -0.363114, 0.265959, 0.104235, 0.741667, 0.66262, -0.43786, -0.563985, 0.700143, 56.245, -79.455, 0)
+mesh = ExtResource("34_m0car")
+surface_material_override/0 = SubResource("ShaderMaterial_1u1wv")

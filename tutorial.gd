@@ -20,5 +20,7 @@ func _on_close_pressed():
 	get_node("/root/main").add_child(hud)
 	# set main scene into play mode
 	get_node("/root/main").mode = 1
+	# run the play script on the main scene
+	get_node("/root/main").play()
 	# kill the tutorial
 	queue_free()

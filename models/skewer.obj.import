@@ -3,15 +3,15 @@
 importer="wavefront_obj"
 importer_version=1
 type="Mesh"
-uid="uid://chhlou7phm513"
-path="res://.godot/imported/skewer.obj-5c80f4351adbe466e87225b887b8ebe7.mesh"
+uid="uid://1nhv3lxo1dqm"
+path="res://.godot/imported/Skewer.obj-a74232b0b3393ec244e50bfa0a6456ee.mesh"
 
 [deps]
 
-files=["res://.godot/imported/skewer.obj-5c80f4351adbe466e87225b887b8ebe7.mesh"]
+files=["res://.godot/imported/Skewer.obj-a74232b0b3393ec244e50bfa0a6456ee.mesh"]
 
-source_file="res://models/skewer.obj"
-dest_files=["res://.godot/imported/skewer.obj-5c80f4351adbe466e87225b887b8ebe7.mesh", "res://.godot/imported/skewer.obj-5c80f4351adbe466e87225b887b8ebe7.mesh"]
+source_file="res://models/Skewer.obj"
+dest_files=["res://.godot/imported/Skewer.obj-a74232b0b3393ec244e50bfa0a6456ee.mesh", "res://.godot/imported/Skewer.obj-a74232b0b3393ec244e50bfa0a6456ee.mesh"]
 
 [params]
 

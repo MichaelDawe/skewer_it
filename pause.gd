@@ -13,9 +13,10 @@ func _process(_delta):
 
 func _on_menu_pressed():
 	get_node("/root/main").mode = 0
-	get_node("/root/main").quit = true
 	var menu = preload("res://menu.tscn").instantiate()
 	get_node("/root/main").add_child(menu)
+	# run the play script on the main scene
+	get_node("/root/main").quit_to_menu()
 	queue_free()
 
 

@@ -28,6 +28,8 @@ func _on_play_pressed():
 		# load the tutorial scene
 		var tutorial = preload("res://tutorial.tscn").instantiate()
 		get_node("/root/main").add_child(tutorial)
+	# run the play script on the main scene
+	get_node("/root/main").play()
 	# kill the menu scene
 	queue_free()
 
