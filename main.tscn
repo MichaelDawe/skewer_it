@@ -176,94 +176,96 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -192)
 visible = false
 mesh = SubResource("QuadMesh_sw2bk")
 
-[node name="HitPlane" type="MeshInstance3D" parent="."]
-transform = Transform3D(33.036, 0, 0, 0, -1.44405e-06, -33.036, 0, 33.036, -1.44405e-06, 0, 0, 0)
+[node name="HitPlane" type="MeshInstance3D" parent="MainCamera"]
+transform = Transform3D(33.036, 0, 0, 0, -1.44405e-06, -33.036, 0, 33.036, -1.44405e-06, 0, 0, -64)
 visible = false
 mesh = SubResource("PlaneMesh_q41w5")
+skeleton = NodePath("../..")
 
 [node name="Vegies" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -64)
 
 [node name="Aubergine" type="MeshInstance3D" parent="Vegies"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.334335, -1.13797, -0.251816)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.6534, -1.13798, 10.1826)
 mesh = ExtResource("3_w2r1g")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_wkfuj")
 
 [node name="Garlic" type="MeshInstance3D" parent="Vegies"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0303326, -0.45319, 0.142258)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.3506, -0.453198, -14.2487)
 mesh = ExtResource("6_2t5ge")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_k6gds")
 
 [node name="Gerkin" type="MeshInstance3D" parent="Vegies"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0303326, -0.45319, 0.142258)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.27002, -0.453198, -18.4276)
 mesh = ExtResource("7_yslce")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_4bchg")
 
 [node name="GreenPepper" type="MeshInstance3D" parent="Vegies"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0303326, -0.45319, 0.142258)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1088, -0.453198, -11.2006)
 mesh = ExtResource("8_1pksx")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_hi0xi")
 
 [node name="Maize" type="MeshInstance3D" parent="Vegies"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0303326, -0.45319, 0.142258)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.8738, -0.45319, 5.46009)
 mesh = ExtResource("9_qny88")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_bycw5")
 
 [node name="MarinatedTofu" type="MeshInstance3D" parent="Vegies"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0303326, -0.45319, 0.142258)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6329, -0.45319, 9.56696)
 mesh = ExtResource("10_5akmt")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_d2lm2")
 
 [node name="Mushroom" type="MeshInstance3D" parent="Vegies"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0303326, -0.45319, 0.142258)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.8307, -0.45319, 14.1131)
 mesh = ExtResource("11_3u7ha")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_d5182")
 
 [node name="Olive" type="MeshInstance3D" parent="Vegies"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0303326, -0.45319, 0.142258)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.96548, -0.45319, -23.8441)
 mesh = ExtResource("12_pxxnx")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_30rt2")
 
 [node name="Pineapple" type="MeshInstance3D" parent="Vegies"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0303326, -0.45319, 0.142258)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.2517, -0.45319, -2.64182)
 mesh = ExtResource("13_mlim2")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_lfqtr")
 
 [node name="RedPepper" type="MeshInstance3D" parent="Vegies"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0303326, -0.45319, 0.142258)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.79693, -0.45319, 28.724)
 mesh = ExtResource("14_gk7ww")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_1hhqa")
 
 [node name="Sausage" type="MeshInstance3D" parent="Vegies"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0303326, -0.45319, 0.142258)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.171, -0.45319, 21.2341)
+visible = false
 mesh = ExtResource("15_4m00c")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_68a3i")
 
 [node name="Shallot" type="MeshInstance3D" parent="Vegies"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0303326, -0.45319, 0.142258)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.1627, -0.45319, 23.5416)
 mesh = ExtResource("16_0tfja")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_rls5l")
 
 [node name="Tofu" type="MeshInstance3D" parent="Vegies"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0303326, -0.45319, 0.142258)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.29611, -0.453182, -12.9894)
 mesh = ExtResource("17_ecc5e")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_y86ag")
 
 [node name="Tomato" type="MeshInstance3D" parent="Vegies"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0303326, -0.45319, 0.142258)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.91223, -0.45319, 14.6885)
 mesh = ExtResource("18_tjta7")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_oaqbl")
@@ -275,6 +277,6 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_4h1v3")
 
 [node name="Skewer" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.892981, -0.363114, 0.265959, 0.104235, 0.741667, 0.66262, -0.43786, -0.563985, 0.700143, 56.245, -79.455, 0)
+transform = Transform3D(0.0700909, -0.071325, 0, 0.071325, 0.0700909, 0, 0, 0, 0.1, 0, -0.47, 55)
 mesh = ExtResource("34_m0car")
 surface_material_override/0 = SubResource("ShaderMaterial_1u1wv")

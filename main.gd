@@ -29,6 +29,8 @@ func _ready():
 		# assign random rotation 
 		n.set_meta("rotation", Vector3(randf(), randf(), randf()))
 		n.set_meta("spawned", false)
+	# reset skewer to be hidden
+	$Skewer.position = Vector3(0.0, 0.0, 128)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -38,7 +40,7 @@ func _process(delta):
 	if mode == 1:
 		# make game speed up over time
 		speedBoost += 0.0001 * delta;
-		print(speedBoost)
+		# print(speedBoost)
 		# spawning counter
 		spawnNowQ += delta
 		# process items
@@ -77,8 +79,13 @@ func _process(delta):
 			spawnNowQ = 0.0
 		
 		# render skewer
+		# print(get_viewport().get_mouse_position())
+		$Skewer.position = Vector3(
+			(get_viewport().get_mouse_position().x / 111) - 4,
+			0.0 - ((get_viewport().get_mouse_position().y / 111) - 4),
+			55)
+		score = get_viewport().get_mouse_position().y
 		
-			
 		# process score
 		
 func pause():
@@ -101,6 +108,8 @@ func quit_to_menu():
 	# reset speed
 	speedBoost = 1.0
 	score = 0.0
+	# reset skewer to be hidden
+	$Skewer.position = Vector3(0.0, 0.0, 128)
 
 func play():
 	# because the scene is always loaded some things might need to be run when

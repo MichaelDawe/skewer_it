@@ -9,6 +9,5 @@ void vertex() {
 
 void fragment() {
 	vec3 col = texture(screen_texture, SCREEN_UV).rgb;
-	col = vec3(col.g, col.b, col.r);
 	ALBEDO = col;
 }

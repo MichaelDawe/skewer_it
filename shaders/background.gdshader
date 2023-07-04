@@ -59,5 +59,7 @@ void fragment() {
     float vig = uv.x*uv.y * 10.0; //multiply with sth for intensity
     vig = pow(vig, 0.5) + 0.5; //change pow for modifying the extend of the  vignette
 	
-    ALBEDO = (vec3(stars) * (1.0 - background)) + (background * vig);
+	vec3 backgroundViged = background * vig;
+	
+    ALBEDO = (vec3(stars) * (1.0 - backgroundViged)) + backgroundViged;
 }

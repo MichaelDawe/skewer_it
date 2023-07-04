@@ -23,7 +23,7 @@ func _on_pause_pressed():
 	main.mode = 2
 	# spawn pause menu
 	var pause = preload("res://pause.tscn").instantiate()
-	main.add_child(pause)
+	main.add_child.call_deferred(pause)
 	# save highscore to file
 	var highscore = 0
 	if FileAccess.file_exists("user://highscore.res"):
@@ -36,3 +36,10 @@ func _on_pause_pressed():
 		file.close()
 	# suic!de
 	queue_free()
+
+func _notification(what):
+	# seems to work on android to save the score when you go home, 
+	# open another app, or even close the app
+	if what == MainLoop.NOTIFICATION_APPLICATION_PAUSED:
+		if main.mode == 1:
+			_on_pause_pressed()
