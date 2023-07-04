@@ -6,6 +6,8 @@ var speedBoost = 1.0 # speeeeeeeeds the game up over time
 var spawnNowQ = 5.5 # time, in seconds, since last spawn.
 var spawnInterval = 2.0 # time, in seconds, for each item to spawn, at the startttt.
 var score = 0.0 # score
+var xPixels # stuff to devide mouse input by.
+var yPixels
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,6 +33,9 @@ func _ready():
 		n.set_meta("spawned", false)
 	# reset skewer to be hidden
 	$Skewer.position = Vector3(0.0, 0.0, 128)
+	
+	# setup mouse picqealkjngf
+	yPixels = get_viewport().size.y / 9
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -81,10 +86,10 @@ func _process(delta):
 		# render skewer
 		# print(get_viewport().get_mouse_position())
 		$Skewer.position = Vector3(
-			(get_viewport().get_mouse_position().x / 111) - 4,
-			0.0 - ((get_viewport().get_mouse_position().y / 111) - 4),
+			(get_viewport().get_mouse_position().x / yPixels) - 4,
+			0.0 - ((get_viewport().get_mouse_position().y / yPixels) - 4),
 			55)
-		score = get_viewport().get_mouse_position().y
+		score = get_viewport().get_mouse_position().x
 		
 		# process score
 		
