@@ -161,6 +161,7 @@ script = ExtResource("1_cqorg")
 [node name="MainCamera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 64)
 cull_mask = 1
+current = true
 fov = 55.0
 near = 0.1
 far = 256.0
@@ -173,7 +174,6 @@ script = ExtResource("3_pwabm")
 
 [node name="PostProcess" type="MeshInstance3D" parent="MainCamera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -192)
-visible = false
 mesh = SubResource("QuadMesh_sw2bk")
 
 [node name="HitPlane" type="MeshInstance3D" parent="MainCamera"]
@@ -277,6 +277,9 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_4h1v3")
 
 [node name="Skewer" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0700909, -0.071325, 0, 0.071325, 0.0700909, 0, 0, 0, 0.1, 0, -0.47, 55)
+transform = Transform3D(0.0845159, -0.0534514, 0, 0.0534514, 0.0845159, 0, 0, 0, 0.1, 0, 0, 55)
 mesh = ExtResource("34_m0car")
 surface_material_override/0 = SubResource("ShaderMaterial_1u1wv")
+
+[node name="Debuger" type="Camera3D" parent="."]
+transform = Transform3D(0.303972, -0.868937, 0.390576, 0.52702, 0.494905, 0.690882, -0.793631, -0.0041672, 0.608385, 38.649, 131.446, 64.889)

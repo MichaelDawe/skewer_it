@@ -22,7 +22,6 @@ config/icon="res://icon.png"
 
 window/size/viewport_width=1000
 window/size/viewport_height=1000
-window/size/resizable=false
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/handheld/orientation=4
@@ -43,3 +42,4 @@ renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
 anti_aliasing/screen_space_roughness_limiter/enabled=false
+anti_aliasing/quality/msaa_3d=2
