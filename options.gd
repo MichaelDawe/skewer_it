@@ -7,8 +7,8 @@ var speed = "*"
 func _ready():
 	speedint = get_node("/root/main").speed
 	speed = "normal"
-	if(speedint == 0): speed = "easy" 
-	elif(speedint == 2): speed = "hard"
+	if(speedint == 0): speed = "half" 
+	elif(speedint == 2): speed = "double"
 	$VBoxContainer/Difficulty.set_text("SPEED: " + speed)	
 
 
@@ -48,8 +48,8 @@ func _on_difficulty_pressed():
 	get_node("/root/main").speed = speedint
 	# change text in button
 	speed = "normal"
-	if(speedint == 0): speed = "easy" 
-	elif(speedint == 2): speed = "hard"
+	if(speedint == 0): speed = "half" 
+	elif(speedint == 2): speed = "double"
 	$VBoxContainer/Difficulty.set_text("SPEED: " + speed)	
 	# save to file
 	var file = FileAccess.open("user://speed.res", FileAccess.WRITE)

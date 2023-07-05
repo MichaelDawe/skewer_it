@@ -10,12 +10,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	# score should be processed in main scene and written here, but for testing
-	# I'll just add delta to it here.
-	main.score += delta
 	# display score in hud
-	$MarginContainer/Score.set_text("SCORE: " + str(int(main.score)))
-	# detect if window loses focus and save highscore to file
+	$MarginContainer/Score.set_text(main.scoreText + str(int(main.score)))
 
 
 func _on_pause_pressed():
@@ -38,6 +34,7 @@ func _on_pause_pressed():
 	queue_free()
 
 func _notification(what):
+	# detect if window loses focus and save highscore to file
 	# seems to work on android to save the score when you go home, 
 	# open another app, or even close the app
 	if what == MainLoop.NOTIFICATION_APPLICATION_PAUSED:

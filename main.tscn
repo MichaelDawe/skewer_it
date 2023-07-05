@@ -42,7 +42,8 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qbt2q"]
 render_priority = 0
 shader = ExtResource("2_vwy7a")
-shader_parameter/background = Vector3(0, 0.2, 0.6)
+shader_parameter/background = Vector3(0, 0.2, 0.5)
+shader_parameter/ratio = 1.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_gmgvh"]
 material = SubResource("ShaderMaterial_qbt2q")
@@ -52,6 +53,7 @@ size = Vector2(2, 2)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ac0uo"]
 render_priority = 0
 shader = ExtResource("38_reqji")
+shader_parameter/catch = 0.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_sw2bk"]
 material = SubResource("ShaderMaterial_ac0uo")
@@ -63,90 +65,105 @@ size = Vector2(2, 2)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wkfuj"]
 render_priority = 0
 shader = ExtResource("4_6g46a")
+shader_parameter/ratio = null
 shader_parameter/pozition = null
 shader_parameter/textureImage = ExtResource("5_dia82")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k6gds"]
 render_priority = 0
 shader = ExtResource("4_6g46a")
+shader_parameter/ratio = null
 shader_parameter/pozition = null
 shader_parameter/textureImage = ExtResource("7_5p7gu")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4bchg"]
 render_priority = 0
 shader = ExtResource("4_6g46a")
+shader_parameter/ratio = null
 shader_parameter/pozition = null
 shader_parameter/textureImage = ExtResource("9_yo6to")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hi0xi"]
 render_priority = 0
 shader = ExtResource("4_6g46a")
+shader_parameter/ratio = null
 shader_parameter/pozition = null
 shader_parameter/textureImage = ExtResource("11_2pxnw")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bycw5"]
 render_priority = 0
 shader = ExtResource("4_6g46a")
+shader_parameter/ratio = null
 shader_parameter/pozition = null
 shader_parameter/textureImage = ExtResource("13_i3py4")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d2lm2"]
 render_priority = 0
 shader = ExtResource("4_6g46a")
+shader_parameter/ratio = null
 shader_parameter/pozition = 0.0
 shader_parameter/textureImage = ExtResource("15_17qfx")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d5182"]
 render_priority = 0
 shader = ExtResource("4_6g46a")
+shader_parameter/ratio = null
 shader_parameter/pozition = null
 shader_parameter/textureImage = ExtResource("17_smpgd")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_30rt2"]
 render_priority = 0
 shader = ExtResource("4_6g46a")
+shader_parameter/ratio = null
 shader_parameter/pozition = null
 shader_parameter/textureImage = ExtResource("19_cgdbg")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lfqtr"]
 render_priority = 0
 shader = ExtResource("4_6g46a")
+shader_parameter/ratio = null
 shader_parameter/pozition = null
 shader_parameter/textureImage = ExtResource("21_f3dqv")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1hhqa"]
 render_priority = 0
 shader = ExtResource("4_6g46a")
+shader_parameter/ratio = null
 shader_parameter/pozition = null
 shader_parameter/textureImage = ExtResource("23_5ao0t")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_68a3i"]
 render_priority = 0
 shader = ExtResource("4_6g46a")
+shader_parameter/ratio = null
 shader_parameter/pozition = null
 shader_parameter/textureImage = ExtResource("25_42v72")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rls5l"]
 render_priority = 0
 shader = ExtResource("4_6g46a")
+shader_parameter/ratio = null
 shader_parameter/pozition = null
 shader_parameter/textureImage = ExtResource("27_hhv0u")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y86ag"]
 render_priority = 0
 shader = ExtResource("4_6g46a")
+shader_parameter/ratio = null
 shader_parameter/pozition = null
 shader_parameter/textureImage = ExtResource("29_ep6vy")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oaqbl"]
 render_priority = 0
 shader = ExtResource("4_6g46a")
+shader_parameter/ratio = null
 shader_parameter/pozition = null
 shader_parameter/textureImage = ExtResource("31_pd8id")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4h1v3"]
 render_priority = 0
 shader = ExtResource("4_6g46a")
+shader_parameter/ratio = null
 shader_parameter/pozition = null
 shader_parameter/textureImage = ExtResource("33_jtmga")
 
