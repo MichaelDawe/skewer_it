@@ -9,8 +9,10 @@ var score = 0.0 # score
 var ratio = 0.0 # stuff to devide mouse input by.
 var catch = 0.0 # catch animation shader uniform thingy
 var highscore # highscore
-var highscoreBeat # used to flash the screen when the highscore is beaten
+var highscoreBeat # used to flash the screen when the highscore is beaten, or control music
 var scoreText = "SCORE: "
+var mouseX = 0.0
+var mouseY = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -39,12 +41,14 @@ func _ready():
 	# reset skewer to be hidden
 	$Skewer.position = Vector3(0.0, 0.0, 128)
 	
-	# setup mouse picqealkjngf
+	# get screen aspect ratio as a float e.g. 1.777... for a 16 / 9 display
 	ratio = float(get_viewport().size.x) / float(get_viewport().size.y)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	mouseX = get_viewport().get_mouse_position().x
+	mouseY = get_viewport().get_mouse_position().y
 	
 	# process pause signal
 	if mode == 1:
@@ -71,8 +75,7 @@ func _process(delta):
 				n.rotate(Vector3(0, 1, 0), rotationMeta[1] * delta)
 				n.rotate(Vector3(0, 0, 1), rotationMeta[2] * delta)
 				
-				# send objects home ('kill' them)
-				if n.position.z > 118:
+				if n.position.z > 118: # send objects home ('kill' them)
 					# scale to 0
 					n.scale = Vector3(0, 0, 0)
 					# re-spawn in random location
@@ -92,17 +95,18 @@ func _process(delta):
 		
 		# render skewer
 		$Skewer.position = Vector3(
-			((float(get_viewport().get_mouse_position().x) / 1000) - (0.5 * ratio)) * 9.4,
-			((0.0 - (float(get_viewport().get_mouse_position().y) / 1000)) + 0.5) * 9.4,
+			((mouseX / 1000) - (0.5 * ratio)) * 9.4,
+			((0.0 - (mouseY / 1000)) + 0.5) * 9.4,
 			55
 		)
 		$Skewer.look_at(Vector3(6, -6, 0), Vector3(0, 0, -1))
+		
 		# render test position on hit plane
-		#$teste.position = Vector3(
-		#	((float(get_viewport().get_mouse_position().x) / 1000) * 68.0) - (34.0 * ratio),
-		#	((-float(get_viewport().get_mouse_position().y) / 1000) * 68.0) + 34.0,
-		#	0
-		#)
+		$teste.position = Vector3(
+			((mouseX / 1000) - (0.5 * ratio)) * 67,
+			((0.0 - (mouseY / 1000)) + 0.5) * 67,
+			0
+		)
 		
 		# process score
 		# I'll just add delta to it here for now.
@@ -113,7 +117,6 @@ func _process(delta):
 			catch = 1
 			highscoreBeat = true
 			scoreText = "NEW HIGHSCORE: "
-			# highscoreMusic = true
 			
 	
 	# process shader effects
@@ -148,7 +151,7 @@ func quit_to_menu():
 	$Skewer.position = Vector3(0.0, 0.0, 128)
 
 func play():
-	# aggggg
+	# set highscore text when the game is first launched
 	if(highscore == 0):
 		scoreText = "NEW HIGHSCORE: "
 	# because the scene is always loaded some things might need to be run when

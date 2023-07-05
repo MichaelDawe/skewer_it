@@ -302,11 +302,11 @@ surface_material_override/0 = SubResource("ShaderMaterial_1u1wv")
 
 [node name="Debuger" type="Camera3D" parent="."]
 transform = Transform3D(0.303972, -0.868937, 0.390576, 0.52702, 0.494905, 0.690882, -0.793631, -0.0041672, 0.608385, 38.649, 131.446, 64.889)
+visible = false
 
 [node name="teste" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_r8wqi")
 
-[node name="teste2" type="MeshInstance3D" parent="."]
+[node name="center" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_r8wqi")
