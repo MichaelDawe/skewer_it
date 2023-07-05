@@ -7,7 +7,6 @@ var spawnNowQ = 5.5 # time, in seconds, since last spawn.
 var spawnInterval = 2.0 # time, in seconds, for each item to spawn, at the startttt.
 var score = 0.0 # score
 var ratio = 0.0 # stuff to devide mouse input by.
-var pixelsY # something
 var catch = 0.0 # catch animation shader uniform thingy
 var highscore # highscore
 var highscoreBeat # used to flash the screen when the highscore is beaten
@@ -41,8 +40,7 @@ func _ready():
 	$Skewer.position = Vector3(0.0, 0.0, 128)
 	
 	# setup mouse picqealkjngf
-	pixelsY = float(get_viewport().size.y)
-	ratio = float(get_viewport().size.x) / pixelsY
+	ratio = float(get_viewport().size.x) / float(get_viewport().size.y)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -94,11 +92,17 @@ func _process(delta):
 		
 		# render skewer
 		$Skewer.position = Vector3(
-			((float(get_viewport().get_mouse_position().x) / pixelsY) * 9) - (4 * ratio),
-			((-float(get_viewport().get_mouse_position().y) / pixelsY) * 9) + 4,
+			((float(get_viewport().get_mouse_position().x) / 1000) - (0.5 * ratio)) * 9.4,
+			((0.0 - (float(get_viewport().get_mouse_position().y) / 1000)) + 0.5) * 9.4,
 			55
 		)
 		$Skewer.look_at(Vector3(6, -6, 0), Vector3(0, 0, -1))
+		# render test position on hit plane
+		#$teste.position = Vector3(
+		#	((float(get_viewport().get_mouse_position().x) / 1000) * 68.0) - (34.0 * ratio),
+		#	((-float(get_viewport().get_mouse_position().y) / 1000) * 68.0) + 34.0,
+		#	0
+		#)
 		
 		# process score
 		# I'll just add delta to it here for now.

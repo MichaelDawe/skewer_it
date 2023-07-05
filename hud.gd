@@ -9,7 +9,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	# display score in hud
 	$MarginContainer/Score.set_text(main.scoreText + str(int(main.score)))
 

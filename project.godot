@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 
 window/size/viewport_width=1000
 window/size/viewport_height=1000
+window/size/mode=3
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/handheld/orientation=4

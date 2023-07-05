@@ -41,3 +41,7 @@ func _on_options_pressed():
 	var options = preload("res://options.tscn").instantiate()
 	main.add_child(options)
 	queue_free()
+
+
+func _on_quit_pressed():
+	get_tree().quit()
