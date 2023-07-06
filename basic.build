@@ -6,7 +6,6 @@
 		"graphite": false,
 		"module_msdfgen_enabled": false,
 		"module_text_server_adv_enabled": false,
-		"module_text_server_fb_enabled": true,
 		"openxr": false,
 		"rendering_device": false,
 		"vulkan": false

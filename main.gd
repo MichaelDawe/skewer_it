@@ -29,15 +29,7 @@ func _ready():
 	
 	# set up items for first spawn
 	for n in $Vegies.get_children():
-		# scale to 0
-		n.scale = Vector3(0, 0, 0)
-		# spawn in random location
-		n.position.z = 0
-		n.position.x = (randf() * 60) - 30
-		n.position.y = (randf() * 60) - 30
-		# assign random rotation 
-		n.set_meta("rotation", Vector3(randf(), randf(), randf()))
-		n.set_meta("spawned", false)
+		reset_vegie(n)
 	# reset skewer to be hidden
 	$Skewer.position = Vector3(0.0, 0.0, 128)
 	
@@ -60,9 +52,9 @@ func _process(delta):
 		# process items
 		for n in $Vegies.get_children():
 			# set location in shader for pickup effects
-			n.get_active_material(0).set_shader_parameter("pozition", n.position.z)
+			n.get_child(0).get_active_material(0).set_shader_parameter("pozition", n.position.z)
 			# pass ratio to shader
-			n.get_active_material(0).set_shader_parameter("ratio", ratio)
+			n.get_child(0).get_active_material(0).set_shader_parameter("ratio", ratio)
 			# process postion and rotation
 			var rotationMeta = n.get_meta("rotation")
 			if n.get_meta("spawned"):
@@ -76,16 +68,7 @@ func _process(delta):
 				n.rotate(Vector3(0, 0, 1), rotationMeta[2] * delta)
 				
 				if n.position.z > 118: # send objects home ('kill' them)
-					# scale to 0
-					n.scale = Vector3(0, 0, 0)
-					# re-spawn in random location
-					n.position.z = 0
-					n.position.x = (randf() * 60) - 30
-					n.position.y = (randf() * 60) - 30
-					# assign random rotation 
-					n.set_meta("rotation", Vector3(randf(), randf(), randf()))
-					# un-spawn, make inactive
-					n.set_meta("spawned", false)
+					reset_vegie(n)
 					
 					
 		# spawn new item
@@ -135,15 +118,7 @@ func quit_to_menu():
 	scoreText = "SCORE: "
 	# set up items for first spawn
 	for n in $Vegies.get_children():
-		# scale to 0
-		n.scale = Vector3(0, 0, 0)
-		# spawn in random location
-		n.position.z = 0
-		n.position.x = (randf() * 60) - 30
-		n.position.y = (randf() * 60) - 30
-		# assign random rotation 
-		n.set_meta("rotation", Vector3(randf(), randf(), randf()))
-		n.set_meta("spawned", false)
+		reset_vegie(n)
 	# reset speed
 	speedBoost = 1.0
 	score = 0.0
@@ -158,3 +133,90 @@ func play():
 	# re-entering the game after going to menu, and _ready() won't run then.
 	if(speed == 0): speedBoost = 0.5
 	else: speedBoost = speed
+	
+func reset_vegie(n):
+	# scale to 0
+	n.scale = Vector3(0, 0, 0)
+	# spawn in random location
+	n.position.z = 0
+	n.position.x = (randf() * 60) - 30
+	n.position.y = (randf() * 60) - 30
+	# assign random rotation 
+	n.set_meta("rotation", Vector3(randf(), randf(), randf()))
+	n.set_meta("spawned", false)
+
+
+func _on_aubergine_input_event(_camera, _event, _position, _normal, _shape_idx):
+	var n = $Vegies/Aubergine
+	if(n.position.z > 64 and n.position.z < 118):
+		reset_vegie(n)
+
+func _on_garlic_input_event(_camera, _event, _position, _normal, _shape_idx):
+	var n = $Vegies/Garlic
+	if(n.position.z > 64 and n.position.z < 118):
+		reset_vegie(n)
+
+func _on_gerkin_input_event(_camera, _event, _position, _normal, _shape_idx):
+	var n = $Vegies/Gerkin
+	if(n.position.z > 64 and n.position.z < 118):
+		reset_vegie(n)
+
+func _on_yellow_pepper_input_event(_camera, _event, _position, _normal, _shape_idx):
+	var n = $Vegies/YellowPepper
+	if(n.position.z > 64 and n.position.z < 118):
+		reset_vegie(n)
+
+func _on_tomato_input_event(_camera, _event, _position, _normal, _shape_idx):
+	var n = $Vegies/Tomato
+	if(n.position.z > 64 and n.position.z < 118):
+		reset_vegie(n)
+
+func _on_tofu_input_event(_camera, _event, _position, _normal, _shape_idx):
+	var n = $Vegies/Tofu
+	if(n.position.z > 64 and n.position.z < 118):
+		reset_vegie(n)
+
+func _on_shallot_input_event(_camera, _event, _position, _normal, _shape_idx):
+	var n = $Vegies/Shallot
+	if(n.position.z > 64 and n.position.z < 118):
+		reset_vegie(n)
+
+func _on_sausage_input_event(_camera, _event, _position, _normal, _shape_idx):
+	var n = $Vegies/Sausage
+	if(n.position.z > 64 and n.position.z < 118):
+		reset_vegie(n)
+
+func _on_red_pepper_input_event(_camera, _event, _position, _normal, _shape_idx):
+	var n = $Vegies/RedPepper
+	if(n.position.z > 64 and n.position.z < 118):
+		reset_vegie(n)
+
+func _on_pineapple_input_event(_camera, _event, _position, _normal, _shape_idx):
+	var n = $Vegies/Pineapple
+	if(n.position.z > 64 and n.position.z < 118):
+		reset_vegie(n)
+
+func _on_olive_input_event(_camera, _event, _position, _normal, _shape_idx):
+	var n = $Vegies/Olive
+	if(n.position.z > 64 and n.position.z < 118):
+		reset_vegie(n)
+
+func _on_mushroom_input_event(_camera, _event, _position, _normal, _shape_idx):
+	var n = $Vegies/Mushroom
+	if(n.position.z > 64 and n.position.z < 118):
+		reset_vegie(n)
+
+func _on_marinated_tofu_input_event(_camera, _event, _position, _normal, _shape_idx):
+	var n = $Vegies/MarinatedTofu
+	if(n.position.z > 64 and n.position.z < 118):
+		reset_vegie(n)
+
+func _on_maize_input_event(_camera, _event, _position, _normal, _shape_idx):
+	var n = $Vegies/Maize
+	if(n.position.z > 64 and n.position.z < 118):
+		reset_vegie(n)
+
+func _on_green_pepper_input_event(_camera, _event, _position, _normal, _shape_idx):
+	var n = $Vegies/GreenPepper
+	if(n.position.z > 64 and n.position.z < 118):
+		reset_vegie(n)
