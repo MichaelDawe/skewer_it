@@ -21,7 +21,7 @@ func _process(_delta):
 
 func _on_play_pressed():
 	# skip tutorial scene if its not the first run
-	if FileAccess.file_exists("user://data.res"):
+	if FileAccess.file_exists("user://firstopen.res"):
 		# set main scene into play mode
 		main.mode = 1
 		# load the hud scene

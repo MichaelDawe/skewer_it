@@ -1,7 +1,7 @@
 extends Node3D
 
 var mode = 0 # 0 = menu, 1 = gameplay, 2 = paused, ...
-var speed = 1 # 0 = easy / slow, 1 = normal, 2 = hard / fast
+var speed = 10 # 5 = easy / slow, 10 = normal, 20 = hard / fast
 var speedBoost = 1.0 # speeeeeeeeds the game up over time
 var spawnNowQ = 5.5 # time, in seconds, since last spawn.
 var spawnInterval = 2.0 # time, in seconds, for each item to spawn, at the startttt.
@@ -17,6 +17,12 @@ var bonus = 1.0 # score multiplier
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# enable / dissable post effects
+	if FileAccess.file_exists("user://posteffects.res"):
+		var file = FileAccess.open("user://posteffects.res", FileAccess.READ)
+		if(file.get_8() == 42):
+			$MainCamera/PostProcess.visible = true
+		file.close()
 	# reset highscoreBeat
 	highscoreBeat = false
 	# read difficutly from file
@@ -45,9 +51,6 @@ func _process(delta):
 	
 	# process pause signal
 	if mode == 1:
-		# make game speed up over time
-		speedBoost += 0.0001 * delta;
-		# print(speedBoost)
 		# spawning counter
 		spawnNowQ += delta
 		# process items
@@ -60,13 +63,15 @@ func _process(delta):
 			var rotationMeta = n.get_meta("rotation")
 			if n.get_meta("spawned"):
 				# update scale
-				n.scale += Vector3(0.3, 0.3, 0.3) * delta
+				n.get_child(0).scale += Vector3(0.3, 0.3, 0.3) * delta * speedBoost
+				# this line gets rid of the "det == 0" error and gives a little margin for error
+				n.scale = n.get_child(0).scale + Vector3(0.1, 0.1, 0.1)
 				# update position
 				n.position.z += 20 * delta * speedBoost
 				# apply rotation from saved random rotation direction
-				n.rotate(Vector3(1, 0, 0), rotationMeta[0] * delta)
-				n.rotate(Vector3(0, 1, 0), rotationMeta[1] * delta)
-				n.rotate(Vector3(0, 0, 1), rotationMeta[2] * delta)
+				n.rotate(Vector3(1, 0, 0), rotationMeta[0] * delta * speedBoost)
+				n.rotate(Vector3(0, 1, 0), rotationMeta[1] * delta * speedBoost)
+				n.rotate(Vector3(0, 0, 1), rotationMeta[2] * delta * speedBoost)
 				
 				if n.position.z > 118: # send objects home ('kill' them)
 					reset_vegie(n)
@@ -84,13 +89,6 @@ func _process(delta):
 			55
 		)
 		$Skewer.look_at(Vector3(6, -6, 0), Vector3(0, 0, -1))
-		
-		# render test position on hit plane
-		$teste.position = Vector3(
-			((mouseX / 1000) - (0.5 * ratio)) * 67,
-			((0.0 - (mouseY / 1000)) + 0.5) * 67,
-			0
-		)
 		
 		# flash screen when highscore beaten
 		if(int(score) > highscore and not highscoreBeat):
@@ -123,17 +121,25 @@ func quit_to_menu():
 	$Skewer.position = Vector3(0.0, 0.0, 128)
 
 func play():
+	# enable / dissable post effects
+	if FileAccess.file_exists("user://posteffects.res"):
+		var file = FileAccess.open("user://posteffects.res", FileAccess.READ)
+		if(file.get_8() == 42):
+			$MainCamera/PostProcess.visible = true
+		else:
+			$MainCamera/PostProcess.visible = false
+		file.close()
 	# set highscore text when the game is first launched
 	if(highscore == 0):
 		scoreText = "NEW HIGHSCORE: "
 	# because the scene is always loaded some things might need to be run when
 	# re-entering the game after going to menu, and _ready() won't run then.
-	if(speed == 0): speedBoost = 0.5
-	else: speedBoost = speed
+	speedBoost = speed / 10.0
 	
 func reset_vegie(n):
 	# scale to 0
-	n.scale = Vector3(0, 0, 0)
+	n.get_child(0).scale = Vector3(0, 0, 0)
+	n.scale = Vector3(0.1, 0.1, 0.1)
 	# spawn in random location
 	n.position.z = 0
 	n.position.x = (randf() * 60) - 30
@@ -145,94 +151,98 @@ func reset_vegie(n):
 func score_update():
 	score += 1 * bonus
 	catch = 1
+	# make game speed up over time
+	speedBoost += 0.005 * (speed / 10.0);	# make this a lot smaller thank 0.02 I think!
+											# second half makes it exponentially harder for hard mode and easier for easy mode
+											# to help prevent abusing the speed to increase your highscore
 
 
 func _on_aubergine_input_event(_camera, _event, _position, _normal, _shape_idx):
 	var n = $Vegies/Aubergine
-	if(n.position.z > 64 and n.position.z < 118):
+	if(n.position.z > 64 and n.position.z < 108):
 		reset_vegie(n)
 		score_update()
 
 func _on_garlic_input_event(_camera, _event, _position, _normal, _shape_idx):
 	var n = $Vegies/Garlic
-	if(n.position.z > 64 and n.position.z < 118):
+	if(n.position.z > 64 and n.position.z < 108):
 		reset_vegie(n)
 		score_update()
 
 func _on_gerkin_input_event(_camera, _event, _position, _normal, _shape_idx):
 	var n = $Vegies/Gerkin
-	if(n.position.z > 64 and n.position.z < 118):
+	if(n.position.z > 64 and n.position.z < 108):
 		reset_vegie(n)
 		score_update()
 
 func _on_yellow_pepper_input_event(_camera, _event, _position, _normal, _shape_idx):
 	var n = $Vegies/YellowPepper
-	if(n.position.z > 64 and n.position.z < 118):
+	if(n.position.z > 64 and n.position.z < 108):
 		reset_vegie(n)
 		score_update()
 
 func _on_tomato_input_event(_camera, _event, _position, _normal, _shape_idx):
 	var n = $Vegies/Tomato
-	if(n.position.z > 64 and n.position.z < 118):
+	if(n.position.z > 64 and n.position.z < 108):
 		reset_vegie(n)
 		score_update()
 
 func _on_tofu_input_event(_camera, _event, _position, _normal, _shape_idx):
 	var n = $Vegies/Tofu
-	if(n.position.z > 64 and n.position.z < 118):
+	if(n.position.z > 64 and n.position.z < 108):
 		reset_vegie(n)
 		score_update()
 
 func _on_shallot_input_event(_camera, _event, _position, _normal, _shape_idx):
 	var n = $Vegies/Shallot
-	if(n.position.z > 64 and n.position.z < 118):
+	if(n.position.z > 64 and n.position.z < 108):
 		reset_vegie(n)
 		score_update()
 
 func _on_sausage_input_event(_camera, _event, _position, _normal, _shape_idx):
 	var n = $Vegies/Sausage
-	if(n.position.z > 64 and n.position.z < 118):
+	if(n.position.z > 64 and n.position.z < 108):
 		reset_vegie(n)
 		score_update()
 
 func _on_red_pepper_input_event(_camera, _event, _position, _normal, _shape_idx):
 	var n = $Vegies/RedPepper
-	if(n.position.z > 64 and n.position.z < 118):
+	if(n.position.z > 64 and n.position.z < 108):
 		reset_vegie(n)
 		score_update()
 
 func _on_pineapple_input_event(_camera, _event, _position, _normal, _shape_idx):
 	var n = $Vegies/Pineapple
-	if(n.position.z > 64 and n.position.z < 118):
+	if(n.position.z > 64 and n.position.z < 108):
 		reset_vegie(n)
 		score_update()
 
 func _on_olive_input_event(_camera, _event, _position, _normal, _shape_idx):
 	var n = $Vegies/Olive
-	if(n.position.z > 64 and n.position.z < 118):
+	if(n.position.z > 64 and n.position.z < 108):
 		reset_vegie(n)
 		score_update()
 
 func _on_mushroom_input_event(_camera, _event, _position, _normal, _shape_idx):
 	var n = $Vegies/Mushroom
-	if(n.position.z > 64 and n.position.z < 118):
+	if(n.position.z > 64 and n.position.z < 108):
 		reset_vegie(n)
 		score_update()
 
 func _on_marinated_tofu_input_event(_camera, _event, _position, _normal, _shape_idx):
 	var n = $Vegies/MarinatedTofu
-	if(n.position.z > 64 and n.position.z < 118):
+	if(n.position.z > 64 and n.position.z < 108):
 		reset_vegie(n)
 		score_update()
 
 func _on_maize_input_event(_camera, _event, _position, _normal, _shape_idx):
 	var n = $Vegies/Maize
-	if(n.position.z > 64 and n.position.z < 118):
+	if(n.position.z > 64 and n.position.z < 108):
 		reset_vegie(n)
 		score_update()
 
 func _on_green_pepper_input_event(_camera, _event, _position, _normal, _shape_idx):
 	var n = $Vegies/GreenPepper
-	if(n.position.z > 64 and n.position.z < 118):
+	if(n.position.z > 64 and n.position.z < 108):
 		reset_vegie(n)
 		score_update()

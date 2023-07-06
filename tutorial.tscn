@@ -65,7 +65,11 @@ so the longer you play the better your score!
 
 See if you can beat your friends' highscores!
 
-And most importantly have fun!"
+And most importantly have fun!
+
+
+If you are sensitive to screen flashing,
+please dissable \"post effects\" in options."
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -88,9 +92,23 @@ button_mask = 7
 text = "Play"
 flat = true
 
+[node name="Menu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(0.772549, 0.772549, 0.772549, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_tykps")
+theme_override_font_sizes/font_size = 100
+button_mask = 7
+text = "MENU"
+flat = true
+
 [node name="BottomSpacer" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/separator = SubResource("StyleBoxFlat_1lsp0")
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="VBoxContainer/Menu" to="." method="_on_menu_pressed"]

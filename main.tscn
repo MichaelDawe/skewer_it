@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://g54wi6rdpo70"]
+[gd_scene load_steps=75 format=3 uid="uid://g54wi6rdpo70"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_cqorg"]
 [ext_resource type="Shader" path="res://shaders/background.gdshader" id="2_vwy7a"]
@@ -217,8 +217,6 @@ render_priority = 0
 shader = ExtResource("35_ar3l0")
 shader_parameter/textureImage = ExtResource("35_m30ur")
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_r8wqi"]
-
 [node name="main" type="Node3D"]
 script = ExtResource("1_cqorg")
 
@@ -238,6 +236,7 @@ script = ExtResource("3_pwabm")
 
 [node name="PostProcess" type="MeshInstance3D" parent="MainCamera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -192)
+visible = false
 mesh = SubResource("QuadMesh_sw2bk")
 
 [node name="HitPlane" type="MeshInstance3D" parent="MainCamera"]
@@ -403,13 +402,6 @@ shape = SubResource("ConvexPolygonShape3D_jwuss")
 transform = Transform3D(0.0845159, -0.0534514, 0, 0.0534514, 0.0845159, 0, 0, 0, 0.1, 0, 0, 55)
 mesh = ExtResource("34_m0car")
 surface_material_override/0 = SubResource("ShaderMaterial_1u1wv")
-
-[node name="Debuger" type="Camera3D" parent="."]
-transform = Transform3D(0.303972, -0.868937, 0.390576, 0.52702, 0.494905, 0.690882, -0.793631, -0.0041672, 0.608385, 38.649, 131.446, 64.889)
-visible = false
-
-[node name="teste" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_r8wqi")
 
 [connection signal="input_event" from="Vegies/Aubergine" to="." method="_on_aubergine_input_event"]
 [connection signal="input_event" from="Vegies/Garlic" to="." method="_on_garlic_input_event"]

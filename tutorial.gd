@@ -12,7 +12,7 @@ func _process(_delta):
 
 
 func _on_close_pressed():
-	var file = FileAccess.open("user://data.res", FileAccess.WRITE)
+	var file = FileAccess.open("user://firstopen.res", FileAccess.WRITE)
 	file.store_var(true)
 	file.close()
 	# load the hud scene
@@ -23,4 +23,10 @@ func _on_close_pressed():
 	# run the play script on the main scene
 	get_node("/root/main").play()
 	# kill the tutorial
+	queue_free()
+
+
+func _on_menu_pressed():
+	var menu = preload("res://menu.tscn").instantiate()
+	get_node("/root/main").add_child(menu)
 	queue_free()
