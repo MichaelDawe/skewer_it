@@ -8,16 +8,21 @@ var spawnInterval = 2.0 # time, in seconds, for each item to spawn, at the start
 var score = 0.0 # score
 var ratio = 0.0 # stuff to devide mouse input by.
 var catch = 0.0 # catch animation shader uniform thingy
+var damaged = 0.0 # damage animation shader uniform thingy
 var highscore # highscore
 var highscoreBeat # used to flash the screen when the highscore is beaten, or control music
 var scoreText = "SCORE: "
 var mouseX = 0.0
 var mouseY = 0.0
 var bonus = 1.0 # score multiplier
-var targetNumber = 1 # the index of the target vegie
-var oldTargetNo = 0 # stores the last one to prevent duplicates
-					# replace with checking which are on the skewer.
-var nameText = "Aubergine"
+var caught = [0, 0, 0, 0, 0, 0] # list of objects already on skewer
+								# there are 5 places, with index 0 used
+								# for when the skewer is empty ahh
+var health = 5 	# starting health (maybe modify it based on difficulty?)
+				# probably default of 3 or 5, its 5 below but 2 here for debug
+				# could replace with just the bonus actually, 
+				# which resets when you make a mistake
+var caughtPos = 0 # 0 = empty
 var gameMode = 0 # 0 = normal, 1 = infinite mode (no highscore), 2 = ect.
 
 # Called when the node enters the scene tree for the first time.
@@ -51,8 +56,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	mouseX = get_viewport().get_mouse_position().x
-	mouseY = get_viewport().get_mouse_position().y
+	mouseX = get_viewport().get_mouse_position().x + 1
+	mouseY = get_viewport().get_mouse_position().y + 1
 	
 	# process pause signal
 	if mode == 1:
@@ -97,15 +102,18 @@ func _process(delta):
 		
 		# flash screen when highscore beaten
 		if(int(score) > highscore and not highscoreBeat):
-			catch = 2
+			catch += 2
 			highscoreBeat = true
 			scoreText = "NEW HIGHSCORE: "
 			
 	
 	# process shader effects
 	$MainCamera/PostProcess.get_active_material(0).set_shader_parameter("catch", catch)
-	catch -= delta * 2
-	if(catch < 0.0): catch = 0.0
+	if(catch > 0.0): catch -= delta * 2
+	else: catch = 0.0
+	$MainCamera/PostProcess.get_active_material(0).set_shader_parameter("damaged", damaged)
+	if(damaged > 0.0): damaged -= delta * 2
+	else: damaged = 0.0
 		
 func pause():
 	# set slo-mo to fade back in when the game resumes.
@@ -124,6 +132,13 @@ func quit_to_menu():
 	score = 0.0
 	# reset skewer to be hidden
 	$Skewer.position = Vector3(0.0, 0.0, 128)
+	# more stuff copied from the top
+	bonus = 1.0 # score multiplier
+	caught = [0, 0, 0, 0, 0, 0] # list of objects already on skewer
+								# there are 5 places, with index 0 used
+								# for when the skewer is empty ahh
+	health = 5 # starting health (maybe modify it based on difficulty?)
+	caughtPos = 0 # 0 = empty
 
 func play():
 	# enable / dissable post effects
@@ -155,44 +170,47 @@ func reset_vegie(n):
 
 func score_add():
 	score += 1 * bonus
-	catch = 1
+	catch += 1
 	# make game speed up over time
 	speedBoost += 0.005 * (speed / 10.0);	# make this a lot smaller thank 0.02 I think!
 											# second half makes it exponentially harder for hard mode and easier for easy mode
 											# to help prevent abusing the speed to increase your highscore
 
-func update_hud():
-	match(targetNumber):
-		1: nameText = "Aubergine"
-		2: nameText = "Garlic"
-		3: nameText = "Gerkin"
-		4: nameText = "Yellow Pepper"
-		5: nameText = "Tomato"
-		6: nameText = "Tofu"
-		7: nameText = "Shallot"
-		8: nameText = "Sausage"
-		9: nameText = "Red Pepper"
-		10: nameText = "Pineapple"
-		11: nameText = "Olive"
-		12: nameText = "Mushroom"
-		13: nameText = "Marinated Tofu"
-		14: nameText = "Maize"
-		15: nameText = "Green Pepper"
-
 func score_update(n):
 	if(gameMode == 0):
-		if(n.get_meta("number") == targetNumber):
+		var number = n.get_meta("number")
+		if(number not in caught):
+			# updates caughtPos for next pick
+			caughtPos += 1
+			# loops and resets the skewer when full, make spawn sparks later
+			if(caughtPos == 5):
+				caughtPos = 0
+				for i in 6:
+					caught[i] = 0
+				catch += 1
+				bonus += 0.25
+			# updates latest pick
+			if(caughtPos > 0):
+				caught[caughtPos] = number
 			score_add()
-			# update targetNumber
-			oldTargetNo = targetNumber
-			targetNumber = randi_range(1, 14)
-			if(targetNumber == oldTargetNo):
-				targetNumber = 15
-			update_hud()
 		else:
 			# kill game / deduct health
-			score -= 1
-		
+			health -= 1
+			damaged = 1
+			bonus = 1.0
+			# kill
+			if(health == 0):
+				mode = 0
+				var menu = preload("res://menu.tscn").instantiate()
+				add_child(menu)
+				# run the play script on the main scene
+				quit_to_menu()
+				get_node("hud").queue_free()
+			# reset skewer
+			for i in 6:
+				caught[i] = 0
+			# reset counter
+			caughtPos = 0
 
 func _on_aubergine_input_event(_camera, _event, _position, _normal, _shape_idx):
 	var n = $Vegies/Aubergine

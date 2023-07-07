@@ -12,9 +12,12 @@ func _ready():
 func _process(_delta):
 	# display score in hud
 	# not ideal setting this every frame, want to make it callable from main
-	$MarginContainer/Score.set_text(main.scoreText + str(int(main.score)))
-	$MarginContainer/NextName.set_text(main.nameText)
-
+	$MarginContainer/Score.set_text(
+							main.scoreText 
+							+ str(int(main.score)) 
+							+ " Bonus: " 
+							+ str(main.bonus - 1))
+	$MarginContainer/Health.set_text("Health: " + str(main.health))
 
 func _on_pause_pressed():
 	# pause the main scene
