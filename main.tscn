@@ -434,6 +434,96 @@ transform = Transform3D(0.0845159, -0.0534514, 0, 0.0534514, 0.0845159, 0, 0, 0,
 mesh = ExtResource("34_m0car")
 surface_material_override/0 = SubResource("ShaderMaterial_1u1wv")
 
+[node name="Aubergine" type="MeshInstance3D" parent="Skewer"]
+transform = Transform3D(2.15, 0, 0, 0, 2.15, 0, 0, 0, 2.15, 0, -1024, 0)
+mesh = ExtResource("3_w2r1g")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("ShaderMaterial_wkfuj")
+
+[node name="Garlic" type="MeshInstance3D" parent="Skewer"]
+transform = Transform3D(2.15, 0, 0, 0, 2.15, 0, 0, 0, 2.15, 0, -1024, 0)
+mesh = ExtResource("6_2t5ge")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("ShaderMaterial_k6gds")
+
+[node name="Gerkin" type="MeshInstance3D" parent="Skewer"]
+transform = Transform3D(2.15, 0, 0, 0, 2.15, 0, 0, 0, 2.15, 0, -1024, 0)
+mesh = ExtResource("7_yslce")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("ShaderMaterial_4bchg")
+
+[node name="YellowPepper" type="MeshInstance3D" parent="Skewer"]
+transform = Transform3D(2.15, 0, 0, 0, 2.15, 0, 0, 0, 2.15, 0, -1024, 0)
+mesh = ExtResource("19_sglii")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("ShaderMaterial_4h1v3")
+
+[node name="Tomato" type="MeshInstance3D" parent="Skewer"]
+transform = Transform3D(2.15, 0, 0, 0, 2.15, 0, 0, 0, 2.15, 0, -1024, 0)
+mesh = ExtResource("18_tjta7")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("ShaderMaterial_oaqbl")
+
+[node name="Tofu" type="MeshInstance3D" parent="Skewer"]
+transform = Transform3D(2.15, 0, 0, 0, 2.15, 0, 0, 0, 2.15, 0, -1024, 0)
+mesh = ExtResource("17_ecc5e")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("ShaderMaterial_y86ag")
+
+[node name="Shallot" type="MeshInstance3D" parent="Skewer"]
+transform = Transform3D(2.15, 0, 0, 0, 2.15, 0, 0, 0, 2.15, 0, -1024, 0)
+mesh = ExtResource("16_0tfja")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("ShaderMaterial_rls5l")
+
+[node name="Sausage" type="MeshInstance3D" parent="Skewer"]
+transform = Transform3D(2.15, 0, 0, 0, 2.15, 0, 0, 0, 2.15, 0, -1024, 0)
+mesh = ExtResource("15_4m00c")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("ShaderMaterial_68a3i")
+
+[node name="RedPepper" type="MeshInstance3D" parent="Skewer"]
+transform = Transform3D(2.15, 0, 0, 0, 2.15, 0, 0, 0, 2.15, 0, -1024, 0)
+mesh = ExtResource("14_gk7ww")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("ShaderMaterial_1hhqa")
+
+[node name="Pineapple" type="MeshInstance3D" parent="Skewer"]
+transform = Transform3D(2.15, 0, 0, 0, 2.15, 0, 0, 0, 2.15, 0, -1024, 0)
+mesh = ExtResource("13_mlim2")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("ShaderMaterial_lfqtr")
+
+[node name="Olive" type="MeshInstance3D" parent="Skewer"]
+transform = Transform3D(2.15, 0, 0, 0, 2.15, 0, 0, 0, 2.15, 0, -1024, 0)
+mesh = ExtResource("12_pxxnx")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("ShaderMaterial_30rt2")
+
+[node name="Mushroom" type="MeshInstance3D" parent="Skewer"]
+transform = Transform3D(2.15, 0, 0, 0, 2.15, 0, 0, 0, 2.15, 0, -1024, 0)
+mesh = ExtResource("11_3u7ha")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("ShaderMaterial_d5182")
+
+[node name="MarinatedTofu" type="MeshInstance3D" parent="Skewer"]
+transform = Transform3D(2.15, 0, 0, 0, 2.15, 0, 0, 0, 2.15, 0, -1024, 0)
+mesh = ExtResource("10_5akmt")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("ShaderMaterial_d2lm2")
+
+[node name="Maize" type="MeshInstance3D" parent="Skewer"]
+transform = Transform3D(2.15, 0, 0, 0, 2.15, 0, 0, 0, 2.15, 0, -1024, 0)
+mesh = ExtResource("9_qny88")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("ShaderMaterial_bycw5")
+
+[node name="GreenPepper" type="MeshInstance3D" parent="Skewer"]
+transform = Transform3D(2.15, 0, 0, 0, 2.15, 0, 0, 0, 2.15, 0, -1024, 0)
+mesh = ExtResource("8_1pksx")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("ShaderMaterial_hi0xi")
+
 [connection signal="input_event" from="Vegies/Aubergine" to="." method="_on_aubergine_input_event"]
 [connection signal="input_event" from="Vegies/Garlic" to="." method="_on_garlic_input_event"]
 [connection signal="input_event" from="Vegies/Gerkin" to="." method="_on_gerkin_input_event"]

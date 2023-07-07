@@ -79,7 +79,6 @@ func _process(delta):
 		# run background shading
 		backRed = clamp(((sin((playTime / 300) * PI)) - 0.9524) * 12.6, 0.0, 1.0)
 		background = Vector3(backRed, 0.2, 0.6)
-		print(backRed)
 		$MainCamera/Background.get_active_material(0).set_shader_parameter("background", background)
 		# spawning counter
 		spawnNowQ += delta
@@ -138,6 +137,18 @@ func pause():
 	# set slo-mo to fade back in when the game resumes.
 	pass
 
+# func animate_skewer()
+
+func update_skewer():
+	for n in caughtPos:
+		var child = $Skewer.get_child(caught[caughtPos] - 1)
+		child.position.y = -85 + (caughtPos * 14)
+		child.rotation = Vector3(0.0, randf(), 0.0)
+	
+func clear_skewer():
+	for n in $Skewer.get_children():
+		n.position.y = -1024
+
 func quit_to_menu():
 	# reset playtime to prevent starting in slow mode
 	playTime = 0
@@ -162,6 +173,8 @@ func quit_to_menu():
 								# for when the skewer is empty ahh
 	health = 5 # starting health (maybe modify it based on difficulty?)
 	caughtPos = 0 # 0 = empty
+	# removed vegies from skewer
+	update_skewer()
 
 func play():
 	# enable / dissable post effects
@@ -198,6 +211,7 @@ func score_add():
 	speedBoost += 0.005 * (speed / 10.0);	# make this a lot smaller thank 0.02 I think!
 											# second half makes it exponentially harder for hard mode and easier for easy mode
 											# to help prevent abusing the speed to increase your highscore
+	update_skewer()
 
 func score_update(n):
 	if(gameMode == 0):
@@ -212,6 +226,7 @@ func score_update(n):
 					caught[i] = 0
 				catch += 1
 				bonus += 0.25
+				clear_skewer()
 			# updates latest pick
 			if(caughtPos > 0):
 				caught[caughtPos] = number
@@ -234,6 +249,7 @@ func score_update(n):
 				caught[i] = 0
 			# reset counter
 			caughtPos = 0
+			clear_skewer()
 
 func _on_aubergine_input_event(_camera, _event, _position, _normal, _shape_idx):
 	var n = $Vegies/Aubergine
