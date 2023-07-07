@@ -42,8 +42,8 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qbt2q"]
 render_priority = 0
 shader = ExtResource("2_vwy7a")
-shader_parameter/background = Vector3(0, 0.2, 0.5)
-shader_parameter/ratio = 1.0
+shader_parameter/background = Vector3(0, 0.2, 0.6)
+shader_parameter/ratio = 1.865
 
 [sub_resource type="QuadMesh" id="QuadMesh_gmgvh"]
 material = SubResource("ShaderMaterial_qbt2q")
@@ -68,6 +68,7 @@ render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("5_dia82")
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_a4j7n"]
@@ -78,6 +79,7 @@ render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("7_5p7gu")
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_o7yes"]
@@ -88,6 +90,7 @@ render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("9_yo6to")
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_sv34w"]
@@ -98,6 +101,7 @@ render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("33_jtmga")
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dqffi"]
@@ -108,6 +112,7 @@ render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("31_pd8id")
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_w4p7d"]
@@ -118,6 +123,7 @@ render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("29_ep6vy")
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jdmm3"]
@@ -128,6 +134,7 @@ render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("27_hhv0u")
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rngt8"]
@@ -138,6 +145,7 @@ render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("25_42v72")
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ypi8j"]
@@ -148,6 +156,7 @@ render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("23_5ao0t")
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6n3sy"]
@@ -158,6 +167,7 @@ render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("21_f3dqv")
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_j3t1m"]
@@ -168,6 +178,7 @@ render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("19_cgdbg")
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2ucec"]
@@ -178,6 +189,7 @@ render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("17_smpgd")
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2x2q3"]
@@ -188,6 +200,7 @@ render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = 0.0
+shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("15_17qfx")
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_yufos"]
@@ -198,6 +211,7 @@ render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("13_i3py4")
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_4ijf8"]
@@ -208,6 +222,7 @@ render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("11_2pxnw")
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jwuss"]

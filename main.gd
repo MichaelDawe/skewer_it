@@ -24,9 +24,19 @@ var health = 5 	# starting health (maybe modify it based on difficulty?)
 				# which resets when you make a mistake
 var caughtPos = 0 # 0 = empty
 var gameMode = 0 # 0 = normal, 1 = infinite mode (no highscore), 2 = ect.
+var backgroundMain = Vector3(0.0, 0.2, 0.6)
+var background = Vector3(0.0, 0.2, 0.6)
+var backRed = 0.0
+var playTime = 0.0
+var finalSpeed = 1.0 	# combo of speedBoost and backRed for slow mo etc, 
+						# precalculated once per frame and used where required
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# get screen aspect ratio as a float e.g. 1.777... for a 16 / 9 display
+	ratio = float(get_viewport().size.x) / float(get_viewport().size.y)
+	# set shader background
+	$MainCamera/Background.get_active_material(0).set_shader_parameter("background", background)
 	# enable / dissable post effects
 	if FileAccess.file_exists("user://posteffects.res"):
 		var file = FileAccess.open("user://posteffects.res", FileAccess.READ)
@@ -47,48 +57,57 @@ func _ready():
 	# set up items for first spawn
 	for n in $Vegies.get_children():
 		reset_vegie(n)
+		# pass ratio to shader
+		n.get_child(0).get_active_material(0).set_shader_parameter("ratio", ratio)
+		n.get_child(0).get_active_material(0).set_shader_parameter("background", background)
 	# reset skewer to be hidden
 	$Skewer.position = Vector3(0.0, 0.0, 128)
-	
-	# get screen aspect ratio as a float e.g. 1.777... for a 16 / 9 display
-	ratio = float(get_viewport().size.x) / float(get_viewport().size.y)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	# assign finalSpeed
+	finalSpeed = speedBoost / (1.0 + (backRed * 3)) # makes game slow to almost 1/3 speed at slowest point.
+	
+	# mouse positions
 	mouseX = get_viewport().get_mouse_position().x + 1
 	mouseY = get_viewport().get_mouse_position().y + 1
 	
 	# process pause signal
 	if mode == 1:
+		playTime += delta
+		# run background shading
+		backRed = clamp(((sin((playTime / 300) * PI)) - 0.9524) * 12.6, 0.0, 1.0)
+		background = Vector3(backRed, 0.2, 0.6)
+		print(backRed)
+		$MainCamera/Background.get_active_material(0).set_shader_parameter("background", background)
 		# spawning counter
 		spawnNowQ += delta
 		# process items
 		for n in $Vegies.get_children():
 			# set location in shader for pickup effects
 			n.get_child(0).get_active_material(0).set_shader_parameter("pozition", n.position.z)
-			# pass ratio to shader
-			n.get_child(0).get_active_material(0).set_shader_parameter("ratio", ratio)
+			n.get_child(0).get_active_material(0).set_shader_parameter("background", background)
 			# process postion and rotation
 			var rotationMeta = n.get_meta("rotation")
 			if n.get_meta("spawned"):
 				# update scale
-				n.get_child(0).scale += Vector3(0.3, 0.3, 0.3) * delta * speedBoost
+				n.get_child(0).scale += Vector3(0.3, 0.3, 0.3) * delta * finalSpeed
 				# this line gets rid of the "det == 0" error and gives a little margin for error
 				n.scale = n.get_child(0).scale + Vector3(0.1, 0.1, 0.1)
 				# update position
-				n.position.z += 20 * delta * speedBoost
+				n.position.z += 20 * delta * finalSpeed
 				# apply rotation from saved random rotation direction
-				n.rotate(Vector3(1, 0, 0), rotationMeta[0] * delta * speedBoost)
-				n.rotate(Vector3(0, 1, 0), rotationMeta[1] * delta * speedBoost)
-				n.rotate(Vector3(0, 0, 1), rotationMeta[2] * delta * speedBoost)
+				n.rotate(Vector3(1, 0, 0), rotationMeta[0] * delta * finalSpeed)
+				n.rotate(Vector3(0, 1, 0), rotationMeta[1] * delta * finalSpeed)
+				n.rotate(Vector3(0, 0, 1), rotationMeta[2] * delta * finalSpeed)
 				
 				if n.position.z > 112: # send objects home ('kill' them)
 					reset_vegie(n)
 					
 					
 		# spawn new item
-		if spawnNowQ > spawnInterval / speedBoost:
+		if spawnNowQ > spawnInterval / finalSpeed:
 			$Vegies.get_child(randi_range(0, 14)).set_meta("spawned", true)
 			spawnNowQ = 0.0
 		
@@ -120,7 +139,11 @@ func pause():
 	pass
 
 func quit_to_menu():
+	# reset playtime to prevent starting in slow mode
+	playTime = 0
 	# reset everything.
+	background = backgroundMain
+	$MainCamera/Background.get_active_material(0).set_shader_parameter("background", background)
 	# reset highscoreBeat
 	highscoreBeat = false
 	scoreText = "SCORE: "

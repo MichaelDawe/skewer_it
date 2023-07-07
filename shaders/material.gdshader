@@ -5,7 +5,7 @@ uniform float ratio;
 uniform sampler2D textureImage : source_color;
 uniform float pozition;
 
-const vec3 background = vec3(0.0, 0.2, 0.5);
+uniform vec3 background;
 
 float random(vec2 par){
    return fract(sin(dot(par.xy,vec2(12.9898,78.233))) * 43758.5453);
@@ -21,7 +21,7 @@ void fragment() {
 	ALBEDO *= max(NORMAL.z, 0.4);
 	
 	if(pozition > 64.0) {
-		ALBEDO += vec3(0.0, 0.2, 0.6) * ((1.0 - NORMAL.z) * ((pozition - 64.0) / 32.0));
+		ALBEDO += background * ((1.0 - NORMAL.z) * ((pozition - 64.0) / 32.0));
 		
 		if(pozition > 96.0) {
 			float t = TIME * 0.01;
