@@ -18,7 +18,7 @@ var bonus = 1.0 # score multiplier
 var caught = [0, 0, 0, 0, 0, 0] # list of objects already on skewer
 								# there are 5 places, with index 0 used
 								# for when the skewer is empty ahh
-var health = 5 	# starting health (maybe modify it based on difficulty?)
+var health = 3.0# starting health (maybe modify it based on difficulty?)
 				# probably default of 3 or 5, its 5 below but 2 here for debug
 				# could replace with just the bonus actually, 
 				# which resets when you make a mistake
@@ -178,6 +178,8 @@ func quit_to_menu():
 	clear_skewer()
 
 func play():
+	# fix playtime to start at 10 minutes till fade
+	playTime = -300
 	# silly workaround for scoring 0
 	score = 0.5
 	# enable / dissable post effects
@@ -212,7 +214,7 @@ func score_add():
 						# overkill, but makes it harder on easy and easier on hard
 	catch += 1
 	# make game speed up over time
-	speedBoost += 0.01;		# make this a lot smaller thank 0.02 I think!
+	speedBoost += 0.0025;	# make this a lot smaller thank 0.02 I think!
 							# second half makes it exponentially harder for hard mode and easier for easy mode
 							# to help prevent abusing the speed to increase your highscore
 	update_skewer()
@@ -242,6 +244,8 @@ func score_update(n):
 				catch += 1
 				bonus += 0.25 * (speed / 10.0)
 				clear_skewer()
+				# reset tries:
+				if(health < 3.0): health += 0.25
 			# updates latest pick
 			if(caughtPos > 0):
 				caught[caughtPos] = number
@@ -252,7 +256,7 @@ func score_update(n):
 			damaged = 1
 			bonus = 1.0
 			# kill
-			if(health == 0):
+			if(health <= 0):
 				# write highscore
 				save_highscore()
 				# set mode

@@ -17,7 +17,7 @@ func _process(_delta):
 							+ str(int(main.score)) 
 							+ " Bonus: " 
 							+ str(main.bonus - 1))
-	$MarginContainer/Health.set_text("Health: " + str(main.health))
+	$MarginContainer/Health.set_text("Tries: " + str(main.health))
 
 func _on_pause_pressed():
 	# pause the main scene
