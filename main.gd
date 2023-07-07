@@ -14,6 +14,11 @@ var scoreText = "SCORE: "
 var mouseX = 0.0
 var mouseY = 0.0
 var bonus = 1.0 # score multiplier
+var targetNumber = 1 # the index of the target vegie
+var oldTargetNo = 0 # stores the last one to prevent duplicates
+					# replace with checking which are on the skewer.
+var nameText = "Aubergine"
+var gameMode = 0 # 0 = normal, 1 = infinite mode (no highscore), 2 = ect.
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -73,7 +78,7 @@ func _process(delta):
 				n.rotate(Vector3(0, 1, 0), rotationMeta[1] * delta * speedBoost)
 				n.rotate(Vector3(0, 0, 1), rotationMeta[2] * delta * speedBoost)
 				
-				if n.position.z > 118: # send objects home ('kill' them)
+				if n.position.z > 112: # send objects home ('kill' them)
 					reset_vegie(n)
 					
 					
@@ -148,7 +153,7 @@ func reset_vegie(n):
 	n.set_meta("rotation", Vector3(randf(), randf(), randf()))
 	n.set_meta("spawned", false)
 
-func score_update():
+func score_add():
 	score += 1 * bonus
 	catch = 1
 	# make game speed up over time
@@ -156,93 +161,125 @@ func score_update():
 											# second half makes it exponentially harder for hard mode and easier for easy mode
 											# to help prevent abusing the speed to increase your highscore
 
+func update_hud():
+	match(targetNumber):
+		1: nameText = "Aubergine"
+		2: nameText = "Garlic"
+		3: nameText = "Gerkin"
+		4: nameText = "Yellow Pepper"
+		5: nameText = "Tomato"
+		6: nameText = "Tofu"
+		7: nameText = "Shallot"
+		8: nameText = "Sausage"
+		9: nameText = "Red Pepper"
+		10: nameText = "Pineapple"
+		11: nameText = "Olive"
+		12: nameText = "Mushroom"
+		13: nameText = "Marinated Tofu"
+		14: nameText = "Maize"
+		15: nameText = "Green Pepper"
+
+func score_update(n):
+	if(gameMode == 0):
+		if(n.get_meta("number") == targetNumber):
+			score_add()
+			# update targetNumber
+			oldTargetNo = targetNumber
+			targetNumber = randi_range(1, 14)
+			if(targetNumber == oldTargetNo):
+				targetNumber = 15
+			update_hud()
+		else:
+			# kill game / deduct health
+			score -= 1
+		
 
 func _on_aubergine_input_event(_camera, _event, _position, _normal, _shape_idx):
 	var n = $Vegies/Aubergine
-	if(n.position.z > 64 and n.position.z < 108):
+	if(n.position.z > 64 and n.position.z < 96):
 		reset_vegie(n)
-		score_update()
+		score_update(n)
 
 func _on_garlic_input_event(_camera, _event, _position, _normal, _shape_idx):
 	var n = $Vegies/Garlic
-	if(n.position.z > 64 and n.position.z < 108):
+	if(n.position.z > 64 and n.position.z < 96):
 		reset_vegie(n)
-		score_update()
+		score_update(n)
 
 func _on_gerkin_input_event(_camera, _event, _position, _normal, _shape_idx):
 	var n = $Vegies/Gerkin
-	if(n.position.z > 64 and n.position.z < 108):
+	if(n.position.z > 64 and n.position.z < 96):
 		reset_vegie(n)
-		score_update()
+		score_update(n)
 
 func _on_yellow_pepper_input_event(_camera, _event, _position, _normal, _shape_idx):
 	var n = $Vegies/YellowPepper
-	if(n.position.z > 64 and n.position.z < 108):
+	if(n.position.z > 64 and n.position.z < 96):
 		reset_vegie(n)
-		score_update()
+		score_update(n)
 
 func _on_tomato_input_event(_camera, _event, _position, _normal, _shape_idx):
 	var n = $Vegies/Tomato
-	if(n.position.z > 64 and n.position.z < 108):
+	if(n.position.z > 64 and n.position.z < 96):
 		reset_vegie(n)
-		score_update()
+		score_update(n)
 
 func _on_tofu_input_event(_camera, _event, _position, _normal, _shape_idx):
 	var n = $Vegies/Tofu
-	if(n.position.z > 64 and n.position.z < 108):
+	if(n.position.z > 64 and n.position.z < 96):
 		reset_vegie(n)
-		score_update()
+		score_update(n)
 
 func _on_shallot_input_event(_camera, _event, _position, _normal, _shape_idx):
 	var n = $Vegies/Shallot
-	if(n.position.z > 64 and n.position.z < 108):
+	if(n.position.z > 64 and n.position.z < 96):
 		reset_vegie(n)
-		score_update()
+		score_update(n)
 
 func _on_sausage_input_event(_camera, _event, _position, _normal, _shape_idx):
 	var n = $Vegies/Sausage
-	if(n.position.z > 64 and n.position.z < 108):
+	if(n.position.z > 64 and n.position.z < 96):
 		reset_vegie(n)
-		score_update()
+		score_update(n)
 
 func _on_red_pepper_input_event(_camera, _event, _position, _normal, _shape_idx):
 	var n = $Vegies/RedPepper
-	if(n.position.z > 64 and n.position.z < 108):
+	if(n.position.z > 64 and n.position.z < 96):
 		reset_vegie(n)
-		score_update()
+		score_update(n)
 
 func _on_pineapple_input_event(_camera, _event, _position, _normal, _shape_idx):
 	var n = $Vegies/Pineapple
-	if(n.position.z > 64 and n.position.z < 108):
+	if(n.position.z > 64 and n.position.z < 96):
 		reset_vegie(n)
-		score_update()
+		score_update(n)
 
 func _on_olive_input_event(_camera, _event, _position, _normal, _shape_idx):
 	var n = $Vegies/Olive
-	if(n.position.z > 64 and n.position.z < 108):
+	if(n.position.z > 64 and n.position.z < 96):
 		reset_vegie(n)
-		score_update()
+		score_update(n)
 
 func _on_mushroom_input_event(_camera, _event, _position, _normal, _shape_idx):
 	var n = $Vegies/Mushroom
-	if(n.position.z > 64 and n.position.z < 108):
+	if(n.position.z > 64 and n.position.z < 96):
 		reset_vegie(n)
-		score_update()
+		score_update(n)
 
 func _on_marinated_tofu_input_event(_camera, _event, _position, _normal, _shape_idx):
 	var n = $Vegies/MarinatedTofu
-	if(n.position.z > 64 and n.position.z < 108):
+	if(n.position.z > 64 and n.position.z < 96):
 		reset_vegie(n)
-		score_update()
+		score_update(n)
 
 func _on_maize_input_event(_camera, _event, _position, _normal, _shape_idx):
 	var n = $Vegies/Maize
-	if(n.position.z > 64 and n.position.z < 108):
+	if(n.position.z > 64 and n.position.z < 96):
 		reset_vegie(n)
-		score_update()
+		score_update(n)
 
 func _on_green_pepper_input_event(_camera, _event, _position, _normal, _shape_idx):
 	var n = $Vegies/GreenPepper
-	if(n.position.z > 64 and n.position.z < 108):
+	if(n.position.z > 64 and n.position.z < 96):
 		reset_vegie(n)
-		score_update()
+		score_update(n)

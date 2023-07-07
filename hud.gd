@@ -11,7 +11,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	# display score in hud
+	# not ideal setting this every frame, want to make it callable from main
 	$MarginContainer/Score.set_text(main.scoreText + str(int(main.score)))
+	$MarginContainer/NextName.set_text(main.nameText)
 
 
 func _on_pause_pressed():

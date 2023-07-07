@@ -249,6 +249,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -64)
 
 [node name="Aubergine" type="StaticBody3D" parent="Vegies"]
+metadata/number = 1
 
 [node name="Aubergine" type="MeshInstance3D" parent="Vegies/Aubergine"]
 mesh = ExtResource("3_w2r1g")
@@ -259,6 +260,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_wkfuj")
 shape = SubResource("ConvexPolygonShape3D_a4j7n")
 
 [node name="Garlic" type="StaticBody3D" parent="Vegies"]
+metadata/number = 2
 
 [node name="Garlic" type="MeshInstance3D" parent="Vegies/Garlic"]
 mesh = ExtResource("6_2t5ge")
@@ -269,6 +271,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_k6gds")
 shape = SubResource("ConvexPolygonShape3D_o7yes")
 
 [node name="Gerkin" type="StaticBody3D" parent="Vegies"]
+metadata/number = 3
 
 [node name="Gerkin" type="MeshInstance3D" parent="Vegies/Gerkin"]
 mesh = ExtResource("7_yslce")
@@ -279,6 +282,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_4bchg")
 shape = SubResource("ConvexPolygonShape3D_sv34w")
 
 [node name="YellowPepper" type="StaticBody3D" parent="Vegies"]
+metadata/number = 4
 
 [node name="YellowPepper" type="MeshInstance3D" parent="Vegies/YellowPepper"]
 mesh = ExtResource("19_sglii")
@@ -289,6 +293,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_4h1v3")
 shape = SubResource("ConvexPolygonShape3D_dqffi")
 
 [node name="Tomato" type="StaticBody3D" parent="Vegies"]
+metadata/number = 5
 
 [node name="Tomato" type="MeshInstance3D" parent="Vegies/Tomato"]
 mesh = ExtResource("18_tjta7")
@@ -299,6 +304,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_oaqbl")
 shape = SubResource("ConvexPolygonShape3D_w4p7d")
 
 [node name="Tofu" type="StaticBody3D" parent="Vegies"]
+metadata/number = 6
 
 [node name="Tofu" type="MeshInstance3D" parent="Vegies/Tofu"]
 mesh = ExtResource("17_ecc5e")
@@ -309,6 +315,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_y86ag")
 shape = SubResource("ConvexPolygonShape3D_jdmm3")
 
 [node name="Shallot" type="StaticBody3D" parent="Vegies"]
+metadata/number = 7
 
 [node name="Shallot" type="MeshInstance3D" parent="Vegies/Shallot"]
 mesh = ExtResource("16_0tfja")
@@ -319,6 +326,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_rls5l")
 shape = SubResource("ConvexPolygonShape3D_rngt8")
 
 [node name="Sausage" type="StaticBody3D" parent="Vegies"]
+metadata/number = 8
 
 [node name="Sausage" type="MeshInstance3D" parent="Vegies/Sausage"]
 mesh = ExtResource("15_4m00c")
@@ -329,6 +337,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_68a3i")
 shape = SubResource("ConvexPolygonShape3D_ypi8j")
 
 [node name="RedPepper" type="StaticBody3D" parent="Vegies"]
+metadata/number = 9
 
 [node name="RedPepper" type="MeshInstance3D" parent="Vegies/RedPepper"]
 mesh = ExtResource("14_gk7ww")
@@ -339,6 +348,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_1hhqa")
 shape = SubResource("ConvexPolygonShape3D_6n3sy")
 
 [node name="Pineapple" type="StaticBody3D" parent="Vegies"]
+metadata/number = 10
 
 [node name="Pineapple" type="MeshInstance3D" parent="Vegies/Pineapple"]
 mesh = ExtResource("13_mlim2")
@@ -349,6 +359,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_lfqtr")
 shape = SubResource("ConvexPolygonShape3D_j3t1m")
 
 [node name="Olive" type="StaticBody3D" parent="Vegies"]
+metadata/number = 11
 
 [node name="Olive" type="MeshInstance3D" parent="Vegies/Olive"]
 mesh = ExtResource("12_pxxnx")
@@ -359,6 +370,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_30rt2")
 shape = SubResource("ConvexPolygonShape3D_2ucec")
 
 [node name="Mushroom" type="StaticBody3D" parent="Vegies"]
+metadata/number = 12
 
 [node name="Mushroom" type="MeshInstance3D" parent="Vegies/Mushroom"]
 mesh = ExtResource("11_3u7ha")
@@ -369,6 +381,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_d5182")
 shape = SubResource("ConvexPolygonShape3D_2x2q3")
 
 [node name="MarinatedTofu" type="StaticBody3D" parent="Vegies"]
+metadata/number = 13
 
 [node name="MarinatedTofu" type="MeshInstance3D" parent="Vegies/MarinatedTofu"]
 mesh = ExtResource("10_5akmt")
@@ -379,6 +392,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_d2lm2")
 shape = SubResource("ConvexPolygonShape3D_yufos")
 
 [node name="Maize" type="StaticBody3D" parent="Vegies"]
+metadata/number = 14
 
 [node name="Maize" type="MeshInstance3D" parent="Vegies/Maize"]
 mesh = ExtResource("9_qny88")
@@ -389,6 +403,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_bycw5")
 shape = SubResource("ConvexPolygonShape3D_4ijf8")
 
 [node name="GreenPepper" type="StaticBody3D" parent="Vegies"]
+metadata/number = 15
 
 [node name="GreenPepper" type="MeshInstance3D" parent="Vegies/GreenPepper"]
 mesh = ExtResource("8_1pksx")
