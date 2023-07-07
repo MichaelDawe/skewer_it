@@ -175,8 +175,11 @@ func quit_to_menu():
 	caughtPos = 0 # 0 = empty
 	# removed vegies from skewer
 	update_skewer()
+	clear_skewer()
 
 func play():
+	# silly workaround for scoring 0
+	score = 0.5
 	# enable / dissable post effects
 	if FileAccess.file_exists("user://posteffects.res"):
 		var file = FileAccess.open("user://posteffects.res", FileAccess.READ)
@@ -205,13 +208,25 @@ func reset_vegie(n):
 	n.set_meta("spawned", false)
 
 func score_add():
-	score += 1 * bonus
+	score += 1 * bonus	# * (speed / 10.0)
+						# overkill, but makes it harder on easy and easier on hard
 	catch += 1
 	# make game speed up over time
-	speedBoost += 0.005 * (speed / 10.0);	# make this a lot smaller thank 0.02 I think!
-											# second half makes it exponentially harder for hard mode and easier for easy mode
-											# to help prevent abusing the speed to increase your highscore
+	speedBoost += 0.01;		# make this a lot smaller thank 0.02 I think!
+							# second half makes it exponentially harder for hard mode and easier for easy mode
+							# to help prevent abusing the speed to increase your highscore
 	update_skewer()
+
+func save_highscore():
+	var tempHighScore = 0
+	if FileAccess.file_exists("user://highscore.res"):
+		var file = FileAccess.open("user://highscore.res", FileAccess.READ)
+		tempHighScore = file.get_32()
+		file.close()
+	if(score > tempHighScore):
+		var file = FileAccess.open("user://highscore.res", FileAccess.WRITE)
+		file.store_32(score)
+		file.close()
 
 func score_update(n):
 	if(gameMode == 0):
@@ -225,7 +240,7 @@ func score_update(n):
 				for i in 6:
 					caught[i] = 0
 				catch += 1
-				bonus += 0.25
+				bonus += 0.25 * (speed / 10.0)
 				clear_skewer()
 			# updates latest pick
 			if(caughtPos > 0):
@@ -238,7 +253,11 @@ func score_update(n):
 			bonus = 1.0
 			# kill
 			if(health == 0):
+				# write highscore
+				save_highscore()
+				# set mode
 				mode = 0
+				# add menu
 				var menu = preload("res://menu.tscn").instantiate()
 				add_child(menu)
 				# run the play script on the main scene

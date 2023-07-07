@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://g54wi6rdpo70"]
+[gd_scene load_steps=90 format=3 uid="uid://g54wi6rdpo70"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_cqorg"]
 [ext_resource type="Shader" path="res://shaders/background.gdshader" id="2_vwy7a"]
@@ -233,6 +233,126 @@ render_priority = 0
 shader = ExtResource("35_ar3l0")
 shader_parameter/textureImage = ExtResource("35_m30ur")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7luey"]
+render_priority = 0
+shader = ExtResource("4_6g46a")
+shader_parameter/ratio = null
+shader_parameter/pozition = null
+shader_parameter/background = null
+shader_parameter/textureImage = ExtResource("5_dia82")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_26wns"]
+render_priority = 0
+shader = ExtResource("4_6g46a")
+shader_parameter/ratio = null
+shader_parameter/pozition = null
+shader_parameter/background = null
+shader_parameter/textureImage = ExtResource("7_5p7gu")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sm546"]
+render_priority = 0
+shader = ExtResource("4_6g46a")
+shader_parameter/ratio = null
+shader_parameter/pozition = null
+shader_parameter/background = null
+shader_parameter/textureImage = ExtResource("9_yo6to")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uma4d"]
+render_priority = 0
+shader = ExtResource("4_6g46a")
+shader_parameter/ratio = null
+shader_parameter/pozition = null
+shader_parameter/background = null
+shader_parameter/textureImage = ExtResource("33_jtmga")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rikrp"]
+render_priority = 0
+shader = ExtResource("4_6g46a")
+shader_parameter/ratio = null
+shader_parameter/pozition = null
+shader_parameter/background = null
+shader_parameter/textureImage = ExtResource("31_pd8id")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ucnn4"]
+render_priority = 0
+shader = ExtResource("4_6g46a")
+shader_parameter/ratio = null
+shader_parameter/pozition = null
+shader_parameter/background = null
+shader_parameter/textureImage = ExtResource("29_ep6vy")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3dvna"]
+render_priority = 0
+shader = ExtResource("4_6g46a")
+shader_parameter/ratio = null
+shader_parameter/pozition = null
+shader_parameter/background = null
+shader_parameter/textureImage = ExtResource("27_hhv0u")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fwq41"]
+render_priority = 0
+shader = ExtResource("4_6g46a")
+shader_parameter/ratio = null
+shader_parameter/pozition = null
+shader_parameter/background = null
+shader_parameter/textureImage = ExtResource("25_42v72")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ixesn"]
+render_priority = 0
+shader = ExtResource("4_6g46a")
+shader_parameter/ratio = null
+shader_parameter/pozition = null
+shader_parameter/background = null
+shader_parameter/textureImage = ExtResource("23_5ao0t")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_evo2i"]
+render_priority = 0
+shader = ExtResource("4_6g46a")
+shader_parameter/ratio = null
+shader_parameter/pozition = null
+shader_parameter/background = null
+shader_parameter/textureImage = ExtResource("21_f3dqv")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h3rkl"]
+render_priority = 0
+shader = ExtResource("4_6g46a")
+shader_parameter/ratio = null
+shader_parameter/pozition = null
+shader_parameter/background = null
+shader_parameter/textureImage = ExtResource("19_cgdbg")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y383v"]
+render_priority = 0
+shader = ExtResource("4_6g46a")
+shader_parameter/ratio = null
+shader_parameter/pozition = null
+shader_parameter/background = null
+shader_parameter/textureImage = ExtResource("17_smpgd")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_krkux"]
+render_priority = 0
+shader = ExtResource("4_6g46a")
+shader_parameter/ratio = null
+shader_parameter/pozition = 0.0
+shader_parameter/background = null
+shader_parameter/textureImage = ExtResource("15_17qfx")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_olte6"]
+render_priority = 0
+shader = ExtResource("4_6g46a")
+shader_parameter/ratio = null
+shader_parameter/pozition = null
+shader_parameter/background = null
+shader_parameter/textureImage = ExtResource("13_i3py4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7ujxe"]
+render_priority = 0
+shader = ExtResource("4_6g46a")
+shader_parameter/ratio = null
+shader_parameter/pozition = null
+shader_parameter/background = null
+shader_parameter/textureImage = ExtResource("11_2pxnw")
+
 [node name="main" type="Node3D"]
 script = ExtResource("1_cqorg")
 
@@ -438,91 +558,91 @@ surface_material_override/0 = SubResource("ShaderMaterial_1u1wv")
 transform = Transform3D(2.15, 0, 0, 0, 2.15, 0, 0, 0, 2.15, 0, -1024, 0)
 mesh = ExtResource("3_w2r1g")
 skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("ShaderMaterial_wkfuj")
+surface_material_override/0 = SubResource("ShaderMaterial_7luey")
 
 [node name="Garlic" type="MeshInstance3D" parent="Skewer"]
 transform = Transform3D(2.15, 0, 0, 0, 2.15, 0, 0, 0, 2.15, 0, -1024, 0)
 mesh = ExtResource("6_2t5ge")
 skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("ShaderMaterial_k6gds")
+surface_material_override/0 = SubResource("ShaderMaterial_26wns")
 
 [node name="Gerkin" type="MeshInstance3D" parent="Skewer"]
 transform = Transform3D(2.15, 0, 0, 0, 2.15, 0, 0, 0, 2.15, 0, -1024, 0)
 mesh = ExtResource("7_yslce")
 skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("ShaderMaterial_4bchg")
+surface_material_override/0 = SubResource("ShaderMaterial_sm546")
 
 [node name="YellowPepper" type="MeshInstance3D" parent="Skewer"]
 transform = Transform3D(2.15, 0, 0, 0, 2.15, 0, 0, 0, 2.15, 0, -1024, 0)
 mesh = ExtResource("19_sglii")
 skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("ShaderMaterial_4h1v3")
+surface_material_override/0 = SubResource("ShaderMaterial_uma4d")
 
 [node name="Tomato" type="MeshInstance3D" parent="Skewer"]
 transform = Transform3D(2.15, 0, 0, 0, 2.15, 0, 0, 0, 2.15, 0, -1024, 0)
 mesh = ExtResource("18_tjta7")
 skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("ShaderMaterial_oaqbl")
+surface_material_override/0 = SubResource("ShaderMaterial_rikrp")
 
 [node name="Tofu" type="MeshInstance3D" parent="Skewer"]
 transform = Transform3D(2.15, 0, 0, 0, 2.15, 0, 0, 0, 2.15, 0, -1024, 0)
 mesh = ExtResource("17_ecc5e")
 skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("ShaderMaterial_y86ag")
+surface_material_override/0 = SubResource("ShaderMaterial_ucnn4")
 
 [node name="Shallot" type="MeshInstance3D" parent="Skewer"]
 transform = Transform3D(2.15, 0, 0, 0, 2.15, 0, 0, 0, 2.15, 0, -1024, 0)
 mesh = ExtResource("16_0tfja")
 skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("ShaderMaterial_rls5l")
+surface_material_override/0 = SubResource("ShaderMaterial_3dvna")
 
 [node name="Sausage" type="MeshInstance3D" parent="Skewer"]
 transform = Transform3D(2.15, 0, 0, 0, 2.15, 0, 0, 0, 2.15, 0, -1024, 0)
 mesh = ExtResource("15_4m00c")
 skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("ShaderMaterial_68a3i")
+surface_material_override/0 = SubResource("ShaderMaterial_fwq41")
 
 [node name="RedPepper" type="MeshInstance3D" parent="Skewer"]
 transform = Transform3D(2.15, 0, 0, 0, 2.15, 0, 0, 0, 2.15, 0, -1024, 0)
 mesh = ExtResource("14_gk7ww")
 skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("ShaderMaterial_1hhqa")
+surface_material_override/0 = SubResource("ShaderMaterial_ixesn")
 
 [node name="Pineapple" type="MeshInstance3D" parent="Skewer"]
 transform = Transform3D(2.15, 0, 0, 0, 2.15, 0, 0, 0, 2.15, 0, -1024, 0)
 mesh = ExtResource("13_mlim2")
 skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("ShaderMaterial_lfqtr")
+surface_material_override/0 = SubResource("ShaderMaterial_evo2i")
 
 [node name="Olive" type="MeshInstance3D" parent="Skewer"]
 transform = Transform3D(2.15, 0, 0, 0, 2.15, 0, 0, 0, 2.15, 0, -1024, 0)
 mesh = ExtResource("12_pxxnx")
 skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("ShaderMaterial_30rt2")
+surface_material_override/0 = SubResource("ShaderMaterial_h3rkl")
 
 [node name="Mushroom" type="MeshInstance3D" parent="Skewer"]
 transform = Transform3D(2.15, 0, 0, 0, 2.15, 0, 0, 0, 2.15, 0, -1024, 0)
 mesh = ExtResource("11_3u7ha")
 skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("ShaderMaterial_d5182")
+surface_material_override/0 = SubResource("ShaderMaterial_y383v")
 
 [node name="MarinatedTofu" type="MeshInstance3D" parent="Skewer"]
 transform = Transform3D(2.15, 0, 0, 0, 2.15, 0, 0, 0, 2.15, 0, -1024, 0)
 mesh = ExtResource("10_5akmt")
 skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("ShaderMaterial_d2lm2")
+surface_material_override/0 = SubResource("ShaderMaterial_krkux")
 
 [node name="Maize" type="MeshInstance3D" parent="Skewer"]
 transform = Transform3D(2.15, 0, 0, 0, 2.15, 0, 0, 0, 2.15, 0, -1024, 0)
 mesh = ExtResource("9_qny88")
 skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("ShaderMaterial_bycw5")
+surface_material_override/0 = SubResource("ShaderMaterial_olte6")
 
 [node name="GreenPepper" type="MeshInstance3D" parent="Skewer"]
 transform = Transform3D(2.15, 0, 0, 0, 2.15, 0, 0, 0, 2.15, 0, -1024, 0)
 mesh = ExtResource("8_1pksx")
 skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("ShaderMaterial_hi0xi")
+surface_material_override/0 = SubResource("ShaderMaterial_7ujxe")
 
 [connection signal="input_event" from="Vegies/Aubergine" to="." method="_on_aubergine_input_event"]
 [connection signal="input_event" from="Vegies/Garlic" to="." method="_on_garlic_input_event"]
