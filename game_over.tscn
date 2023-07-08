@@ -1,0 +1,143 @@
+[gd_scene load_steps=7 format=3 uid="uid://b1ort3beip3v3"]
+
+[ext_resource type="FontFile" uid="uid://b8tk3nvwcwfr4" path="res://Clayborn.ttf" id="1_lj04p"]
+[ext_resource type="Script" path="res://game_over.gd" id="1_qyhc1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5gduo"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="VisualShader" id="VisualShader_jew6v"]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+
+
+"
+graph_offset = Vector2(-580.03, -15.2153)
+mode = 1
+flags/light_only = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8rt0j"]
+shader = SubResource("VisualShader_jew6v")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6iycb"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="game_over" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qyhc1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TopSpacer" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxFlat_5gduo")
+
+[node name="GameOver" type="RichTextLabel" parent="VBoxContainer"]
+material = SubResource("ShaderMaterial_8rt0j")
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/normal_font = ExtResource("1_lj04p")
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "Game Over"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="mistakes" type="RichTextLabel" parent="VBoxContainer"]
+material = SubResource("ShaderMaterial_8rt0j")
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/normal_font = ExtResource("1_lj04p")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "You made too many mistakes"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="MiddleSpacer" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxFlat_6iycb")
+
+[node name="Score" type="RichTextLabel" parent="VBoxContainer"]
+material = SubResource("ShaderMaterial_8rt0j")
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/normal_font = ExtResource("1_lj04p")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "Score: *"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Highscore" type="RichTextLabel" parent="VBoxContainer"]
+material = SubResource("ShaderMaterial_8rt0j")
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/normal_font = ExtResource("1_lj04p")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "Highscore: *"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="MiddleSpacer2" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxFlat_6iycb")
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(0.772549, 0.772549, 0.772549, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_lj04p")
+theme_override_font_sizes/font_size = 100
+button_mask = 7
+text = "Play"
+flat = true
+
+[node name="Menu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(0.772549, 0.772549, 0.772549, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_lj04p")
+theme_override_font_sizes/font_size = 100
+button_mask = 7
+text = "MENU"
+flat = true
+
+[node name="BottomSpacer" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxFlat_6iycb")
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Menu" to="." method="_on_menu_pressed"]

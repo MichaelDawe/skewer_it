@@ -171,7 +171,7 @@ func quit_to_menu():
 	caught = [0, 0, 0, 0, 0, 0] # list of objects already on skewer
 								# there are 5 places, with index 0 used
 								# for when the skewer is empty ahh
-	health = 5 # starting health (maybe modify it based on difficulty?)
+	health = 3 # starting health (maybe modify it based on difficulty?)
 	caughtPos = 0 # 0 = empty
 	# removed vegies from skewer
 	update_skewer()
@@ -261,9 +261,9 @@ func score_update(n):
 				save_highscore()
 				# set mode
 				mode = 0
-				# add menu
-				var menu = preload("res://menu.tscn").instantiate()
-				add_child(menu)
+				# add game over screen
+				var game_over = preload("res://game_over.tscn").instantiate()
+				add_child(game_over)
 				# run the play script on the main scene
 				quit_to_menu()
 				get_node("hud").queue_free()
@@ -363,3 +363,4 @@ func _on_green_pepper_input_event(_camera, _event, _position, _normal, _shape_id
 	if(n.position.z > 64 and n.position.z < 96):
 		reset_vegie(n)
 		score_update(n)
+

@@ -6,7 +6,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pp3rk"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="VisualShader" id="VisualShader_jew6v"]
+[sub_resource type="VisualShader" id="VisualShader_3rnpk"]
 code = "shader_type canvas_item;
 render_mode blend_mix;
 
@@ -18,7 +18,7 @@ mode = 1
 flags/light_only = false
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2dpne"]
-shader = SubResource("VisualShader_jew6v")
+shader = SubResource("VisualShader_3rnpk")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1lsp0"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -52,13 +52,17 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/normal_font = ExtResource("1_tykps")
-theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
-text = "[center]Catch the items displayed in the top left!
+text = "[center]Catch any item you like, but make sure 
+you don't have duplicates on the same skewer!
 
 Place completed skewers on the grill!
 
-Your score is based on your speed!
+You get a multiplier for each skewer you complete!
+
+You can make 3 mistakes,
+you earn 1 back by completing 4 skewers
 
 The game will speed up over time, 
 so the longer you play the better your score!

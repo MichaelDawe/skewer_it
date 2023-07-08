@@ -23,7 +23,7 @@ void fragment() {
 	if(pozition > 64.0) {
 		ALBEDO += background * ((1.0 - NORMAL.z) * ((pozition - 64.0) / 32.0));
 		
-		if(pozition > 96.0) {
+		if(pozition > 90.0) {
 			float t = TIME * 0.01;
 		    float layers = 5.0;
 		    float scale = 20.0;
@@ -69,7 +69,7 @@ void fragment() {
 			uv = SCREEN_UV * (1.0 - SCREEN_UV.yx); //vec2(1.0)- uv.yx; -> 1.-u.yx; Thanks FabriceNeyret !
 	    	float vig = uv.x*uv.y * 10.0; //multiply with sth for intensity
 	    	vig = pow(vig, 0.5) + 0.5; //change pow for modifying the extend of the  vignette
-			ALBEDO = mix((background * vig) + stars, ALBEDO, 1.0 - ((pozition - 96.0) / 16.0));
+			ALBEDO = mix((background * vig) + stars, ALBEDO, 1.0 - ((pozition - 90.0) / 22.0));
 		}
 	}
 }
