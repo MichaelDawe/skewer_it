@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://g54wi6rdpo70"]
+[gd_scene load_steps=95 format=3 uid="uid://g54wi6rdpo70"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_cqorg"]
 [ext_resource type="Shader" path="res://shaders/background.gdshader" id="2_vwy7a"]
@@ -38,6 +38,9 @@
 [ext_resource type="Shader" path="res://shaders/skewer.gdshader" id="35_ar3l0"]
 [ext_resource type="Texture2D" uid="uid://pfyulex635us" path="res://textures/skewer (20230701012348).png" id="35_m30ur"]
 [ext_resource type="Shader" path="res://shaders/post.gdshader" id="38_reqji"]
+[ext_resource type="ArrayMesh" uid="uid://bts60bvh81d6v" path="res://models/Grill.obj" id="39_xar4n"]
+[ext_resource type="Shader" path="res://shaders/grill.gdshader" id="40_1xt65"]
+[ext_resource type="Texture2D" uid="uid://tt742lmiqq23" path="res://textures/grill (20230708071323).png" id="41_bsqmw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qbt2q"]
 render_priority = 0
@@ -353,6 +356,14 @@ shader_parameter/pozition = null
 shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("11_2pxnw")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8mp0h"]
+render_priority = 0
+shader = ExtResource("40_1xt65")
+shader_parameter/textureImage = ExtResource("41_bsqmw")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_sthrf"]
+points = PackedVector3Array(-11.9778, 0, -4.92872, -11.9778, -1.5231, -4.6875, -11.9778, 0, 4.92775, 11.9755, 0, -4.92872, -11.9778, -2.89712, -3.98794, 11.9755, -1.5231, -4.6875, -11.9778, -1.5231, 4.68653, 11.9755, 0, 4.92775, -11.9778, -3.98746, -2.8976, 11.9755, -2.89712, -3.98794, -11.9778, -2.89712, 3.98697, 11.9755, -1.5231, 4.68653, -11.9778, -4.68749, -1.52358, 11.9755, -3.98746, -2.8976, -11.9778, -3.98746, 2.89664, 11.9755, -2.89712, 3.98697, -11.9778, -4.92872, -1.43051e-06, 11.9755, -4.68749, -1.52358, -11.9778, -4.68749, 1.52261, 11.9755, -3.98746, 2.89664, 11.9755, -4.92872, -1.43051e-06, 11.9755, -4.68749, 1.52261)
+
 [node name="main" type="Node3D"]
 script = ExtResource("1_cqorg")
 
@@ -644,6 +655,19 @@ mesh = ExtResource("8_1pksx")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("ShaderMaterial_7ujxe")
 
+[node name="Grill" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8, -64)
+
+[node name="Grill" type="MeshInstance3D" parent="Grill"]
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+mesh = ExtResource("39_xar4n")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_8mp0h")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Grill"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_sthrf")
+
 [connection signal="input_event" from="Vegies/Aubergine" to="." method="_on_aubergine_input_event"]
 [connection signal="input_event" from="Vegies/Garlic" to="." method="_on_garlic_input_event"]
 [connection signal="input_event" from="Vegies/Gerkin" to="." method="_on_gerkin_input_event"]
@@ -659,3 +683,4 @@ surface_material_override/0 = SubResource("ShaderMaterial_7ujxe")
 [connection signal="input_event" from="Vegies/MarinatedTofu" to="." method="_on_marinated_tofu_input_event"]
 [connection signal="input_event" from="Vegies/Maize" to="." method="_on_maize_input_event"]
 [connection signal="input_event" from="Vegies/GreenPepper" to="." method="_on_green_pepper_input_event"]
+[connection signal="input_event" from="Grill" to="." method="_on_grill_input_event"]
