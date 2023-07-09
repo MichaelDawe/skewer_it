@@ -4,7 +4,7 @@ var mode = 0 # 0 = menu, 1 = gameplay, 2 = paused, ...
 var speed = 10 # 5 = easy / slow, 10 = normal, 20 = hard / fast
 var speedBoost = 1.0 # speeeeeeeeds the game up over time
 var spawnNowQ = 5.5 # time, in seconds, since last spawn.
-var spawnInterval = 2.5 # time, in seconds, for each item to spawn, at the startttt.
+var spawnInterval = 2.0 # time, in seconds, for each item to spawn, at the startttt.
 var score = 0.0 # score
 var ratio = 0.0 # stuff to devide mouse input by.
 var catch = 0.0 # catch animation shader uniform thingy
@@ -32,6 +32,7 @@ var finalSpeed = 1.0 	# combo of speedBoost and backRed for slow mo etc,
 						# precalculated once per frame and used where required
 var grillAnim = false
 var grillAnimStop = false
+var skewerMouseActive = true # stops the mouse control for the skewer while its being animated
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -78,9 +79,11 @@ func _process(delta):
 	# process pause signal
 	if mode == 1:
 		playTime += delta
-		# run background shading
-		backRed = clamp(((sin((playTime / 300) * PI)) - 0.9524) * 12.6, 0.0, 1.0)
-		background = Vector3(backRed, 0.2, 0.6)
+		# run background shading 
+		# 165*2 seconds = five minutes and 30 seconds
+		# 5 minutes between slow mo sessions and 30 seconds of slow mo
+		backRed = clamp((sin(((playTime - 165) / 165) * PI) - 0.9) * 8.0, 0.0, 0.6)
+		background = Vector3(backRed, 0.2, 0.6 - (backRed / 2.0))
 		$MainCamera/Background.get_active_material(0).set_shader_parameter("background", background)
 		# spawning counter
 		spawnNowQ += delta
@@ -125,12 +128,13 @@ func _process(delta):
 			spawnNowQ = 0.0
 		
 		# render skewer
-		$Skewer.position = Vector3(
-			((mouseX / 1000) - (0.5 * ratio)) * 9.4,
-			((0.0 - (mouseY / 1000)) + 0.5) * 9.4,
-			55
-		)
-		$Skewer.look_at(Vector3(6, -6, 0), Vector3(0, 0, -1))
+		if(skewerMouseActive):
+			$Skewer.position = Vector3(
+				((mouseX / 1000) - (0.5 * ratio)) * 9.4,
+				((0.0 - (mouseY / 1000)) + 0.5) * 9.4,
+				55
+			)
+			$Skewer.look_at(Vector3(6, -6, 0), Vector3(0, 0, -1))
 		
 		# flash screen when highscore beaten
 		if(int(score) > highscore and not highscoreBeat):
@@ -155,7 +159,7 @@ func update_skewer():
 	for n in caughtPos:
 		var child = $Skewer.get_child(caught[caughtPos] - 1)
 		child.position.y = -85 + (caughtPos * 14)
-		child.rotation = Vector3(0.0, randf(), 0.0)
+		child.rotation = Vector3(0, randf(), 0)
 	
 func clear_skewer():
 	for n in $Skewer.get_children():
@@ -190,8 +194,6 @@ func quit_to_menu():
 	clear_skewer()
 
 func play():
-	# fix playtime to start at 10 minutes till fade
-	playTime = -300
 	# silly workaround for scoring 0
 	score = 0.5
 	# enable / dissable post effects
@@ -285,6 +287,7 @@ func wrong_piece():
 	# reset counter
 	caughtPos = 0
 	clear_skewer()
+	grillAnimStop = true
 
 func _on_aubergine_input_event(_camera, _event, _position, _normal, _shape_idx):
 	if(mode == 1):

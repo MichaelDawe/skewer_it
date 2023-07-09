@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tt742lmiqq23"
-path.s3tc="res://.godot/imported/grill (20230708071323).png-da3bb3baa7a3bd5b83c8e4921fb599b3.s3tc.ctex"
-path.etc2="res://.godot/imported/grill (20230708071323).png-da3bb3baa7a3bd5b83c8e4921fb599b3.etc2.ctex"
+uid="uid://bfnybkrj74qex"
+path.s3tc="res://.godot/imported/grill (20230709011110).png-a2481fcdf17043ba135e4b0293f112c1.s3tc.ctex"
+path.etc2="res://.godot/imported/grill (20230709011110).png-a2481fcdf17043ba135e4b0293f112c1.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/grill (20230708071323).png"
-dest_files=["res://.godot/imported/grill (20230708071323).png-da3bb3baa7a3bd5b83c8e4921fb599b3.s3tc.ctex", "res://.godot/imported/grill (20230708071323).png-da3bb3baa7a3bd5b83c8e4921fb599b3.etc2.ctex"]
+source_file="res://textures/grill (20230709011110).png"
+dest_files=["res://.godot/imported/grill (20230709011110).png-a2481fcdf17043ba135e4b0293f112c1.s3tc.ctex", "res://.godot/imported/grill (20230709011110).png-a2481fcdf17043ba135e4b0293f112c1.etc2.ctex"]
 
 [params]
 
