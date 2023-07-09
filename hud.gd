@@ -14,7 +14,7 @@ func _process(_delta):
 	# not ideal setting this every frame, want to make it callable from main
 	$MarginContainer/Score.set_text(
 							main.scoreText 
-							+ str(main.score)
+							+ str(int(main.score))
 							+ " Bonus: " 
 							+ str(main.bonus - 1))
 	$MarginContainer/Health.set_text("Tries: " + str(main.health))

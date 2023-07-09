@@ -4,10 +4,13 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var main = get_node("/root/main")
-	$VBoxContainer/Score.set_text("SCORE: " + str(int(main.score)))
-	$VBoxContainer/Highscore.set_text("HIGHSCORE: " + str(int(main.highscore)))
 	if(main.score > main.highscore):
-		$VBoxContainer/PB.set_text("NEW HIGHSCORE!")
+		$VBoxContainer/Score.set_text("NEW HIGHSCORE: " + str(int(main.score)) + "!")
+		$VBoxContainer/Highscore.set_text("PREVIOUS BEST: " + str(int(main.highscore)))
+		main.highscore = main.score
+	else:
+		$VBoxContainer/Score.set_text("SCORE: " + str(int(main.score)))
+		$VBoxContainer/Highscore.set_text("HIGHSCORE: " + str(int(main.highscore)))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
