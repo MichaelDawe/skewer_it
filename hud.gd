@@ -14,7 +14,7 @@ func _process(_delta):
 	# not ideal setting this every frame, want to make it callable from main
 	$MarginContainer/Score.set_text(
 							main.scoreText 
-							+ str(int(main.score)) 
+							+ str(main.score)
 							+ " Bonus: " 
 							+ str(main.bonus - 1))
 	$MarginContainer/Health.set_text("Tries: " + str(main.health))
@@ -27,7 +27,7 @@ func _on_pause_pressed():
 	main.add_child.call_deferred(pause)
 	# save highscore to file
 	var highscore = 0
-	if FileAccess.file_exists("user://highscore.res"):
+	if(FileAccess.file_exists("user://highscore.res")):
 		var file = FileAccess.open("user://highscore.res", FileAccess.READ)
 		highscore = file.get_32()
 		file.close()
@@ -42,6 +42,6 @@ func _notification(what):
 	# detect if window loses focus and save highscore to file
 	# seems to work on android to save the score when you go home, 
 	# open another app, or even close the app
-	if what == MainLoop.NOTIFICATION_APPLICATION_PAUSED:
-		if main.mode == 1:
+	if(what == MainLoop.NOTIFICATION_APPLICATION_PAUSED):
+		if(main.mode == 1):
 			_on_pause_pressed()

@@ -7,7 +7,7 @@ func _ready():
 	# set main
 	main = get_node("/root/main")
 	# highscore
-	if FileAccess.file_exists("user://highscore.res"):
+	if(FileAccess.file_exists("user://highscore.res")):
 		var file = FileAccess.open("user://highscore.res", FileAccess.READ)
 		main.highscore = file.get_32()
 		file.close()
@@ -21,7 +21,7 @@ func _process(_delta):
 
 func _on_play_pressed():
 	# skip tutorial scene if its not the first run
-	if FileAccess.file_exists("user://firstopen.res"):
+	if(FileAccess.file_exists("user://firstopen.res")):
 		# set main scene into play mode
 		main.mode = 1
 		# load the hud scene

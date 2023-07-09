@@ -5,6 +5,7 @@ uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_n
 
 uniform float catch;
 uniform float damaged;
+uniform float sparks;
 
 void vertex() {
 	POSITION = vec4(VERTEX, 1.0);
@@ -19,6 +20,8 @@ void fragment() {
 	
 	col += col * catch * vig;
 	col = mix(col, (col * vec3(1.0, 0.0, 0.0)) + vec3(0.2, 0.0, 0.0), vig * damaged);
+	
+	col += ((1.0 - UV.y) * sparks * vec3(1.0, 0.4, 0.05));
 	
 	ALBEDO = col;
 }

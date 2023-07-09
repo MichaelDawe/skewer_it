@@ -8,9 +8,10 @@ var spawnInterval = 2.0 # time, in seconds, for each item to spawn, at the start
 var score = 0.0 # score
 var ratio = 0.0 # stuff to devide mouse input by.
 var catch = 0.0 # catch animation shader uniform thingy
+var sparks = 0.0 # grill animation shader uniform thingy
 var damaged = 0.0 # damage animation shader uniform thingy
-var highscore # highscore
-var highscoreBeat # used to flash the screen when the highscore is beaten, or control music
+var highscore = 0.0 # highscore
+var highscoreBeat = false # used to flash the screen when the highscore is beaten, or control music
 var scoreText = "SCORE: "
 var mouseX = 0.0
 var mouseY = 0.0
@@ -41,15 +42,20 @@ func _ready():
 	# set shader background
 	$MainCamera/Background.get_active_material(0).set_shader_parameter("background", background)
 	# enable / dissable post effects
-	if FileAccess.file_exists("user://posteffects.res"):
+	if(FileAccess.file_exists("user://posteffects.res")):
 		var file = FileAccess.open("user://posteffects.res", FileAccess.READ)
-		if(file.get_8() == 42):
+		if(file.get_8() == 1):
 			$MainCamera/PostProcess.visible = true
 		file.close()
+	else:
+		var file = FileAccess.open("user://posteffects.res", FileAccess.WRITE)
+		file.store_8(1)
+		file.close()
+		$MainCamera/PostProcess.visible = true
 	# reset highscoreBeat
 	highscoreBeat = false
 	# read difficutly from file
-	if FileAccess.file_exists("user://speed.res"):
+	if(FileAccess.file_exists("user://speed.res")):
 		var file = FileAccess.open("user://speed.res", FileAccess.READ)
 		speed = file.get_8()
 		file.close()
@@ -77,7 +83,7 @@ func _process(delta):
 	mouseY = get_viewport().get_mouse_position().y + 1
 	
 	# process pause signal
-	if mode == 1:
+	if(mode == 1):
 		playTime += delta
 		# run background shading 
 		# 165*2 seconds = five minutes and 30 seconds
@@ -94,7 +100,7 @@ func _process(delta):
 			n.get_child(0).get_active_material(0).set_shader_parameter("background", background)
 			# process postion and rotation
 			var rotationMeta = n.get_meta("rotation")
-			if n.get_meta("spawned"):
+			if(n.get_meta("spawned")):
 				# update scale
 				n.get_child(0).scale += Vector3(0.3, 0.3, 0.3) * delta * finalSpeed
 				# this line gets rid of the "det == 0" error and gives a little margin for error
@@ -106,7 +112,7 @@ func _process(delta):
 				n.rotate(Vector3(0, 1, 0), rotationMeta[1] * delta * finalSpeed)
 				n.rotate(Vector3(0, 0, 1), rotationMeta[2] * delta * finalSpeed)
 				
-				if n.position.z > 112: # send objects home ('kill' them)
+				if(n.position.z > 112): # send objects home ('kill' them)
 					reset_vegie(n)
 		# process grill
 		if(grillAnim):
@@ -123,7 +129,7 @@ func _process(delta):
 				$Grill/CollisionShape3D.scale = Vector3(0.01, 0.01, 0.01)
 					
 		# spawn new item
-		if spawnNowQ > spawnInterval / finalSpeed:
+		if(spawnNowQ > spawnInterval / finalSpeed):
 			$Vegies.get_child(randi_range(0, 14)).set_meta("spawned", true)
 			spawnNowQ = 0.0
 		
@@ -142,18 +148,17 @@ func _process(delta):
 			highscoreBeat = true
 			scoreText = "NEW HIGHSCORE: "
 			
-	
 	# process shader effects
-	$MainCamera/PostProcess.get_active_material(0).set_shader_parameter("catch", catch)
-	if(catch > 0.0): catch -= delta * 2
-	else: catch = 0.0
-	$MainCamera/PostProcess.get_active_material(0).set_shader_parameter("damaged", damaged)
-	if(damaged > 0.0): damaged -= delta * 2
-	else: damaged = 0.0
-		
-func pause():
-	# set slo-mo to fade back in when the game resumes.
-	pass
+	if($MainCamera/PostProcess.visible):
+		$MainCamera/PostProcess.get_active_material(0).set_shader_parameter("catch", catch)
+		if(catch > 0.0): catch -= delta * 2
+		else: catch = 0.0
+		$MainCamera/PostProcess.get_active_material(0).set_shader_parameter("damaged", damaged)
+		if(damaged > 0.0): damaged -= delta * 2
+		else: damaged = 0.0
+		$MainCamera/PostProcess.get_active_material(0).set_shader_parameter("sparks", sparks)
+		if(sparks > 0.0): sparks -= delta
+		else: sparks = 0.0
 
 func update_skewer():
 	for n in caughtPos:
@@ -196,14 +201,18 @@ func quit_to_menu():
 	# removed vegies from skewer
 	update_skewer()
 	clear_skewer()
+	# make sure they're reset before the next game
+	catch = 0
+	damaged = 0
+	sparks = 0
 
 func play():
 	# silly workaround for scoring 0
 	score = 0.5
 	# enable / dissable post effects
-	if FileAccess.file_exists("user://posteffects.res"):
+	if(FileAccess.file_exists("user://posteffects.res")):
 		var file = FileAccess.open("user://posteffects.res", FileAccess.READ)
-		if(file.get_8() == 42):
+		if(file.get_8() == 1):
 			$MainCamera/PostProcess.visible = true
 		else:
 			$MainCamera/PostProcess.visible = false
@@ -231,12 +240,12 @@ func score_add():
 	score += 1 * bonus
 	catch += 1
 	# make game speed up over time
-	speedBoost += 0.002
+	speedBoost += 0.0025
 	update_skewer()
 
 func save_highscore():
 	var tempHighScore = 0
-	if FileAccess.file_exists("user://highscore.res"):
+	if(FileAccess.file_exists("user://highscore.res")):
 		var file = FileAccess.open("user://highscore.res", FileAccess.READ)
 		tempHighScore = file.get_32()
 		file.close()
@@ -256,7 +265,6 @@ func score_update(n):
 				wrong_piece()
 			else:
 				if(caughtPos == 5):
-					catch += 1
 					grillAnim = true
 				# updates latest pick
 				caught[caughtPos] = number
@@ -384,7 +392,8 @@ func _on_grill_input_event(_camera, _event, _position, _normal, _shape_idx):
 		caughtPos = 0
 		for i in 6:
 			caught[i] = 0
-		catch += 1
+		#catch += 2 # may be temporary until sparks are in place, then drop to 1 or remove
+		sparks += 1
 		bonus += 0.25 * (speed / 10.0)
 		clear_skewer()
 		# reset tries:
