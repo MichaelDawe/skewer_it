@@ -166,6 +166,11 @@ func clear_skewer():
 		n.position.y = -1024
 
 func quit_to_menu():
+	grillAnim = false
+	grillAnimStop = false
+	$Grill.position.z = -64
+	$Grill/Grill.scale = Vector3(0.0, 0.0, 0.0)
+	$Grill/CollisionShape3D.scale = Vector3(0.01, 0.01, 0.01)
 	# reset playtime to prevent starting in slow mode
 	playTime = 0
 	# reset everything.
@@ -179,7 +184,6 @@ func quit_to_menu():
 		reset_vegie(n)
 	# reset speed
 	speedBoost = 1.0
-	score = 0.0
 	# reset skewer to be hidden
 	$Skewer.position = Vector3(0.0, 0.0, 128)
 	# more stuff copied from the top
@@ -224,13 +228,10 @@ func reset_vegie(n):
 	n.set_meta("spawned", false)
 
 func score_add():
-	score += 1 * bonus	# * (speed / 10.0)
-						# overkill, but makes it harder on easy and easier on hard
+	score += 1 * bonus
 	catch += 1
 	# make game speed up over time
-	speedBoost += 0.0025;	# make this a lot smaller thank 0.02 I think!
-							# second half makes it exponentially harder for hard mode and easier for easy mode
-							# to help prevent abusing the speed to increase your highscore
+	speedBoost += 0.002
 	update_skewer()
 
 func save_highscore():
@@ -258,8 +259,7 @@ func score_update(n):
 					catch += 1
 					grillAnim = true
 				# updates latest pick
-				if(caughtPos > 0):
-					caught[caughtPos] = number
+				caught[caughtPos] = number
 				score_add()
 		else:
 			wrong_piece()
@@ -289,110 +289,92 @@ func wrong_piece():
 	clear_skewer()
 	grillAnimStop = true
 
+func process_input(n):
+	var nZ = n.position.z
+	if(nZ > 64 and nZ < 96):
+		# make it a bit easier to catch items when you want to without affecting when you don't want them
+		if(nZ > 90):
+			if(n.get_meta("number") not in caught and caughtPos <= 5):
+				reset_vegie(n)
+				score_update(n)
+		else:
+			reset_vegie(n)
+			score_update(n)
+
 func _on_aubergine_input_event(_camera, _event, _position, _normal, _shape_idx):
 	if(mode == 1):
 		var n = $Vegies/Aubergine
-		if(n.position.z > 64 and n.position.z < 96):
-			reset_vegie(n)
-			score_update(n)
+		process_input(n)
 
 func _on_garlic_input_event(_camera, _event, _position, _normal, _shape_idx):
 	if(mode == 1):
 		var n = $Vegies/Garlic
-		if(n.position.z > 64 and n.position.z < 96):
-			reset_vegie(n)
-			score_update(n)
+		process_input(n)
 
 func _on_gerkin_input_event(_camera, _event, _position, _normal, _shape_idx):
 	if(mode == 1):
 		var n = $Vegies/Gerkin
-		if(n.position.z > 64 and n.position.z < 96):
-			reset_vegie(n)
-			score_update(n)
+		process_input(n)
 
 func _on_yellow_pepper_input_event(_camera, _event, _position, _normal, _shape_idx):
 	if(mode == 1):
 		var n = $Vegies/YellowPepper
-		if(n.position.z > 64 and n.position.z < 96):
-			reset_vegie(n)
-			score_update(n)
+		process_input(n)
 
 func _on_tomato_input_event(_camera, _event, _position, _normal, _shape_idx):
 	if(mode == 1):
 		var n = $Vegies/Tomato
-		if(n.position.z > 64 and n.position.z < 96):
-			reset_vegie(n)
-			score_update(n)
+		process_input(n)
 
 func _on_tofu_input_event(_camera, _event, _position, _normal, _shape_idx):
 	if(mode == 1):
 		var n = $Vegies/Tofu
-		if(n.position.z > 64 and n.position.z < 96):
-			reset_vegie(n)
-			score_update(n)
+		process_input(n)
 
 func _on_shallot_input_event(_camera, _event, _position, _normal, _shape_idx):
 	if(mode == 1):
 		var n = $Vegies/Shallot
-		if(n.position.z > 64 and n.position.z < 96):
-			reset_vegie(n)
-			score_update(n)
+		process_input(n)
 
 func _on_sausage_input_event(_camera, _event, _position, _normal, _shape_idx):
 	if(mode == 1):
 		var n = $Vegies/Sausage
-		if(n.position.z > 64 and n.position.z < 96):
-			reset_vegie(n)
-			score_update(n)
+		process_input(n)
 
 func _on_red_pepper_input_event(_camera, _event, _position, _normal, _shape_idx):
 	if(mode == 1):
 		var n = $Vegies/RedPepper
-		if(n.position.z > 64 and n.position.z < 96):
-			reset_vegie(n)
-			score_update(n)
+		process_input(n)
 
 func _on_pineapple_input_event(_camera, _event, _position, _normal, _shape_idx):
 	if(mode == 1):
 		var n = $Vegies/Pineapple
-		if(n.position.z > 64 and n.position.z < 96):
-			reset_vegie(n)
-			score_update(n)
+		process_input(n)
 
 func _on_olive_input_event(_camera, _event, _position, _normal, _shape_idx):
 	if(mode == 1):
 		var n = $Vegies/Olive
-		if(n.position.z > 64 and n.position.z < 96):
-			reset_vegie(n)
-			score_update(n)
+		process_input(n)
 
 func _on_mushroom_input_event(_camera, _event, _position, _normal, _shape_idx):
 	if(mode == 1):
 		var n = $Vegies/Mushroom
-		if(n.position.z > 64 and n.position.z < 96):
-			reset_vegie(n)
-			score_update(n)
+		process_input(n)
 
 func _on_marinated_tofu_input_event(_camera, _event, _position, _normal, _shape_idx):
 	if(mode == 1):
 		var n = $Vegies/MarinatedTofu
-		if(n.position.z > 64 and n.position.z < 96):
-			reset_vegie(n)
-			score_update(n)
+		process_input(n)
 
 func _on_maize_input_event(_camera, _event, _position, _normal, _shape_idx):
 	if(mode == 1):
 		var n = $Vegies/Maize
-		if(n.position.z > 64 and n.position.z < 96):
-			reset_vegie(n)
-			score_update(n)
+		process_input(n)
 
 func _on_green_pepper_input_event(_camera, _event, _position, _normal, _shape_idx):
 	if(mode == 1):
 		var n = $Vegies/GreenPepper
-		if(n.position.z > 64 and n.position.z < 96):
-			reset_vegie(n)
-			score_update(n)
+		process_input(n)
 
 func _on_grill_input_event(_camera, _event, _position, _normal, _shape_idx):
 	if(mode == 1 and caughtPos == 5 and $Grill.position.z > 1):

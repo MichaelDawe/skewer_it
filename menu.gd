@@ -11,7 +11,7 @@ func _ready():
 		var file = FileAccess.open("user://highscore.res", FileAccess.READ)
 		main.highscore = file.get_32()
 		file.close()
-	$VBoxContainer/Highscore.set_text("highscore: " + str(main.highscore))
+		$VBoxContainer/Highscore.set_text("highscore: " + str(main.highscore))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

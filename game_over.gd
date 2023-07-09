@@ -3,8 +3,11 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	var main = get_node("/root/main")
+	$VBoxContainer/Score.set_text("SCORE: " + str(int(main.score)))
+	$VBoxContainer/Highscore.set_text("HIGHSCORE: " + str(int(main.highscore)))
+	if(main.score > main.highscore):
+		$VBoxContainer/PB.set_text("NEW HIGHSCORE!")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
