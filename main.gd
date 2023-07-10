@@ -79,7 +79,7 @@ func _process(delta):
 	# assign finalSpeed
 	finalSpeed = speedBoost / (1.0 + (backRed * 3)) # makes game slow to almost 1/3 speed at slowest point.
 	# assign speed for stars
-	shaderTime += delta * 0.01 * finalSpeed
+	shaderTime += delta * 0.015 * finalSpeed
 	$MainCamera/Background.get_active_material(0).set_shader_parameter("t", shaderTime)
 	# mouse positions
 	mouseX = get_viewport().get_mouse_position().x + 1

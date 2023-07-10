@@ -58,8 +58,8 @@ size = Vector2(2, 2)
 render_priority = 0
 shader = ExtResource("38_reqji")
 shader_parameter/catch = 0.0
-shader_parameter/damaged = null
-shader_parameter/sparks = 0.835
+shader_parameter/damaged = 0.0
+shader_parameter/sparks = 0.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_sw2bk"]
 material = SubResource("ShaderMaterial_ac0uo")
