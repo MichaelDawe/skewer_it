@@ -39,10 +39,28 @@ theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_h8oic")
 theme_override_font_sizes/font_size = 100
 button_mask = 7
-text = "SPEED: Normal"
+text = "Post Effects"
 flat = true
 
 [node name="Spacer7" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxFlat_qhcnr")
+
+[node name="Audio" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(0.772549, 0.772549, 0.772549, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_h8oic")
+theme_override_font_sizes/font_size = 100
+button_mask = 7
+text = "AUDIO"
+flat = true
+
+[node name="Spacer8" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/separator = SubResource("StyleBoxFlat_qhcnr")
@@ -138,6 +156,7 @@ size_flags_vertical = 3
 theme_override_styles/separator = SubResource("StyleBoxFlat_qhcnr")
 
 [connection signal="pressed" from="VBoxContainer/PostEffects" to="." method="_on_post_effects_pressed"]
+[connection signal="pressed" from="VBoxContainer/Audio" to="." method="_on_audio_pressed"]
 [connection signal="pressed" from="VBoxContainer/Difficulty" to="." method="_on_difficulty_pressed"]
 [connection signal="pressed" from="VBoxContainer/Reset Score" to="." method="_on_reset_score_pressed"]
 [connection signal="pressed" from="VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]

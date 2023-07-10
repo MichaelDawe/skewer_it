@@ -1,10 +1,9 @@
 extends Control
 
-var main
+@onready var main = get_node("/root/main")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	main = get_node("/root/main")
 	pass # Replace with function body.
 
 
@@ -12,11 +11,8 @@ func _ready():
 func _process(_delta):
 	# display score in hud
 	# not ideal setting this every frame, want to make it callable from main
-	$MarginContainer/Score.set_text(
-							main.scoreText 
-							+ str(int(main.score))
-							+ " Bonus: " 
-							+ str(main.bonus - 1))
+	$MarginContainer/Score.set_text(main.scoreText + str(int(main.score)) + 
+									" Bonus: " + str(main.bonus - 1))
 	$MarginContainer/Health.set_text("Tries: " + str(main.health))
 
 func _on_pause_pressed():

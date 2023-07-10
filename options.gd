@@ -2,7 +2,9 @@ extends Control
 
 var speedint = 10
 var speed = "error"
+var audioTxt = "error"
 var postEffects = 1
+@onready var main = get_node("/root/main")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,11 +16,18 @@ func _ready():
 	if(postEffects == 1):
 		$VBoxContainer/PostEffects.set_text("Post Effects On")
 	
-	speedint = get_node("/root/main").speed
+	# change text in speed button
+	speedint = main.speed
 	if(speedint == 10): speed = "normal"
 	elif(speedint == 5): speed = "half" 
 	elif(speedint == 20): speed = "double"
-	$VBoxContainer/Difficulty.set_text("SPEED: " + speed)	
+	$VBoxContainer/Difficulty.set_text("SPEED: " + speed)
+	
+	# change text in audio button
+	if(main.audio == 0): audioTxt = "AUDIO: off" 
+	elif(main.audio == 1): audioTxt = "AUDIO: fx only"
+	elif(main.audio == 2): audioTxt = "AUDIO: on"
+	$VBoxContainer/Audio.set_text(audioTxt)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,13 +37,13 @@ func _process(_delta):
 
 func _on_credits_pressed():
 	var credits = preload("res://credits.tscn").instantiate()
-	get_node("/root/main").add_child(credits)
+	main.add_child(credits)
 	queue_free()
 
 
 func _on_back_pressed():
 	var menu = preload("res://menu.tscn").instantiate()
-	get_node("/root/main").add_child(menu)
+	main.add_child(menu)
 	queue_free()
 
 
@@ -47,7 +56,7 @@ func _on_reset_score_pressed():
 
 func _on_tutorial_pressed():
 	var tutorial = preload("res://tutorial.tscn").instantiate()
-	get_node("/root/main").add_child(tutorial)
+	main.add_child(tutorial)
 	queue_free()
 
 
@@ -58,7 +67,7 @@ func _on_difficulty_pressed():
 	# bad code - remove before publishing
 	# sets the speed value to work with new system, was 0,1,2; now 5,10,20
 	if(speedint != 5 and speedint != 10 and speedint != 20): speedint = 10
-	get_node("/root/main").speed = speedint
+	main.speed = speedint
 	# change text in button
 	speed = "error"
 	if(speedint == 5): speed = "half" 
@@ -81,3 +90,16 @@ func _on_post_effects_pressed():
 		$VBoxContainer/PostEffects.set_text("Post Effects Off")
 	file.store_8(postEffects)
 	file.close()
+
+
+func _on_audio_pressed():
+	main.audio += 1
+	if(main.audio == 3): main.audio = 0
+	var file = FileAccess.open("user://audio.res", FileAccess.WRITE)
+	file.store_8(main.audio)
+	file.close()
+	# change text in button
+	if(main.audio == 0): audioTxt = "AUDIO: off" 
+	elif(main.audio == 1): audioTxt = "AUDIO: fx only"
+	elif(main.audio == 2): audioTxt = "AUDIO: on"
+	$VBoxContainer/Audio.set_text(audioTxt)

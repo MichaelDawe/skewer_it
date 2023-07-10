@@ -35,9 +35,14 @@ var grillAnim = false
 var grillAnimStop = false
 var skewerMouseActive = true # stops the mouse control for the skewer while its being animated
 var shaderTime = 0.0 # separate time for shader to seamlessly apply speed effects
+var audio = 2 # 0 = mute, 1 = fx only, 2 = fx and music
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# set audio mode.
+	if(FileAccess.file_exists("user://audio.res")):
+		var file = FileAccess.open("user://audio.res", FileAccess.READ)
+		audio = file.get_8()
 	# get screen aspect ratio as a float e.g. 1.777... for a 16 / 9 display
 	ratio = float(get_viewport().size.x) / float(get_viewport().size.y)
 	# set shader background
@@ -175,7 +180,7 @@ func clear_skewer():
 		n.position.y = -1024
 
 func pause():
-	$AudioStreamPlayer.stop()
+	pass
 
 func quit_to_menu():
 	grillAnim = false
@@ -249,8 +254,6 @@ func score_add():
 	# make game speed up over time
 	speedBoost += 0.0025
 	update_skewer()
-	# play sound
-	$AudioStreamPlayer.play()
 
 func save_highscore():
 	var tempHighScore = 0
