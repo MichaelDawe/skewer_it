@@ -47,6 +47,7 @@ render_priority = 0
 shader = ExtResource("2_vwy7a")
 shader_parameter/background = Vector3(0, 0.2, 0.6)
 shader_parameter/ratio = 1.865
+shader_parameter/t = null
 
 [sub_resource type="QuadMesh" id="QuadMesh_gmgvh"]
 material = SubResource("ShaderMaterial_qbt2q")
@@ -72,10 +73,11 @@ render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/t = null
 shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("5_dia82")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_a4j7n"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_uhewm"]
 points = PackedVector3Array(2.97093, 2.60615, -0.644113, 2.51843, 2.60615, 1.62973, 2.97093, -2.60666, -0.644113, 2.51843, 2.60615, -2.91795, -2.97093, 2.60666, -0.644113, 2.51843, -2.60666, 1.62973, 1.23013, 2.60615, 3.55732, 2.51843, -2.60666, -2.91795, 1.23013, 2.60615, -4.84555, -2.97093, -2.60666, -0.644113, -0.697366, 2.60615, 4.84555, 1.23013, -2.60666, 3.55732, 1.23013, -2.60666, -4.84555, -0.697366, -2.60666, 4.84555)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k6gds"]
@@ -83,17 +85,19 @@ render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/t = null
 shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("7_5p7gu")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_o7yes"]
-points = PackedVector3Array(-0.79777, -1.33658, -1.57829, -2.36451, -1.33658, -1.07835, -2.41147, -0.0502388, -0.995235, -0.755815, 0.175839, -1.43801, 1.35947, 0.0350636, -1.12779, 1.13654, -1.33658, -1.26714, -3.11969, -1.33658, -0.2614, -3.1986, -0.369731, -0.223395, -2.34321, 0.974437, -0.0528362, -0.776479, 1.33658, -0.39797, 2.65882, -1.33658, -0.111543, 1.15783, 1.11103, -0.183227, 2.68011, 0.274225, 0.61395, 2.91681, -0.487741, 0.148312, -2.687, -1.3078, 1.35736, -2.687, -1.17173, 1.57829, -3.11969, 0.285214, 0.3921, -2.687, -0.926813, 1.51185, 3.1986, -1.02546, 1.14818, 3.12533, -1.30282, 1.19082, 3.01449, -1.0498, 1.52669, 3.12533, -0.801214, 1.34408, 3.01449, -1.25808, 1.49115, 3.01449, -1.17539, 1.53472)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6a6ey"]
+points = PackedVector3Array(-0.755815, -0.202294, -1.4343, -0.776479, 1.18809, -0.730232, 1.35947, -0.257978, -1.09871, -0.79777, -1.69953, -1.17886, -2.41147, -0.306312, -0.948319, -2.34321, 0.927485, -0.303319, 2.68011, 0.42379, 0.52209, 1.15783, 1.02585, -0.464569, 2.65882, -1.31992, 0.238226, 1.13654, -1.61925, -0.878071, 2.91681, -0.43266, 0.269518, -2.36451, -1.57035, -0.695747, -3.1986, -0.415135, -0.120356, -3.11969, 0.377152, 0.304961, -2.687, -0.503889, 1.70001, 3.01449, -0.61893, 1.74631, 3.12533, -0.425876, 1.50556, 3.1986, -0.693552, 1.37432, 3.12533, -0.950204, 1.48735, -2.687, -0.911763, 1.64956, -3.11969, -1.35893, 0.0932605, -2.687, -0.723231, 1.82774, 3.01449, -0.738212, 1.78655, 3.01449, -0.829227, 1.76611)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4bchg"]
 render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/t = null
 shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("9_yo6to")
 
@@ -105,6 +109,7 @@ render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/t = null
 shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("33_jtmga")
 
@@ -116,17 +121,19 @@ render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/t = null
 shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("31_pd8id")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_w4p7d"]
-points = PackedVector3Array(-2.74193, 0.259953, -0.000536442, -2.53365, 0.259953, 1.04889, -2.53365, 1.41837, -0.000536442, -2.53365, 0.259953, -1.04942, -2.53365, -0.898465, -0.000536442, -1.93889, 0.259953, 1.93835, -1.79127, 1.41837, 1.79073, -2.34041, 1.41837, 0.968907, -2.34041, -0.898465, 0.968907, -1.79127, -0.898465, 1.79073, -1.79127, 2.28272, 0.741845, -1.93889, 2.28272, -0.000536442, -1.79127, 2.28272, -0.742381, -2.34041, 1.41837, -0.969443, -1.79127, 1.41837, -1.79127, -1.93889, 0.259953, -1.93889, -1.79127, -0.898465, -1.79127, -2.34041, -0.898465, -0.969443, -1.79127, -1.88033, -0.742381, -1.93889, -1.88033, -0.000536442, -1.79127, -1.88033, 0.741845, -1.04943, 0.259953, 2.53311, -0.969444, 1.41837, 2.33987, -1.3715, 2.28272, 1.37043, -1.3715, -1.88033, 1.37043, -0.969444, -0.898465, 2.33987, -0.742382, 2.67427, 0.741845, -0.969444, 2.67427, 0.40152, -1.04943, 2.67427, -0.000536442, -0.969444, 2.67427, -0.402056, -0.742382, 2.67427, -0.742381, -1.37096, 2.28272, -1.3715, -0.969444, 1.41837, -2.34041, -1.04943, 0.259953, -2.53365, -0.969444, -0.898465, -2.34041, -1.37096, -1.88033, -1.3715, -0.742382, -2.53617, -0.742381, -0.969444, -2.53617, -0.402056, -1.04943, -2.53617, -0.000536442, -0.969444, -2.53617, 0.40152, -0.742382, -2.53617, 0.741845, -0.000537395, 0.259953, 2.74193, -0.000537395, 1.41837, 2.53311, -0.000537395, -0.898465, 2.53311, -0.742382, 2.28272, 1.79073, -0.742382, -1.88033, 1.79073, -0.402057, 2.67427, 0.968907, -0.000537395, 2.76634, -0.000536442, -0.402057, 2.67427, -0.969443, -0.742382, 2.28272, -1.79127, -7.15256e-07, 1.41837, -2.53365, -7.15256e-07, -0.898465, -2.53365, -7.15256e-07, 0.259953, -2.74193, -0.742382, -1.88033, -1.79127, -0.402057, -2.53617, -0.969443, -0.000537395, -2.76634, -0.000536442, -0.402057, -2.53617, 0.968907, 1.04889, 0.259953, 2.53311, 0.968906, 1.41837, 2.33987, 0.741844, 2.28272, 1.79073, -0.000537395, 2.28272, 1.93835, 0.968906, -0.898465, 2.33987, -0.000537395, -1.88033, 1.93835, 0.741844, -1.88033, 1.79073, -0.000537395, 2.67427, 1.04889, -0.000537395, -2.53617, 1.04889, 1.04889, 2.67427, -0.000536442, 0.968906, 2.67427, -0.402056, 0.741844, 2.67427, -0.742381, 0.401519, 2.67427, -0.969443, -7.15256e-07, 2.67427, -1.04942, 0.401519, 2.67427, 0.968907, 0.741844, 2.67427, 0.741845, 0.968906, 2.67427, 0.40152, -7.15256e-07, 2.28272, -1.93889, 0.741844, 2.28272, -1.79127, 0.968906, 1.41837, -2.34041, 1.04889, 0.259953, -2.53365, 0.968906, -0.898465, -2.34041, 0.741844, -1.88033, -1.79127, -7.15256e-07, -1.88033, -1.93889, -7.15256e-07, -2.53617, -1.04942, 0.401519, -2.53617, -0.969443, 0.741844, -2.53617, -0.742381, 0.968906, -2.53617, -0.402056, 1.04889, -2.53617, -0.000536442, 0.968906, -2.53617, 0.40152, 0.741844, -2.53617, 0.741845, 0.401519, -2.53617, 0.968907, 1.93835, 0.259953, 1.93835, 1.79073, 1.41837, 1.79073, 1.79073, -0.898465, 1.79073, 1.37043, 2.28272, 1.37043, 1.37043, -1.88033, 1.37043, 1.79073, 2.28272, 0.741845, 1.93835, 2.28272, -0.000536442, 1.79073, 2.28272, -0.742381, 1.37043, 2.28272, -1.37096, 1.79073, 1.41837, -1.79127, 1.93835, 0.259953, -1.93889, 1.79073, -0.898465, -1.79127, 1.37043, -1.88033, -1.37096, 1.79073, -1.88033, -0.742381, 1.93835, -1.88033, -0.000536442, 1.79073, -1.88033, 0.741845, 2.53311, 0.259953, 1.04889, 2.33987, 1.41837, 0.968907, 2.33987, -0.898465, 0.968907, 2.53311, 1.41837, -0.000536442, 2.33987, 1.41837, -0.969443, 2.53311, 0.259953, -1.04942, 2.33987, -0.898465, -0.969443, 2.53311, -0.898465, -0.000536442, 2.74193, 0.259953, -0.000536442)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_fp44m"]
+points = PackedVector3Array(-0.000537395, -2.67931, -0.212037, -0.969444, -2.49326, -0.261705, -0.742382, -2.21687, -1.35223, -0.000537395, -2.35936, -1.31403, 0.741844, -2.21687, -1.35223, 0.968906, -2.49326, -0.261705, -0.000537395, -2.58144, 0.960907, -1.79127, -1.96307, -0.404162, -1.04943, -2.3798, 0.906872, -1.3715, -1.81089, -1.46139, -0.402057, -1.59312, -2.19878, -0.000537395, -1.67001, -2.17804, 0.401519, -1.59312, -2.19878, 1.37043, -1.81089, -1.46139, 1.79073, -1.96307, -0.404162, 1.04889, -2.3798, 0.906872, -0.000537395, -2.08029, 2.02578, -2.34041, -1.16886, -0.616481, -1.93889, -1.80551, 0.752954, -2.53365, -0.946241, 0.522622, -0.969444, -1.8937, 1.97557, -1.79127, -1.36351, 1.83366, -1.79127, -1.20327, -1.62404, -0.969444, -1.04464, -2.34615, -0.742382, -1.37319, -2.25773, -0.000537395, -0.716098, -2.67254, 0.741844, -1.37319, -2.25773, 0.968906, -1.04464, -2.34615, 1.79073, -1.20327, -1.62404, 2.33987, -1.16886, -0.616481, 2.53311, -0.946241, 0.522622, 1.93835, -1.80551, 0.752954, 1.79073, -1.36351, 1.83366, 0.968906, -1.8937, 1.97557, 0.741844, -1.13982, 2.6682, -0.000537395, -1.28231, 2.7064, -0.742382, -1.13982, 2.6682, -2.53365, -0.23269, -0.867554, -2.34041, -0.569301, 1.62079, -2.53365, 0.366866, 1.36972, -2.74193, 0.0673571, 0.251355, -1.3715, -0.733843, 2.55958, -1.93889, -0.48703, -1.81617, -1.04943, -0.656411, -2.44985, 0.401519, 0.279756, -2.70093, 0.741844, 0.059829, -2.64198, 0.968906, -0.268717, -2.55356, 1.04889, -0.656411, -2.44985, -0.969444, -0.268717, -2.55356, -0.742382, 0.059829, -2.64198, -0.402057, 0.279756, -2.70093, -7.15256e-07, 0.356649, -2.72112, 1.93835, -0.48703, -1.81617, 2.53311, -0.23269, -0.867554, 2.53311, 0.366866, 1.36972, 2.33987, -0.569301, 1.62079, 2.74193, 0.0668192, 0.251355, 1.79073, -0.126221, 2.39693, 1.37043, -0.733843, 2.55958, 0.401519, -0.244519, 2.83412, -0.000537395, -0.321413, 2.85432, -0.402057, -0.244519, 2.83412, -2.53365, 1.08042, -0.020458, -2.34041, 0.703477, -1.11863, -1.79127, 0.229748, -2.00829, -1.79127, -0.126221, 2.39693, -2.34041, 1.30303, 1.11919, -1.93889, 0.590556, 2.20481, -1.79127, 1.30733, 2.01268, -0.742382, -0.0245929, 2.77518, -7.15256e-07, 1.38584, -2.31777, 0.741844, 1.24335, -2.27956, 1.37043, 0.837369, -2.17095, 1.79073, 0.229748, -2.00829, -1.37096, 0.837369, -2.17095, -0.742382, 1.24335, -2.27956, 2.33987, 0.703477, -1.11863, 2.53311, 1.08042, -0.020458, 2.33987, 1.30303, 1.11919, 1.79073, 1.30733, 2.01268, 1.93835, 0.590556, 2.20481, 1.04889, 0.692185, 2.58305, 0.968906, 0.303953, 2.68675, 0.741844, -0.0245929, 2.77518, -0.000537395, 0.715845, 2.67202, -1.93889, 1.93969, -0.250789, -1.79127, 1.49769, -1.33149, -1.79127, 2.09724, 0.906326, -0.969444, 0.303953, 2.68675, -1.04943, 0.692185, 2.58305, -0.969444, 1.07988, 2.47935, -1.37096, 1.91496, 1.85003, -7.15256e-07, 2.21446, -1.52307, 0.968906, 2.02788, -1.4734, 1.79073, 1.49769, -1.33149, -0.969444, 2.02788, -1.4734, 1.93835, 1.93969, -0.250789, 1.79073, 2.09724, 0.906326, 1.37043, 1.91496, 1.85003, 0.968906, 1.07988, 2.47935, 0.741844, 1.40843, 2.39093, 0.401519, 1.62835, 2.33198, -7.15256e-07, 1.70525, 2.31124, -0.402057, 1.62835, 2.33198, -0.742382, 1.40843, 2.39093, -1.04943, 2.51397, -0.404707, -0.742382, 2.32093, 1.74087, -0.969444, 2.62743, 0.76387, -7.15256e-07, 2.71562, -0.458743, 1.04889, 2.51397, -0.404707, 0.968906, 2.62743, 0.76387, 0.741844, 2.32093, 1.74087, -7.15256e-07, 2.46343, 1.70266, -7.15256e-07, 2.81402, 0.714201)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y86ag"]
 render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/t = null
 shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("29_ep6vy")
 
@@ -138,17 +145,19 @@ render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/t = null
 shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("27_hhv0u")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rngt8"]
-points = PackedVector3Array(-4.0669, -1.88322, 0.79616, -3.47533, -1.88322, -0.366046, -3.67915, -3.02457, 0.922256, -3.9204, 0.0837603, 0.843905, -3.35033, 0.0837603, -0.275453, -2.55256, -1.88322, -1.2883, -2.31291, -3.02457, -0.958167, -3.14492, -3.02457, -0.126504, -2.94109, -3.88334, 1.1618, -1.92517, -4.42271, 1.49193, -0.102706, -4.70161, 2.08446, -0.102706, 4.70161, 2.08446, -2.94109, 1.85561, 1.1618, -2.51673, 1.85561, 0.330135, -1.85669, 1.85561, -0.330543, -2.46179, 0.0837603, -1.16343, -1.39093, -1.88322, -1.88042, -1.26434, -3.02457, -1.49234, -1.85669, -3.88334, -0.330543, -2.51673, -3.88334, 0.330135, -1.65287, -4.42271, 0.957759, -1.22851, -4.42271, 0.534174, -0.694269, -4.42271, 0.261986, -0.102706, -4.42271, 0.168128, 0.489654, -4.42271, 0.261986, 1.02389, -4.42271, 0.534174, 1.44746, -4.42271, 0.957759, 1.71975, -4.42271, 1.49193, 1.8137, -4.42271, 2.08446, 0.558125, 4.44388, 2.08446, 0.525482, 4.44388, 1.88001, 0.431532, 4.44388, 1.69597, 0.285831, 4.44388, 1.54988, 0.101913, 4.44388, 1.45643, -0.102706, 4.44388, 1.42378, -0.306528, 4.44388, 1.45643, -0.490446, 4.44388, 1.54988, -0.636944, 4.44388, 1.69597, -0.730097, 4.44388, 1.88001, -1.02468, 1.85561, -0.754128, -1.34316, 0.0837603, -1.73351, -0.102706, -1.88322, -2.08446, -0.102706, -3.02457, -1.67638, -0.102706, 0.0837603, -1.93021, -0.102706, -3.88334, -0.90022, -1.02468, -3.88334, -0.754128, 0.820069, -3.88334, -0.754128, 1.65208, -3.88334, -0.330543, 2.31211, -3.88334, 0.330135, 2.73648, -3.88334, 1.1618, 2.88218, -3.88334, 2.08446, 2.88218, 1.85561, 2.08446, 2.73648, 1.85561, 1.1618, 2.31211, 1.85561, 0.330135, 1.65208, 1.85561, -0.330543, 0.820069, 1.85561, -0.754128, -0.102706, 1.85561, -0.90022, 1.18552, -1.88322, -1.88042, 1.05972, -3.02457, -1.49234, 1.13775, 0.0837603, -1.73351, 2.10829, -3.02457, -0.958167, 2.9403, -3.02457, -0.126504, 3.47454, -3.02457, 0.922256, 3.65846, -3.02457, 2.08446, 3.91164, 0.0837603, 2.08446, 3.71578, 0.0837603, 0.843905, 3.14492, 0.0837603, -0.275453, 2.25718, 0.0837603, -1.16343, 2.34794, -1.88322, -1.2883, 3.26992, -1.88322, -0.366046, 3.86228, -1.88322, 0.79616, 4.0661, -1.88322, 2.08446)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xxf6v"]
+points = PackedVector3Array(4.0661, -2.08446, -1.32588, 3.65846, -2.08446, -2.46723, 3.86228, -0.796569, -1.32588, 3.71578, -0.844315, 0.641098, 3.91164, -2.08446, 0.641098, 2.88218, -2.08446, -3.326, 2.73648, -1.16221, -3.326, 3.47454, -0.922666, -2.46723, 2.9403, 0.126095, -2.46723, 3.26992, 0.365637, -1.32588, 3.14492, 0.275044, 0.641098, 2.73648, -1.16221, 2.41294, 2.88218, -2.08446, 2.41294, 1.8137, -2.08446, -3.86537, 1.71975, -1.49234, -3.86537, 1.44746, -0.958168, -3.86537, 2.31211, -0.330544, -3.326, 2.10829, 0.957758, -2.46723, 2.34794, 1.28789, -1.32588, 1.65208, 0.330134, -3.326, 2.25718, 1.16302, 0.641098, 1.65208, 0.330134, 2.41294, 2.31211, -0.330544, 2.41294, 0.525482, -1.88042, 5.00122, 0.558125, -2.08446, 5.00122, -0.102706, -2.08446, -4.14427, 1.02389, -0.534583, -3.86537, 1.05972, 1.49193, -2.46723, 1.18552, 1.88002, -1.32588, 0.820069, 0.753719, -3.326, 0.489654, -0.262395, -3.86537, 1.13775, 1.73311, 0.641098, 0.820069, 0.753719, 2.41294, 0.285831, -1.55029, 5.00122, 0.431532, -1.69638, 5.00122, -0.102706, -2.08446, 5.25894, -3.67915, -0.922666, -2.46723, -1.92517, -1.49234, -3.86537, -1.65287, -0.958168, -3.86537, -1.22851, -0.534583, -3.86537, -0.694269, -0.262395, -3.86537, -0.102706, -0.168537, -3.86537, -1.09793, -1.76127, 4.02924, -0.102706, 1.67598, -2.46723, -0.102706, 2.08446, -1.32588, -0.102706, 0.899811, -3.326, -0.102706, 1.9298, 0.641098, -0.102706, 0.899811, 2.41294, -0.102706, -1.42419, 5.00122, 0.101913, -1.45684, 5.00122, -0.306528, -1.45684, 5.00122, -0.490446, -1.55029, 5.00122, -0.636944, -1.69638, 5.00122, -0.730097, -1.88042, 5.00122, -4.0669, -0.796569, -1.32588, -3.47533, 0.365637, -1.32588, -3.14492, 0.126095, -2.46723, -2.94109, -1.16221, -3.326, -3.9204, -0.844315, 0.641098, -2.51673, -0.330544, -3.326, -1.85669, 0.330134, -3.326, -1.02468, 0.753719, -3.326, -2.94109, -1.16221, 2.41294, -1.26434, 1.49193, -2.46723, -1.39093, 1.88002, -1.32588, -1.34316, 1.73311, 0.641098, -1.02468, 0.753719, 2.41294, -1.85669, 0.330134, 2.41294, -2.51673, -0.330544, 2.41294, -3.35033, 0.275044, 0.641098, -2.55256, 1.28789, -1.32588, -2.31291, 0.957758, -2.46723, -2.46179, 1.16302, 0.641098)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_68a3i"]
 render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/t = null
 shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("25_42v72")
 
@@ -160,6 +169,7 @@ render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/t = null
 shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("23_5ao0t")
 
@@ -171,6 +181,7 @@ render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/t = null
 shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("21_f3dqv")
 
@@ -182,6 +193,7 @@ render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/t = null
 shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("19_cgdbg")
 
@@ -193,39 +205,43 @@ render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/t = null
 shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("17_smpgd")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2x2q3"]
-points = PackedVector3Array(-0.00606251, 3.52703, 2.03361, 0.0535555, 3.33507, 0.76198, -0.549698, 3.33507, 0.846543, -1.08525, 3.33576, 1.14524, -1.43993, 3.33645, 1.64217, -1.50965, 3.33714, 2.11636, 1.50056, 3.33714, 2.03361, 1.41568, 3.33645, 1.61171, 1.12365, 3.33576, 1.19162, 0.649736, 3.33576, 0.887916, 0.100037, 3.05611, -0.220501, -0.970056, 3.05611, -0.0704696, -1.91889, 3.0568, 0.459188, -2.54741, 3.05819, 1.34028, -2.6717, 3.05957, 2.18046, 2.66563, 3.05957, 2.03407, 2.51406, 3.05819, 1.28618, 1.9967, 3.0568, 0.540569, 1.15699, 3.05611, 0.00272775, 0.14753, 2.4105, -1.22753, -1.40052, 2.4105, -1.01021, -2.77375, 2.41189, -0.243688, -3.68419, 2.41396, 1.03067, -3.86305, 2.41603, 2.24684, 3.85901, 2.41534, 2.03543, 3.64074, 2.41396, 0.952475, 2.89198, 2.41189, -0.125936, 1.67739, 2.4105, -0.904283, 0.195022, 1.37339, -2.24229, 2.20183, 1.37408, -1.81811, -1.83502, 1.37339, -1.95678, -3.63569, 1.37546, -0.95202, -4.82906, 1.37753, 0.719698, -5.0645, 1.38029, 2.31458, 5.06349, 1.3796, 2.0368, 4.77652, 1.37753, 0.616949, 3.79433, 1.37546, -0.796987, 2.24427, -0.0662873, -1.8904, 0.198053, -0.0669777, -2.32231, -1.87039, -0.0662873, -2.03179, 3.8681, -0.0642159, -0.849726, -3.70642, -0.0649064, -1.00749, -4.92202, -0.0621443, 0.696511, -5.16151, -0.0593824, 2.32231, 5.1605, -0.0600729, 2.03907, 4.86847, -0.0621443, 0.591944, 1.96335, -1.29053, -1.39711, 0.172791, -1.29053, -1.77538, -1.63697, -1.29053, -1.52078, -3.24363, -1.28915, -0.624678, 4.25915, -1.28708, 0.77471, 3.38307, -1.28915, -0.486467, -4.30766, -1.28639, 0.866093, -4.51783, -1.28431, 2.28867, 4.5148, -1.285, 2.04089, 1.13072, -3.52703, 1.19662, 0.654788, -3.52703, 0.891098, 0.0545659, -3.52703, 0.764253, -0.55273, -3.52703, 0.849726, -1.09232, -3.52703, 1.15024, 1.51066, -3.52565, 2.04452, 1.42477, -3.52634, 1.61989, -1.44902, -3.52565, 1.65035, -1.51874, -3.52496, 2.12772, -0.00606251, -3.52565, 2.04452)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_c1d52"]
+points = PackedVector3Array(-1.09232, -1.1507, -3.90491, -0.00606251, -2.04498, -3.90353, -1.51874, -2.12818, -3.90284, -1.44902, -1.6508, -3.90353, -4.30766, -0.866548, -1.66427, -3.24363, 0.624223, -1.66703, -1.63697, 1.52032, -1.66841, -0.55273, -0.85018, -3.90491, 1.13072, -1.19707, -3.90491, 1.51066, -2.04498, -3.90353, -4.51783, -2.28912, -1.66219, 4.5148, -2.04134, -1.66288, -4.92202, -0.696966, -0.440025, -3.70642, 1.00703, -0.442787, -1.87039, 2.03134, -0.444168, 0.198053, 2.32231, -0.444858, 0.172791, 1.77492, -1.66841, 0.0545659, -0.764708, -3.90491, 1.42477, -1.62034, -3.90422, 0.654788, -0.891553, -3.90491, 1.96335, 1.39666, -1.66841, 3.38307, 0.486012, -1.66703, 4.25915, -0.775164, -1.66496, -5.16151, -2.32231, -0.437263, 5.1605, -2.03952, -0.437953, 4.86847, -0.592399, -0.440025, -5.0645, -2.31504, 1.00241, -4.82906, -0.720153, 0.99965, -3.63569, 0.951566, 0.997578, -1.83502, 1.95632, 0.995507, 0.195022, 2.24184, 0.995507, 2.24427, 1.88995, -0.444168, 3.8681, 0.849271, -0.442096, 5.06349, -2.03725, 1.00172, 4.77652, -0.617404, 0.99965, -3.86305, -2.24729, 2.03815, -3.68419, -1.03113, 2.03608, 3.85901, -2.03589, 2.03746, -2.77375, 0.243233, 2.03401, -1.40052, 1.00976, 2.03262, 0.14753, 1.22708, 2.03262, 2.20183, 1.81766, 0.996197, 3.79433, 0.796533, 0.997578, 3.64074, -0.952929, 2.03608, -2.6717, -2.18092, 2.68169, -2.54741, -1.34074, 2.68031, -1.91889, -0.459643, 2.67892, 2.66563, -2.03452, 2.68169, -0.970056, 0.0700147, 2.67823, 0.100037, 0.220047, 2.67823, 1.15699, -0.00318265, 2.67823, 1.67739, 0.903828, 2.03262, 2.89198, 0.125481, 2.03401, 1.9967, -0.541024, 2.67892, 2.51406, -1.28664, 2.68031, -1.50965, -2.11681, 2.95926, -1.43993, -1.64262, 2.95857, -1.08525, -1.1457, 2.95788, 1.50056, -2.03407, 2.95926, 1.41568, -1.61216, 2.95857, -0.549698, -0.846998, 2.95719, 0.649736, -0.88837, 2.95788, 0.0535555, -0.762434, 2.95719, 1.12365, -1.19207, 2.95788, -0.00606251, -2.03407, 3.14915)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d2lm2"]
 render_priority = 0
 shader = ExtResource("4_6g46a")
-shader_parameter/ratio = null
-shader_parameter/pozition = 0.0
-shader_parameter/background = null
+shader_parameter/ratio = 1.7
+shader_parameter/pozition = 70.49
+shader_parameter/t = null
+shader_parameter/background = Vector3(0, 0.185, 0.695)
 shader_parameter/textureImage = ExtResource("15_17qfx")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_yufos"]
-points = PackedVector3Array(-2.49264, -3.81618, -5.50152, -2.49264, -3.37689, -5.94117, 2.49206, -3.81618, -5.50152, -2.49264, -3.81618, 5.50035, -2.93238, -3.37689, -5.50152, 2.49206, -3.37689, -5.94117, -2.49264, 3.37614, -5.94117, 2.93181, -3.37689, -5.50152, 2.49206, -3.81618, 5.50035, -2.49264, -3.37689, 5.94001, -2.93238, -3.37689, 5.50035, -2.93238, 3.37614, -5.50152, 2.49206, 3.37614, -5.94117, -2.49264, 3.81543, -5.50152, 2.93181, 3.37614, -5.50152, 2.93181, -3.37689, 5.50035, 2.49206, -3.37689, 5.94001, -2.49264, 3.37614, 5.94001, -2.93238, 3.37614, 5.50035, 2.49206, 3.81543, -5.50152, -2.49264, 3.81543, 5.50035, 2.93181, 3.37614, 5.50035, 2.49206, 3.37614, 5.94001, 2.49206, 3.81543, 5.50035)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0oguj"]
+points = PackedVector3Array(3.81544, 2.49206, 5.50035, 3.37614, 2.49206, 5.94001, 3.81544, -2.49264, 5.50035, 3.81544, 2.49206, -5.50152, 3.37614, 2.93181, 5.50035, 3.37614, -2.49264, 5.94001, -3.37689, 2.49206, 5.94001, 3.37614, -2.93238, 5.50035, 3.81544, -2.49264, -5.50152, 3.37614, 2.49206, -5.94117, 3.37614, 2.93181, -5.50152, -3.37689, 2.93181, 5.50035, -3.37689, -2.49264, 5.94001, -3.81618, 2.49206, 5.50035, -3.37689, -2.93238, 5.50035, 3.37614, -2.93238, -5.50152, 3.37614, -2.49264, -5.94117, -3.37689, 2.49206, -5.94117, -3.37689, 2.93181, -5.50152, -3.81618, -2.49264, 5.50035, -3.81618, 2.49206, -5.50152, -3.37689, -2.93238, -5.50152, -3.37689, -2.49264, -5.94117, -3.81618, -2.49264, -5.50152)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bycw5"]
 render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/t = null
 shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("13_i3py4")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_4ijf8"]
-points = PackedVector3Array(0, -2.35314, 4.33264, -0.900623, -2.1744, 4.33264, 0, -2.31628, -4.33264, 0.900163, -2.1744, 4.33264, -1.66397, -1.66397, 4.33264, -1.63771, -1.63771, -4.33264, -0.886343, -2.13985, -4.33264, 0.885882, -2.13985, -4.33264, 1.63725, -1.63771, -4.33264, 1.6635, -1.66397, 4.33264, -2.1744, -0.900624, 4.33264, -2.13984, -0.886343, -4.33264, 2.13938, -0.886343, -4.33264, 2.17393, -0.900624, 4.33264, -2.35314, 0, 4.33264, -2.31628, 0, -4.33264, 2.31582, 0, -4.33264, 2.35314, 0, 4.33264, -2.1744, 0.900163, 4.33264, -2.13984, 0.885882, -4.33264, 2.13938, 0.885882, -4.33264, 2.17393, 0.900163, 4.33264, -1.66397, 1.66351, 4.33264, -1.63771, 1.63725, -4.33264, 1.63725, 1.63725, -4.33264, 1.6635, 1.66351, 4.33264, -0.900623, 2.17394, 4.33264, -0.886343, 2.13938, -4.33264, 0.885882, 2.13938, -4.33264, 0.900163, 2.17394, 4.33264, 0, 2.35314, 4.33264, 0, 2.31582, -4.33264)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7r28p"]
+points = PackedVector3Array(9.53674e-07, -2.05045, -4.33264, -0.784774, -1.8947, -4.33264, 0.784374, -1.8947, -4.33264, 9.53674e-07, -1.74096, 4.33264, -0.666355, -1.60849, 4.33264, -1.23115, -1.23115, 4.33264, -1.44993, -1.44993, -4.33264, 1.44953, -1.44993, -4.33264, 1.23075, -1.23115, 4.33264, 0.665956, -1.60849, 4.33264, -1.60849, -0.666357, 4.33264, -1.8947, -0.784776, -4.33264, 1.8943, -0.784776, -4.33264, 1.60809, -0.666357, 4.33264, -1.74095, 0, 4.33264, -2.05045, 0, -4.33264, 2.05045, 0, -4.33264, 1.74056, 0, 4.33264, -1.60849, 0.665955, 4.33264, -1.8947, 0.784374, -4.33264, 1.8943, 0.784374, -4.33264, 1.60809, 0.665955, 4.33264, -1.23115, 1.23075, 4.33264, -1.44993, 1.44953, -4.33264, 1.44953, 1.44953, -4.33264, 1.23075, 1.23075, 4.33264, -0.666355, 1.60809, 4.33264, -0.784774, 1.8943, -4.33264, 0.784374, 1.8943, -4.33264, 0.665956, 1.60809, 4.33264, 9.53674e-07, 1.74056, 4.33264, 9.53674e-07, 2.05045, -4.33264)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hi0xi"]
 render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/t = null
 shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("11_2pxnw")
 
@@ -242,6 +258,7 @@ render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/t = null
 shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("5_dia82")
 
@@ -250,6 +267,7 @@ render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/t = null
 shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("7_5p7gu")
 
@@ -258,6 +276,7 @@ render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/t = null
 shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("9_yo6to")
 
@@ -266,6 +285,7 @@ render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/t = null
 shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("33_jtmga")
 
@@ -274,6 +294,7 @@ render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/t = null
 shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("31_pd8id")
 
@@ -282,6 +303,7 @@ render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/t = null
 shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("29_ep6vy")
 
@@ -290,6 +312,7 @@ render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/t = null
 shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("27_hhv0u")
 
@@ -298,6 +321,7 @@ render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/t = null
 shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("25_42v72")
 
@@ -306,6 +330,7 @@ render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/t = null
 shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("23_5ao0t")
 
@@ -314,6 +339,7 @@ render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/t = null
 shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("21_f3dqv")
 
@@ -322,6 +348,7 @@ render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/t = null
 shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("19_cgdbg")
 
@@ -330,6 +357,7 @@ render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/t = null
 shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("17_smpgd")
 
@@ -338,6 +366,7 @@ render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = 0.0
+shader_parameter/t = null
 shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("15_17qfx")
 
@@ -346,6 +375,7 @@ render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/t = null
 shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("13_i3py4")
 
@@ -354,6 +384,7 @@ render_priority = 0
 shader = ExtResource("4_6g46a")
 shader_parameter/ratio = null
 shader_parameter/pozition = null
+shader_parameter/t = null
 shader_parameter/background = null
 shader_parameter/textureImage = ExtResource("11_2pxnw")
 
@@ -405,7 +436,7 @@ skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("ShaderMaterial_wkfuj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Vegies/Aubergine"]
-shape = SubResource("ConvexPolygonShape3D_a4j7n")
+shape = SubResource("ConvexPolygonShape3D_uhewm")
 
 [node name="Garlic" type="StaticBody3D" parent="Vegies"]
 metadata/number = 2
@@ -416,7 +447,7 @@ skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("ShaderMaterial_k6gds")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Vegies/Garlic"]
-shape = SubResource("ConvexPolygonShape3D_o7yes")
+shape = SubResource("ConvexPolygonShape3D_6a6ey")
 
 [node name="Gerkin" type="StaticBody3D" parent="Vegies"]
 metadata/number = 3
@@ -449,7 +480,7 @@ skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("ShaderMaterial_oaqbl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Vegies/Tomato"]
-shape = SubResource("ConvexPolygonShape3D_w4p7d")
+shape = SubResource("ConvexPolygonShape3D_fp44m")
 
 [node name="Tofu" type="StaticBody3D" parent="Vegies"]
 metadata/number = 6
@@ -471,7 +502,7 @@ skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("ShaderMaterial_rls5l")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Vegies/Shallot"]
-shape = SubResource("ConvexPolygonShape3D_rngt8")
+shape = SubResource("ConvexPolygonShape3D_xxf6v")
 
 [node name="Sausage" type="StaticBody3D" parent="Vegies"]
 metadata/number = 8
@@ -526,7 +557,7 @@ skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("ShaderMaterial_d5182")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Vegies/Mushroom"]
-shape = SubResource("ConvexPolygonShape3D_2x2q3")
+shape = SubResource("ConvexPolygonShape3D_c1d52")
 
 [node name="MarinatedTofu" type="StaticBody3D" parent="Vegies"]
 metadata/number = 13
@@ -537,7 +568,7 @@ skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("ShaderMaterial_d2lm2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Vegies/MarinatedTofu"]
-shape = SubResource("ConvexPolygonShape3D_yufos")
+shape = SubResource("ConvexPolygonShape3D_0oguj")
 
 [node name="Maize" type="StaticBody3D" parent="Vegies"]
 metadata/number = 14
@@ -548,7 +579,7 @@ skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("ShaderMaterial_bycw5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Vegies/Maize"]
-shape = SubResource("ConvexPolygonShape3D_4ijf8")
+shape = SubResource("ConvexPolygonShape3D_7r28p")
 
 [node name="GreenPepper" type="StaticBody3D" parent="Vegies"]
 metadata/number = 15
@@ -657,7 +688,7 @@ skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("ShaderMaterial_7ujxe")
 
 [node name="Grill" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8, -64)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
 
 [node name="Grill" type="MeshInstance3D" parent="Grill"]
 transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)

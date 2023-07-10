@@ -4,6 +4,7 @@ render_mode unshaded;
 uniform float ratio;
 uniform sampler2D textureImage : source_color;
 uniform float pozition;
+uniform float t;
 
 uniform vec3 background;
 
@@ -24,7 +25,6 @@ void fragment() {
 		ALBEDO += background * ((1.0 - NORMAL.z) * ((pozition - 64.0) / 32.0));
 		
 		if(pozition > 90.0) {
-			float t = TIME * 0.01;
 		    float layers = 5.0;
 		    float scale = 20.0;
 			

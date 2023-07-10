@@ -3,6 +3,7 @@ render_mode unshaded;
 
 uniform vec3 background;
 uniform float ratio;
+uniform float t;
 
 float random(vec2 par){
    return fract(sin(dot(par.xy,vec2(12.9898,78.233))) * 43758.5453);
@@ -14,7 +15,6 @@ vec2 random2(vec2 par){
 }
 
 void fragment() {
-	float t = TIME * 0.01;
     float layers = 5.0;
     float scale = 20.0;
 	

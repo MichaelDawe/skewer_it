@@ -34,6 +34,7 @@ var finalSpeed = 1.0 	# combo of speedBoost and backRed for slow mo etc,
 var grillAnim = false
 var grillAnimStop = false
 var skewerMouseActive = true # stops the mouse control for the skewer while its being animated
+var shaderTime = 0.0 # separate time for shader to seamlessly apply speed effects
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -77,7 +78,9 @@ func _ready():
 func _process(delta):
 	# assign finalSpeed
 	finalSpeed = speedBoost / (1.0 + (backRed * 3)) # makes game slow to almost 1/3 speed at slowest point.
-	
+	# assign speed for stars
+	shaderTime += delta * 0.01 * finalSpeed
+	$MainCamera/Background.get_active_material(0).set_shader_parameter("t", shaderTime)
 	# mouse positions
 	mouseX = get_viewport().get_mouse_position().x + 1
 	mouseY = get_viewport().get_mouse_position().y + 1
@@ -98,6 +101,7 @@ func _process(delta):
 			# set location in shader for pickup effects
 			n.get_child(0).get_active_material(0).set_shader_parameter("pozition", n.position.z)
 			n.get_child(0).get_active_material(0).set_shader_parameter("background", background)
+			n.get_child(0).get_active_material(0).set_shader_parameter("t", shaderTime)
 			# process postion and rotation
 			var rotationMeta = n.get_meta("rotation")
 			if(n.get_meta("spawned")):
@@ -116,15 +120,15 @@ func _process(delta):
 					reset_vegie(n)
 		# process grill
 		if(grillAnim):
-			$Grill.position.z += 20 * delta * finalSpeed * 2
-			$Grill/Grill.scale += Vector3(0.3, 0.3, 0.3) * delta * finalSpeed * 2
+			$Grill.position.z += 20 * delta * finalSpeed
+			$Grill/Grill.scale += Vector3(0.3, 0.3, 0.3) * delta * finalSpeed
 			$Grill/CollisionShape3D.scale = $Grill/Grill.scale + Vector3(0.1, 0.1, 0.1)
 			$Grill.rotation = Vector3(0.1, 0.0, 0.0)
-			if($Grill.position.z > 128):
+			if($Grill.position.z > 64):
 				if(grillAnimStop):
 					grillAnim = false
 					grillAnimStop = false
-				$Grill.position.z = -64
+				$Grill.position.z = 0
 				$Grill/Grill.scale = Vector3(0.0, 0.0, 0.0)
 				$Grill/CollisionShape3D.scale = Vector3(0.01, 0.01, 0.01)
 					
@@ -173,7 +177,7 @@ func clear_skewer():
 func quit_to_menu():
 	grillAnim = false
 	grillAnimStop = false
-	$Grill.position.z = -64
+	$Grill.position.z = 0
 	$Grill/Grill.scale = Vector3(0.0, 0.0, 0.0)
 	$Grill/CollisionShape3D.scale = Vector3(0.01, 0.01, 0.01)
 	# reset playtime to prevent starting in slow mode
@@ -295,16 +299,18 @@ func wrong_piece():
 	# reset counter
 	caughtPos = 0
 	clear_skewer()
-	grillAnimStop = true
+	if(grillAnim): grillAnimStop = true
 
 func process_input(n):
 	var nZ = n.position.z
 	if(nZ > 64 and nZ < 96):
 		# make it a bit easier to catch items when you want to without affecting when you don't want them
 		if(nZ > 90):
-			if(n.get_meta("number") not in caught and caughtPos <= 5):
+			if(n.get_meta("number") not in caught and caughtPos < 5):
 				reset_vegie(n)
 				score_update(n)
+			else:
+				pass # is this nessesary?
 		else:
 			reset_vegie(n)
 			score_update(n)
@@ -385,7 +391,7 @@ func _on_green_pepper_input_event(_camera, _event, _position, _normal, _shape_id
 		process_input(n)
 
 func _on_grill_input_event(_camera, _event, _position, _normal, _shape_idx):
-	if(mode == 1 and caughtPos == 5 and $Grill.position.z > 1):
+	if(mode == 1 and caughtPos == 5 and $Grill.position.z > 32):
 		# stop grill after animation cycle
 		grillAnimStop = true
 		# clear skewer etc.
