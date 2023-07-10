@@ -1,3 +1,8 @@
+// License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+// By Michael Dawe, partially based on:
+// The Universe Within - by Martijn Steinrucken aka BigWings 2018
+// Email:countfrolic@gmail.com Twitter:@The_ArtOfCode
+
 shader_type spatial;
 render_mode unshaded;
 
@@ -19,7 +24,7 @@ void fragment() {
 	vig = pow(vig, 0.5);
 	
 	col *= 1.0 + (catch * vig);
-	col = mix(col, (col * vec3(1.0, 0.0, 0.0)) + vec3(0.2, 0.0, 0.0), vig * damaged);
+	col = mix(col, (col * vec3(1.0, 0.0, 0.0)) + vec3(0.4, 0.0, 0.0), vig * damaged);
 	
 	col += ((1.0 - UV.y) * sparks * vec3(1.0, 0.4, 0.05));
 	

@@ -1,3 +1,5 @@
+Unless otherwise stated in the source file, all source is under the following licence.
+
 MIT License
 
 Copyright (c) 2023 Michael Dawe

@@ -1,3 +1,9 @@
+// License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+// By Michael Dawe, partially based on:
+// The Universe Within - by Martijn Steinrucken aka BigWings 2018
+// Email:countfrolic@gmail.com Twitter:@The_ArtOfCode
+
+
 shader_type spatial;
 render_mode unshaded;
 

@@ -20,6 +20,7 @@ func _process(_delta):
 	$MarginContainer/Health.set_text("Tries: " + str(main.health))
 
 func _on_pause_pressed():
+	main.pause()
 	# pause the main scene
 	main.mode = 2
 	# spawn pause menu

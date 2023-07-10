@@ -174,6 +174,9 @@ func clear_skewer():
 	for n in $Skewer.get_children():
 		n.position.y = -1024
 
+func pause():
+	$AudioStreamPlayer.stop()
+
 func quit_to_menu():
 	grillAnim = false
 	grillAnimStop = false
@@ -246,6 +249,8 @@ func score_add():
 	# make game speed up over time
 	speedBoost += 0.0025
 	update_skewer()
+	# play sound
+	$AudioStreamPlayer.play()
 
 func save_highscore():
 	var tempHighScore = 0
@@ -261,6 +266,7 @@ func save_highscore():
 func score_update(n):
 	if(gameMode == 0):
 		var number = n.get_meta("number")
+		# process score for the item caught
 		if(number not in caught):
 			# updates caughtPos for next pick
 			caughtPos += 1
@@ -291,6 +297,7 @@ func wrong_piece():
 		var game_over = preload("res://game_over.tscn").instantiate()
 		add_child(game_over)
 		# run the play script on the main scene
+		pause()
 		quit_to_menu()
 		get_node("hud").queue_free()
 	# reset skewer
