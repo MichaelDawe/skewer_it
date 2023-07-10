@@ -5,7 +5,7 @@ extends Control
 func _ready():
 	var main = get_node("/root/main")
 	if(main.score > main.highscore):
-		$VBoxContainer/Score.set_text("NEW HIGHSCORE: " + str(int(main.score)) + "!")
+		$VBoxContainer/Score.set_text("NEW HIGHSCORE!: " + str(int(main.score)))
 		$VBoxContainer/Highscore.set_text("PREVIOUS BEST: " + str(int(main.highscore)))
 		main.highscore = main.score
 	else:
