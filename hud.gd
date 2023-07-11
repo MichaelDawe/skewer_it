@@ -48,6 +48,10 @@ func update_hud():
 									" Bonus: " + str(main.bonus - 1))
 
 	$MarginContainer/Health.set_text("Tries: " + str(main.health))
+	if(main.health <= 1.0):
+		$MarginContainer/Health.add_theme_color_override("default_color", Color(1.0, 0.0, 0.0))
+	else:
+		$MarginContainer/Health.add_theme_color_override("default_color", Color(1.0, 1.0, 1.0))
 
 func show_highscore():
 	$MarginContainer/Score.set_text("NEW HIGHSCORE!")

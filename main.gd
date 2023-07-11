@@ -428,3 +428,4 @@ func _on_grill_input_event(_camera, _event, _position, _normal, _shape_idx):
 		# reset tries:
 		if(health < 3.0): health += 0.25
 		play_fx(6)
+		get_node("hud").update_hud()
