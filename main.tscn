@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=3 uid="uid://g54wi6rdpo70"]
+[gd_scene load_steps=97 format=3 uid="uid://g54wi6rdpo70"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_cqorg"]
 [ext_resource type="Shader" path="res://shaders/background.gdshader" id="2_vwy7a"]
@@ -41,6 +41,8 @@
 [ext_resource type="ArrayMesh" uid="uid://bts60bvh81d6v" path="res://models/Grill.obj" id="39_xar4n"]
 [ext_resource type="Shader" path="res://shaders/grill.gdshader" id="40_1xt65"]
 [ext_resource type="Texture2D" uid="uid://bfnybkrj74qex" path="res://textures/grill (20230709011110).png" id="41_f0b1t"]
+[ext_resource type="AudioStream" uid="uid://c17v5386ga33c" path="res://sounds/pluck.ogg" id="42_p1jm3"]
+[ext_resource type="AudioStream" uid="uid://dv2t4hpp60vv4" path="res://sounds/bad.ogg" id="43_dny22"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qbt2q"]
 render_priority = 0
@@ -699,6 +701,20 @@ surface_material_override/0 = SubResource("ShaderMaterial_8mp0h")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Grill"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_sthrf")
+
+[node name="GoodFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("42_p1jm3")
+max_polyphony = 5
+
+[node name="GrillFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("42_p1jm3")
+pitch_scale = 0.8
+max_polyphony = 5
+
+[node name="BadFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("43_dny22")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
 
 [connection signal="input_event" from="Vegies/Aubergine" to="." method="_on_aubergine_input_event"]
 [connection signal="input_event" from="Vegies/Garlic" to="." method="_on_garlic_input_event"]

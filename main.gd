@@ -163,6 +163,16 @@ func _process(delta):
 		if(sparks > 0.0): sparks -= delta
 		else: sparks = 0.0
 
+func play_fx(fx):
+	if(fx == 0):
+		$BadFX.play()
+	else:
+		$GoodFX.pitch_scale = 0.8 + (fx / 5.0)
+		$GoodFX.volume_db = fx
+		$GoodFX.play()
+		if(fx == 6):
+			$GrillFX.play()
+
 func update_skewer():
 	for n in caughtPos:
 		var child = $Skewer.get_child(caught[caughtPos] - 1)
@@ -267,14 +277,17 @@ func score_update(n):
 			# loops and resets the skewer when full, make spawn sparks later
 			if(caughtPos > 5):
 				wrong_piece()
+				play_fx(0)
 			else:
 				if(caughtPos == 5):
 					grillAnim = true
 				# updates latest pick
 				caught[caughtPos] = number
 				score_add()
+				play_fx(caughtPos)
 		else:
 			wrong_piece()
+			play_fx(0)
 
 func wrong_piece():
 	# kill game / deduct health
@@ -414,3 +427,4 @@ func _on_grill_input_event(_camera, _event, _position, _normal, _shape_idx):
 		clear_skewer()
 		# reset tries:
 		if(health < 3.0): health += 0.25
+		play_fx(6)
