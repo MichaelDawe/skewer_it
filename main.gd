@@ -12,7 +12,6 @@ var sparks = 0.0 # grill animation shader uniform thingy
 var damaged = 0.0 # damage animation shader uniform thingy
 var highscore = 0.0 # highscore
 var highscoreBeat = false # used to flash the screen when the highscore is beaten, or control music
-var scoreText = "SCORE: "
 var mouseX = 0.0
 var mouseY = 0.0
 var bonus = 1.0 # score multiplier
@@ -151,11 +150,6 @@ func _process(delta):
 			)
 			$Skewer.look_at(Vector3(6, -6, 0), Vector3(0, 0, -1))
 		
-		# flash screen when highscore beaten
-		if(int(score) > highscore and not highscoreBeat):
-			catch += 2
-			highscoreBeat = true
-			scoreText = "NEW HIGHSCORE: "
 			
 	# process shader effects
 	if($MainCamera/PostProcess.visible):
@@ -195,7 +189,6 @@ func quit_to_menu():
 	$MainCamera/Background.get_active_material(0).set_shader_parameter("background", background)
 	# reset highscoreBeat
 	highscoreBeat = false
-	scoreText = "SCORE: "
 	# set up items for first spawn
 	for n in $Vegies.get_children():
 		reset_vegie(n)
@@ -219,6 +212,8 @@ func quit_to_menu():
 	sparks = 0
 
 func play():
+	# because the scene is always loaded some things might need to be run when
+	# re-entering the game after going to menu, and _ready() won't run then.
 	# silly workaround for scoring 0
 	score = 0.5
 	# enable / dissable post effects
@@ -229,12 +224,8 @@ func play():
 		else:
 			$MainCamera/PostProcess.visible = false
 		file.close()
-	# set highscore text when the game is first launched
-	if(highscore == 0):
-		scoreText = "NEW HIGHSCORE: "
-	# because the scene is always loaded some things might need to be run when
-	# re-entering the game after going to menu, and _ready() won't run then.
 	speedBoost = speed / 10.0
+	get_node("hud").update_hud()
 	
 func reset_vegie(n):
 	# scale to 0
@@ -312,20 +303,27 @@ func wrong_piece():
 	if(grillAnim): grillAnimStop = true
 
 func process_input(n, event):
-	if(event is InputEventScreenTouch or event is InputEventScreenDrag):
-		if(event.index == 0):
-			var nZ = n.position.z
-			if(nZ > 64 and nZ < 96):
-				# make it a bit easier to catch items when you want to without affecting when you don't want them
-				if(nZ > 90):
-					if(n.get_meta("number") not in caught and caughtPos < 5):
-						reset_vegie(n)
-						score_update(n)
-					else:
-						pass # is this nessesary?
-				else:
-					reset_vegie(n)
-					score_update(n)
+	# UNCOMMENT BEFORE PUBLISHING!
+	#if(event is InputEventScreenTouch or event is InputEventScreenDrag):
+	#	if(event.index == 0):
+	var nZ = n.position.z
+	if(nZ > 64 and nZ < 96):
+		# make it a bit easier to catch items when you want to without affecting when you don't want them
+		if(nZ > 90):
+			if(n.get_meta("number") not in caught and caughtPos < 5):
+				reset_vegie(n)
+				score_update(n)
+			else:
+				pass # is this nessesary?
+		else:
+			reset_vegie(n)
+			score_update(n)
+		get_node("hud").update_hud()
+		# flash screen when highscore beaten
+		if(int(score) > highscore and highscore > 0 and not highscoreBeat):
+			catch += 2
+			highscoreBeat = true
+			get_node("hud").show_highscore()
 
 func _on_aubergine_input_event(_camera, event, _position, _normal, _shape_idx):
 	if(mode == 1):

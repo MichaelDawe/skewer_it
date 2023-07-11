@@ -4,16 +4,15 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	# display score in hud
+	$MarginContainer/Score.set_text("SCORE: " + str(int(main.score)) + 
+									" Bonus: " + str(main.bonus - 1))
+	$MarginContainer/Health.set_text("Tries: " + str(main.health))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	# display score in hud
-	# not ideal setting this every frame, want to make it callable from main
-	$MarginContainer/Score.set_text(main.scoreText + str(int(main.score)) + 
-									" Bonus: " + str(main.bonus - 1))
-	$MarginContainer/Health.set_text("Tries: " + str(main.health))
+	pass
 
 func _on_pause_pressed():
 	main.pause()
@@ -32,13 +31,23 @@ func _on_pause_pressed():
 		var file = FileAccess.open("user://highscore.res", FileAccess.WRITE)
 		file.store_32(main.score)
 		file.close()
-	# suic!de
+	# 
 	queue_free()
 
 func _notification(what):
-	# detect if window loses focus and save highscore to file
+	# detect if app switched and save highscore to file
 	# seems to work on android to save the score when you go home, 
 	# open another app, or even close the app
 	if(what == MainLoop.NOTIFICATION_APPLICATION_PAUSED):
 		if(main.mode == 1):
 			_on_pause_pressed()
+
+func update_hud():
+	# display score in hud
+	$MarginContainer/Score.set_text("SCORE: " + str(int(main.score)) + 
+									" Bonus: " + str(main.bonus - 1))
+
+	$MarginContainer/Health.set_text("Tries: " + str(main.health))
+
+func show_highscore():
+	$MarginContainer/Score.set_text("NEW HIGHSCORE!")
