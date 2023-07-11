@@ -172,7 +172,7 @@ func _process(delta):
 func update_skewer():
 	for n in caughtPos:
 		var child = $Skewer.get_child(caught[caughtPos] - 1)
-		child.position.y = -85 + (caughtPos * 14)
+		child.position.y = -80 + (caughtPos * 12)
 		child.rotation = Vector3(0, randf(), 0)
 	
 func clear_skewer():
@@ -252,7 +252,7 @@ func score_add():
 	score += 1 * bonus
 	catch += 1
 	# make game speed up over time
-	speedBoost += 0.0025
+	speedBoost += 0.0015
 	update_skewer()
 
 func save_highscore():
@@ -311,94 +311,96 @@ func wrong_piece():
 	clear_skewer()
 	if(grillAnim): grillAnimStop = true
 
-func process_input(n):
-	var nZ = n.position.z
-	if(nZ > 64 and nZ < 96):
-		# make it a bit easier to catch items when you want to without affecting when you don't want them
-		if(nZ > 90):
-			if(n.get_meta("number") not in caught and caughtPos < 5):
-				reset_vegie(n)
-				score_update(n)
-			else:
-				pass # is this nessesary?
-		else:
-			reset_vegie(n)
-			score_update(n)
+func process_input(n, event):
+	if(event is InputEventScreenTouch or event is InputEventScreenDrag):
+		if(event.index == 0):
+			var nZ = n.position.z
+			if(nZ > 64 and nZ < 96):
+				# make it a bit easier to catch items when you want to without affecting when you don't want them
+				if(nZ > 90):
+					if(n.get_meta("number") not in caught and caughtPos < 5):
+						reset_vegie(n)
+						score_update(n)
+					else:
+						pass # is this nessesary?
+				else:
+					reset_vegie(n)
+					score_update(n)
 
-func _on_aubergine_input_event(_camera, _event, _position, _normal, _shape_idx):
+func _on_aubergine_input_event(_camera, event, _position, _normal, _shape_idx):
 	if(mode == 1):
 		var n = $Vegies/Aubergine
-		process_input(n)
+		process_input(n, event)
 
-func _on_garlic_input_event(_camera, _event, _position, _normal, _shape_idx):
+func _on_garlic_input_event(_camera, event, _position, _normal, _shape_idx):
 	if(mode == 1):
 		var n = $Vegies/Garlic
-		process_input(n)
+		process_input(n, event)
 
-func _on_gerkin_input_event(_camera, _event, _position, _normal, _shape_idx):
+func _on_gerkin_input_event(_camera, event, _position, _normal, _shape_idx):
 	if(mode == 1):
 		var n = $Vegies/Gerkin
-		process_input(n)
+		process_input(n, event)
 
-func _on_yellow_pepper_input_event(_camera, _event, _position, _normal, _shape_idx):
+func _on_yellow_pepper_input_event(_camera, event, _position, _normal, _shape_idx):
 	if(mode == 1):
 		var n = $Vegies/YellowPepper
-		process_input(n)
+		process_input(n, event)
 
-func _on_tomato_input_event(_camera, _event, _position, _normal, _shape_idx):
+func _on_tomato_input_event(_camera, event, _position, _normal, _shape_idx):
 	if(mode == 1):
 		var n = $Vegies/Tomato
-		process_input(n)
+		process_input(n, event)
 
-func _on_tofu_input_event(_camera, _event, _position, _normal, _shape_idx):
+func _on_tofu_input_event(_camera, event, _position, _normal, _shape_idx):
 	if(mode == 1):
 		var n = $Vegies/Tofu
-		process_input(n)
+		process_input(n, event)
 
-func _on_shallot_input_event(_camera, _event, _position, _normal, _shape_idx):
+func _on_shallot_input_event(_camera, event, _position, _normal, _shape_idx):
 	if(mode == 1):
 		var n = $Vegies/Shallot
-		process_input(n)
+		process_input(n, event)
 
-func _on_sausage_input_event(_camera, _event, _position, _normal, _shape_idx):
+func _on_sausage_input_event(_camera, event, _position, _normal, _shape_idx):
 	if(mode == 1):
 		var n = $Vegies/Sausage
-		process_input(n)
+		process_input(n, event)
 
-func _on_red_pepper_input_event(_camera, _event, _position, _normal, _shape_idx):
+func _on_red_pepper_input_event(_camera, event, _position, _normal, _shape_idx):
 	if(mode == 1):
 		var n = $Vegies/RedPepper
-		process_input(n)
+		process_input(n, event)
 
-func _on_pineapple_input_event(_camera, _event, _position, _normal, _shape_idx):
+func _on_pineapple_input_event(_camera, event, _position, _normal, _shape_idx):
 	if(mode == 1):
 		var n = $Vegies/Pineapple
-		process_input(n)
+		process_input(n, event)
 
-func _on_olive_input_event(_camera, _event, _position, _normal, _shape_idx):
+func _on_olive_input_event(_camera, event, _position, _normal, _shape_idx):
 	if(mode == 1):
 		var n = $Vegies/Olive
-		process_input(n)
+		process_input(n, event)
 
-func _on_mushroom_input_event(_camera, _event, _position, _normal, _shape_idx):
+func _on_mushroom_input_event(_camera, event, _position, _normal, _shape_idx):
 	if(mode == 1):
 		var n = $Vegies/Mushroom
-		process_input(n)
+		process_input(n, event)
 
-func _on_marinated_tofu_input_event(_camera, _event, _position, _normal, _shape_idx):
+func _on_marinated_tofu_input_event(_camera, event, _position, _normal, _shape_idx):
 	if(mode == 1):
 		var n = $Vegies/MarinatedTofu
-		process_input(n)
+		process_input(n, event)
 
-func _on_maize_input_event(_camera, _event, _position, _normal, _shape_idx):
+func _on_maize_input_event(_camera, event, _position, _normal, _shape_idx):
 	if(mode == 1):
 		var n = $Vegies/Maize
-		process_input(n)
+		process_input(n, event)
 
-func _on_green_pepper_input_event(_camera, _event, _position, _normal, _shape_idx):
+func _on_green_pepper_input_event(_camera, event, _position, _normal, _shape_idx):
 	if(mode == 1):
 		var n = $Vegies/GreenPepper
-		process_input(n)
+		process_input(n, event)
 
 func _on_grill_input_event(_camera, _event, _position, _normal, _shape_idx):
 	if(mode == 1 and caughtPos == 5 and $Grill.position.z > 32):
