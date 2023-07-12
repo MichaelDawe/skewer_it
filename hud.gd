@@ -4,15 +4,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# display score in hud
-	$MarginContainer/Score.set_text("SCORE: " + str(int(main.score)) + 
-									" Bonus: " + str(main.bonus - 1))
-	$MarginContainer/Health.set_text("Tries: " + str(main.health))
-	if(main.health <= 1.0):
-		$MarginContainer/Health.add_theme_color_override("default_color", Color(1.0, 0.0, 0.0))
-	else:
-		$MarginContainer/Health.add_theme_color_override("default_color", Color(1.0, 1.0, 1.0))
-
+	update_hud()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -56,9 +48,16 @@ func update_hud():
 		$MarginContainer/Health.add_theme_color_override("default_color", Color(1.0, 0.0, 0.0))
 	else:
 		$MarginContainer/Health.add_theme_color_override("default_color", Color(1.0, 1.0, 1.0))
+		
+	if(main.highscoreBeat == true):
+		$MarginContainer/Score.add_theme_color_override("default_color", Color(1.0, 0.8, 0.4))
+	else:
+		$MarginContainer/Score.add_theme_color_override("default_color", Color(1.0, 1.0, 1.0))
 
 func show_highscore():
 	$MarginContainer/Score.set_text("NEW HIGHSCORE!")
+	$MarginContainer/Score.add_theme_color_override("default_color", Color(1.0, 0.8, 0.4))
 
 func catch_your_breath():
 	$MarginContainer/Score.set_text("CATCH YOUR BREATH!")
+	$MarginContainer/Score.add_theme_color_override("default_color", Color(0.8, 0.4, 1.0))

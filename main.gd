@@ -39,10 +39,6 @@ var catchYourBreath = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# set catch your breath
-	if(FileAccess.file_exists("user://slowmo.res")):
-		var file = FileAccess.open("user://slowmo.res", FileAccess.READ)
-		if(file.get_8() == 1): catchYourBreath = false
 	# set audio mode.
 	if(FileAccess.file_exists("user://audio.res")):
 		var file = FileAccess.open("user://audio.res", FileAccess.READ)
@@ -62,8 +58,6 @@ func _ready():
 		file.store_8(1)
 		file.close()
 		$MainCamera/PostProcess.visible = true
-	# reset highscoreBeat
-	highscoreBeat = false
 	# read difficutly from file
 	if(FileAccess.file_exists("user://speed.res")):
 		var file = FileAccess.open("user://speed.res", FileAccess.READ)
@@ -101,9 +95,6 @@ func _process(delta):
 			if(backRed > 0.1):
 				get_node("hud").catch_your_breath()
 				catchYourBreath = false
-				var file = FileAccess.open("user://slowmo.res", FileAccess.WRITE)
-				file.store_8(1)
-				file.close()
 		playTime += delta
 		# run background shading 
 		# 165*2 seconds = five minutes and 30 seconds
@@ -249,6 +240,8 @@ func play():
 		file.close()
 	speedBoost = speed / 10.0
 	get_node("hud").update_hud()
+	# check for first run after reset highscore
+	if(highscore < 0.5): highscoreBeat = true
 	
 func reset_vegie(n):
 	# scale to 0
@@ -345,7 +338,7 @@ func process_input(n, event):
 				score_update(n)
 			get_node("hud").update_hud()
 			# flash screen when highscore beaten
-			if(int(score) > highscore and highscore > 0 and not highscoreBeat):
+			if(int(score) > highscore and not highscoreBeat):
 				catch += 2
 				highscoreBeat = true
 				get_node("hud").show_highscore()
