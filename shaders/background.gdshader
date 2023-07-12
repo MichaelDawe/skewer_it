@@ -2,7 +2,7 @@
 // By Michael Dawe, partially based on:
 // The Universe Within - by Martijn Steinrucken aka BigWings 2018
 // Email:countfrolic@gmail.com Twitter:@The_ArtOfCode
-
+// License under Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
 
 shader_type spatial;
 render_mode unshaded;
@@ -21,8 +21,8 @@ vec2 random2(vec2 par){
 }
 
 void fragment() {
-    float layers = 5.0;
-    float scale = 20.0;
+    float layers = 6.0;
+    float scale = 16.0;
 	
 	float stars;
     float depth;

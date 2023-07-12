@@ -66,6 +66,17 @@ Unless required by applicable law or agreed to in writing, software distributed 
 Portions of this software are copyright © 2023 The FreeType Project (www.freetype.org). All rights reserved.'
 )
 		4:
+			index += 1
+			$VBoxContainer/MarginContainer/licencetext.set_text(
+				'Some shader source files are licenced under 
+Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+By Michael Dawe, partially based on:
+The Universe Within - by Martijn Steinrucken aka BigWings 2018
+Email:countfrolic@gmail.com Twitter:@The_ArtOfCode
+License under Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+'
+)
+		5:
 			var credits = preload("res://credits.tscn").instantiate()
 			get_node("/root/main").add_child(credits)
 			queue_free()

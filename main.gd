@@ -35,9 +35,14 @@ var grillAnimStop = false
 var skewerMouseActive = true # stops the mouse control for the skewer while its being animated
 var shaderTime = 0.0 # separate time for shader to seamlessly apply speed effects
 var audio = 2 # 0 = mute, 1 = fx only, 2 = fx and music
+var catchYourBreath = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# set catch your breath
+	if(FileAccess.file_exists("user://slowmo.res")):
+		var file = FileAccess.open("user://slowmo.res", FileAccess.READ)
+		if(file.get_8() == 1): catchYourBreath = false
 	# set audio mode.
 	if(FileAccess.file_exists("user://audio.res")):
 		var file = FileAccess.open("user://audio.res", FileAccess.READ)
@@ -91,6 +96,14 @@ func _process(delta):
 	
 	# process pause signal
 	if(mode == 1):
+		# text to explain the slow mo effect the first time
+		if(catchYourBreath):
+			if(backRed > 0.1):
+				get_node("hud").catch_your_breath()
+				catchYourBreath = false
+				var file = FileAccess.open("user://slowmo.res", FileAccess.WRITE)
+				file.store_8(1)
+				file.close()
 		playTime += delta
 		# run background shading 
 		# 165*2 seconds = five minutes and 30 seconds
@@ -317,26 +330,25 @@ func wrong_piece():
 
 func process_input(n, event):
 	# UNCOMMENT BEFORE PUBLISHING!
-	#if(event is InputEventScreenTouch or event is InputEventScreenDrag):
-	#	if(event.index == 0):
-	var nZ = n.position.z
-	if(nZ > 64 and nZ < 96):
-		# make it a bit easier to catch items when you want to without affecting when you don't want them
-		if(nZ > 90):
-			if(n.get_meta("number") not in caught and caughtPos < 5):
+	if(event is InputEventMouse):
+		var nZ = n.position.z
+		if(nZ > 64 and nZ < 96):
+			# make it a bit easier to catch items when you want to without affecting when you don't want them
+			if(nZ > 90):
+				if(n.get_meta("number") not in caught and caughtPos < 5):
+					reset_vegie(n)
+					score_update(n)
+				else:
+					pass # is this nessesary?
+			else:
 				reset_vegie(n)
 				score_update(n)
-			else:
-				pass # is this nessesary?
-		else:
-			reset_vegie(n)
-			score_update(n)
-		get_node("hud").update_hud()
-		# flash screen when highscore beaten
-		if(int(score) > highscore and highscore > 0 and not highscoreBeat):
-			catch += 2
-			highscoreBeat = true
-			get_node("hud").show_highscore()
+			get_node("hud").update_hud()
+			# flash screen when highscore beaten
+			if(int(score) > highscore and highscore > 0 and not highscoreBeat):
+				catch += 2
+				highscoreBeat = true
+				get_node("hud").show_highscore()
 
 func _on_aubergine_input_event(_camera, event, _position, _normal, _shape_idx):
 	if(mode == 1):

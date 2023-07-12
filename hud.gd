@@ -8,6 +8,10 @@ func _ready():
 	$MarginContainer/Score.set_text("SCORE: " + str(int(main.score)) + 
 									" Bonus: " + str(main.bonus - 1))
 	$MarginContainer/Health.set_text("Tries: " + str(main.health))
+	if(main.health <= 1.0):
+		$MarginContainer/Health.add_theme_color_override("default_color", Color(1.0, 0.0, 0.0))
+	else:
+		$MarginContainer/Health.add_theme_color_override("default_color", Color(1.0, 1.0, 1.0))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -55,3 +59,6 @@ func update_hud():
 
 func show_highscore():
 	$MarginContainer/Score.set_text("NEW HIGHSCORE!")
+
+func catch_your_breath():
+	$MarginContainer/Score.set_text("CATCH YOUR BREATH!")
