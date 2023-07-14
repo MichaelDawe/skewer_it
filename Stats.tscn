@@ -46,48 +46,30 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/separator = SubResource("StyleBoxFlat_3ho2a")
 
-[node name="Title" type="RichTextLabel" parent="VBoxContainer"]
-material = SubResource("ShaderMaterial_wsy2u")
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_fonts/normal_font = ExtResource("1_gs56o")
-theme_override_font_sizes/normal_font_size = 100
-bbcode_enabled = true
-text = "STATS:"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-
-[node name="MiddleSpacer" type="HSeparator" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/separator = SubResource("StyleBoxFlat_xabn0")
-
 [node name="Stats" type="RichTextLabel" parent="VBoxContainer"]
 material = SubResource("ShaderMaterial_wsy2u")
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/normal_font = ExtResource("1_gs56o")
-theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "TOTAL GAME TIME (HOURS):
-LONGEST GAME (MINUTES):
+text = "TOTAL GAME TIME:
+LONGEST GAME:
 TOTAL SCORE:
 TOTAL PIECES COLLECTED:
+TOTAL SKEWERS COMPLETED:
 TOTAL MISTAKES:
 HIGHEST BONUS:
 HIGHSCORE:
 AVERAGE SCORE:
-AVERAGE SCORE, WHEN FAILED:
 TOTAL SCREEN TAPS:
 "
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="MiddleSpacer2" type="HSeparator" parent="VBoxContainer"]
+[node name="MiddleSpacer" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/separator = SubResource("StyleBoxFlat_xabn0")

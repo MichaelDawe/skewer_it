@@ -37,6 +37,14 @@ var skewerMouseActive = true # stops the mouse control for the skewer while its 
 var shaderTime = 0.0 # separate time for shader to seamlessly apply speed effects
 var audio = 2 # 0 = mute, 1 = fx only, 2 = fx and music
 var catchYourBreath = true
+# stats
+var totalGameTime = 0.0
+var maxBonus = 0.0
+var totalScore = 0
+var longestGame = 0.0
+var totalPieces = 0
+var totalSkewers = 0
+var totalMistakes = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -93,7 +101,9 @@ func _process(delta):
 	
 	# process pause signal
 	if(mode == 1):
-		# text to explain the slow mo effect the first time
+		# stats
+		totalGameTime += delta
+		# text to explain the slow mo effect
 		# potentially wasteful way to do it, running every frame
 		if(backRed > 0.1):
 			if(catchYourBreath):
@@ -197,8 +207,50 @@ func clear_skewer():
 	for n in $Skewer.get_children():
 		n.position.y = -1024
 
+func save_stats():
+	var file
+	# total game time
+	file = FileAccess.open("user://gameTime.res", FileAccess.WRITE)
+	file.store_32(totalGameTime)
+	file.close()
+	# max bonus
+	maxBonus = 0.0
+	if(FileAccess.file_exists("user://maxBonus.res")):
+		file = FileAccess.open("user://maxBonus.res", FileAccess.READ)
+		maxBonus = file.get_float()
+		file.close()
+	if(bonus - 1.0 > maxBonus):
+		file = FileAccess.open("user://maxBonus.res", FileAccess.WRITE)
+		file.store_float(bonus - 1.0)
+		file.close()
+	# total score
+	file = FileAccess.open("user://totalScore.res", FileAccess.WRITE)
+	file.store_32(totalScore)
+	file.close()
+	# longest game
+	if(FileAccess.file_exists("user://longestGame.res")):
+		file = FileAccess.open("user://longestGame.res", FileAccess.READ)
+		longestGame = file.get_32()
+		file.close()
+	if(playTime > longestGame):
+		file = FileAccess.open("user://longestGame.res", FileAccess.WRITE)
+		file.store_32(playTime)
+		file.close()
+	# total pieces
+	file = FileAccess.open("user://totalPieces.res", FileAccess.WRITE)
+	file.store_32(totalPieces)
+	file.close()
+	# total skewers
+	file = FileAccess.open("user://totalSkewers.res", FileAccess.WRITE)
+	file.store_32(totalSkewers)
+	file.close()
+	# total mistakes
+	file = FileAccess.open("user://totalMistakes.res", FileAccess.WRITE)
+	file.store_32(totalMistakes)
+	file.close()
+
 func pause():
-	pass
+	save_stats()
 
 func quit_to_menu():
 	grillAnim = false
@@ -236,6 +288,32 @@ func quit_to_menu():
 	sparks = 0
 
 func play():
+	# stats
+	# total game time
+	if(FileAccess.file_exists("user://gameTime.res")):
+		var file = FileAccess.open("user://gameTime.res", FileAccess.READ)
+		totalGameTime = file.get_32()
+		file.close()
+	# total score
+	if(FileAccess.file_exists("user://totalScore.res")):
+		var file = FileAccess.open("user://totalScore.res", FileAccess.READ)
+		totalScore = file.get_32()
+		file.close()
+	# total pieces
+	if(FileAccess.file_exists("user://totalPieces.res")):
+		var file = FileAccess.open("user://totalPieces.res", FileAccess.READ)
+		totalPieces = file.get_32()
+		file.close()
+	# total skewers
+	if(FileAccess.file_exists("user://totalSkewers.res")):
+		var file = FileAccess.open("user://totalSkewers.res", FileAccess.READ)
+		totalSkewers = file.get_32()
+		file.close()
+	# total mistakes
+	if(FileAccess.file_exists("user://totalMistakes.res")):
+		var file = FileAccess.open("user://totalMistakes.res", FileAccess.READ)
+		totalMistakes = file.get_32()
+		file.close()
 	# because the scene is always loaded some things might need to be run when
 	# re-entering the game after going to menu, and _ready() won't run then.
 	# silly workaround for scoring 0
@@ -276,6 +354,9 @@ func score_add():
 	# make game speed up over time
 	speedBoost += 0.0015
 	update_skewer()
+	# stats
+	totalScore += 1 * bonus
+	totalPieces += 1
 
 func save_highscore():
 	var tempHighScore = 0
@@ -335,6 +416,8 @@ func wrong_piece():
 	caughtPos = 0
 	clear_skewer()
 	if(grillAnim): grillAnimStop = true
+	# stats
+	totalMistakes += 1
 
 func process_input(n, event):
 	# UNCOMMENT BEFORE PUBLISHING!
@@ -449,3 +532,5 @@ func _on_grill_input_event(_camera, _event, _position, _normal, _shape_idx):
 		if(health < 3.0): health += 0.25
 		play_fx(6)
 		get_node("hud").update_hud()
+		# stats
+		totalSkewers += 1
