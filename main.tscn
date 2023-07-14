@@ -62,7 +62,7 @@ shader = ExtResource("38_reqji")
 shader_parameter/catch = 0.0
 shader_parameter/damaged = 0.0
 shader_parameter/sparks = 0.0
-shader_parameter/ratio = null
+shader_parameter/highscore = null
 
 [sub_resource type="QuadMesh" id="QuadMesh_sw2bk"]
 material = SubResource("ShaderMaterial_ac0uo")

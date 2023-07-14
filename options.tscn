@@ -39,13 +39,8 @@ theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_h8oic")
 theme_override_font_sizes/font_size = 100
 button_mask = 7
-text = "Post Effects"
+text = "POST EFFECTS"
 flat = true
-
-[node name="Spacer7" type="HSeparator" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/separator = SubResource("StyleBoxFlat_qhcnr")
 
 [node name="Audio" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -60,11 +55,6 @@ button_mask = 7
 text = "AUDIO"
 flat = true
 
-[node name="Spacer8" type="HSeparator" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/separator = SubResource("StyleBoxFlat_qhcnr")
-
 [node name="Difficulty" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -78,11 +68,6 @@ button_mask = 7
 text = "SPEED: Normal"
 flat = true
 
-[node name="Spacer" type="HSeparator" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/separator = SubResource("StyleBoxFlat_qhcnr")
-
 [node name="Reset Score" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -93,13 +78,21 @@ theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_h8oic")
 theme_override_font_sizes/font_size = 100
 button_mask = 7
-text = "reset highscore"
+text = "RESET HIGHSCORE"
 flat = true
 
-[node name="Spacer5" type="HSeparator" parent="VBoxContainer"]
+[node name="ken mode" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/separator = SubResource("StyleBoxFlat_qhcnr")
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(0.772549, 0.772549, 0.772549, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_h8oic")
+theme_override_font_sizes/font_size = 100
+button_mask = 7
+text = "KEN MODE OFF"
+flat = true
 
 [node name="Tutorial" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -111,13 +104,21 @@ theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_h8oic")
 theme_override_font_sizes/font_size = 100
 button_mask = 7
-text = "tutorial"
+text = "TUTORIAL"
 flat = true
 
-[node name="Spacer2" type="HSeparator" parent="VBoxContainer"]
+[node name="Stats" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/separator = SubResource("StyleBoxFlat_qhcnr")
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(0.772549, 0.772549, 0.772549, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_h8oic")
+theme_override_font_sizes/font_size = 100
+button_mask = 7
+text = "STATS"
+flat = true
 
 [node name="Credits" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -129,13 +130,8 @@ theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_h8oic")
 theme_override_font_sizes/font_size = 100
 button_mask = 7
-text = "credits"
+text = "CREDITS"
 flat = true
-
-[node name="Spacer3" type="HSeparator" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/separator = SubResource("StyleBoxFlat_qhcnr")
 
 [node name="Back" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -147,7 +143,7 @@ theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_h8oic")
 theme_override_font_sizes/font_size = 100
 button_mask = 7
-text = "back"
+text = "BACK"
 flat = true
 
 [node name="Spacer4" type="HSeparator" parent="VBoxContainer"]
@@ -159,6 +155,8 @@ theme_override_styles/separator = SubResource("StyleBoxFlat_qhcnr")
 [connection signal="pressed" from="VBoxContainer/Audio" to="." method="_on_audio_pressed"]
 [connection signal="pressed" from="VBoxContainer/Difficulty" to="." method="_on_difficulty_pressed"]
 [connection signal="pressed" from="VBoxContainer/Reset Score" to="." method="_on_reset_score_pressed"]
+[connection signal="pressed" from="VBoxContainer/ken mode" to="." method="_on_ken_mode_pressed"]
 [connection signal="pressed" from="VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="VBoxContainer/Stats" to="." method="_on_stats_pressed"]
 [connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]

@@ -24,11 +24,14 @@ vec2 random2(vec2 par){
 }
 
 void fragment() {
-	ALBEDO = texture(textureImage, UV).rgb;
-	ALBEDO *= max(NORMAL.z, 0.4);
+	// made shading look better
+	NORMAL *= NORMAL;
+	
+	vec3 col = texture(textureImage, UV).rgb;
+	col *= (vec3(0.7, 0.55, 0.25) * NORMAL.z) + vec3(0.35, 0.4, 0.5);
 	
 	if(pozition > 64.0) {
-		ALBEDO += background * ((1.0 - NORMAL.z) * ((pozition - 64.0) / 32.0));
+		col += background * ((1.0 - NORMAL.z) * ((pozition - 64.0) / 32.0));
 		
 		if(pozition > 90.0) {
 		    float layers = 6.0;
@@ -69,13 +72,14 @@ void fragment() {
 		        
 		        //Get distance to the generated point, add fading to distant points
 		        //Add the distance to the sum
-		    	stars += pow(abs(1.0 - length(local_uv - pos)), 80.0 + 20.0 * sin(phase + 8.0 * TIME)) * min(1.0, depth * 2.0);
+				stars += pow(abs(1.0 - length(local_uv - pos)), 80.0 + 20.0 * sin(phase + 8.0 * TIME)) * min(1.0, depth * 2.0);
 			}
 			
 			uv = SCREEN_UV * (1.0 - SCREEN_UV.yx); //vec2(1.0)- uv.yx; -> 1.-u.yx; Thanks FabriceNeyret !
-	    	float vig = uv.x*uv.y * 10.0; //multiply with sth for intensity
-	    	vig = pow(vig, 0.5) + 0.5; //change pow for modifying the extend of the  vignette
-			ALBEDO = mix((background * vig) + stars, ALBEDO, 1.0 - ((pozition - 90.0) / 22.0));
+			float vig = uv.x*uv.y * 10.0; //multiply with sth for intensity
+			vig = pow(vig, 0.5) + 0.5; //change pow for modifying the extend of the  vignette
+			col = mix((background * vig) + stars, col, 1.0 - ((pozition - 90.0) / 14.0));
 		}
 	}
+	ALBEDO = col;
 }

@@ -8,6 +8,7 @@ var spawnInterval = 2.0 # time, in seconds, for each item to spawn, at the start
 var score = 0.0 # score
 var ratio = 0.0 # stuff to devide mouse input by.
 var catch = 0.0 # catch animation shader uniform thingy
+var highscoreFlash = 0.0 # highscore animation shader uniform thingy
 var sparks = 0.0 # grill animation shader uniform thingy
 var damaged = 0.0 # damage animation shader uniform thingy
 var highscore = 0.0 # highscore
@@ -91,10 +92,13 @@ func _process(delta):
 	# process pause signal
 	if(mode == 1):
 		# text to explain the slow mo effect the first time
-		if(catchYourBreath):
-			if(backRed > 0.1):
+		# potentially wasteful way to do it, running every frame
+		if(backRed > 0.1):
+			if(catchYourBreath):
 				get_node("hud").catch_your_breath()
 				catchYourBreath = false
+		else: catchYourBreath = true
+		#
 		playTime += delta
 		# run background shading 
 		# 165*2 seconds = five minutes and 30 seconds
@@ -124,7 +128,7 @@ func _process(delta):
 				n.rotate(Vector3(0, 1, 0), rotationMeta[1] * delta * finalSpeed)
 				n.rotate(Vector3(0, 0, 1), rotationMeta[2] * delta * finalSpeed)
 				
-				if(n.position.z > 112): # send objects home ('kill' them)
+				if(n.position.z > 104): # send objects home ('kill' them)
 					reset_vegie(n)
 		# process grill
 		if(grillAnim):
@@ -166,16 +170,20 @@ func _process(delta):
 		$MainCamera/PostProcess.get_active_material(0).set_shader_parameter("sparks", sparks)
 		if(sparks > 0.0): sparks -= delta
 		else: sparks = 0.0
+		$MainCamera/PostProcess.get_active_material(0).set_shader_parameter("highscore", highscoreFlash)
+		if(highscoreFlash > 0.0): highscoreFlash -= delta
+		else: highscoreFlash = 0.0
 
 func play_fx(fx):
-	if(fx == 0):
-		$BadFX.play()
-	else:
-		$GoodFX.pitch_scale = 0.8 + (fx / 5.0)
-		$GoodFX.volume_db = fx
-		$GoodFX.play()
-		if(fx == 6):
-			$GrillFX.play()
+	if(audio > 0):
+		if(fx == 0):
+			$BadFX.play()
+		else:
+			$GoodFX.pitch_scale = 0.8 + (fx / 5.0)
+			$GoodFX.volume_db = fx
+			$GoodFX.play()
+			if(fx == 6):
+				$GrillFX.play()
 
 func update_skewer():
 	for n in caughtPos:
@@ -230,6 +238,11 @@ func play():
 	# re-entering the game after going to menu, and _ready() won't run then.
 	# silly workaround for scoring 0
 	score = 0.5
+	
+	# setup music TODO
+	## if(audio == 2): $Music.visible = true
+	## else: $Music.visible = false
+	
 	# enable / dissable post effects
 	if(FileAccess.file_exists("user://posteffects.res")):
 		var file = FileAccess.open("user://posteffects.res", FileAccess.READ)
@@ -339,7 +352,7 @@ func process_input(n, event):
 			get_node("hud").update_hud()
 			# flash screen when highscore beaten
 			if(int(score) > highscore and not highscoreBeat):
-				catch += 2
+				highscoreFlash += 1
 				highscoreBeat = true
 				get_node("hud").show_highscore()
 

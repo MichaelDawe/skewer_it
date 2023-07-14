@@ -6,7 +6,7 @@ func _ready():
 	var main = get_node("/root/main")
 	if(main.score > main.highscore):
 		$VBoxContainer/Score.set_text("NEW HIGHSCORE: " + str(int(main.score)))
-		$VBoxContainer/Highscore.set_text("PREVIOUS highscore: " + str(int(main.highscore)))
+		$VBoxContainer/Highscore.set_text("PREVIOUS HIGHSCORE: " + str(int(main.highscore)))
 		main.highscore = main.score
 	else:
 		$VBoxContainer/Score.set_text("SCORE: " + str(int(main.score)))

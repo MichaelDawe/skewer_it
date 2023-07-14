@@ -8,16 +8,19 @@ shader_type spatial;
 render_mode unshaded;
 
 uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
+uniform sampler2D depth_texture : hint_depth_texture, repeat_disable, filter_nearest;
 
 uniform float catch;
 uniform float damaged;
 uniform float sparks;
-uniform float ratio;
-
+//uniform float ratio;
+uniform float highscore;
+//uniform bool antialiasOn;
+/*
 float rand(vec2 par){
    return fract(sin(dot(par.xy, vec2(12.9898,78.233))) * 43758.5453);
 }
-
+*/
 void vertex() {
 	POSITION = vec4(VERTEX, 1.0);
 }
@@ -30,6 +33,7 @@ void fragment() {
 	vig = pow(vig, 0.5);
 	
 	col *= 1.0 + (catch * vig);
+	col *= 1.0 + (vec3(1.0, 0.8, 0.4) * highscore * vig);
 	col = mix(col, (col * vec3(1.0, 0.0, 0.0)) + vec3(0.4, 0.0, 0.0), vig * damaged);
 	
 	col += ((1.0 - UV.y) * sparks * vec3(1.0, 0.4, 0.05));
@@ -39,6 +43,15 @@ void fragment() {
 	//sparkies += max(sin(SCREEN_UV.x * 32.0 * ratio) - 0.9, 0.0) * 10.0;
 	//sparkies *= max(sin((SCREEN_UV.y + (TIME * 0.5)) * 32.0) - 0.9, 0.0) * 10.0;
 	//sparkies *= max(sin(SCREEN_UV.y + TIME), 0.0);
-	
+	/*
+	if(antialiasOn) {
+		float depth = texture(depth_texture, SCREEN_UV).x;
+		vec3 ndc = vec3(SCREEN_UV * 2.0 - 1.0, depth);
+		vec4 view = INV_PROJECTION_MATRIX * vec4(ndc, 1.0);
+		view.xyz /= view.w;
+		float linear_depth = -view.z;
+		linear_depth /= 192.0;
+	}
+	*/
 	ALBEDO = col + (sparkies * vec3(1.0, 0.4, 0.05));
 }

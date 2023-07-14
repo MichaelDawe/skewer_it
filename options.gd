@@ -8,25 +8,25 @@ var postEffects = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$VBoxContainer/PostEffects.set_text("Post Effects Off")
+	$VBoxContainer/PostEffects.set_text("POST EFFECTS OFF")
 	if(FileAccess.file_exists("user://posteffects.res")):
 		var file = FileAccess.open("user://posteffects.res", FileAccess.READ)
 		postEffects = file.get_8()
 		file.close()
 	if(postEffects == 1):
-		$VBoxContainer/PostEffects.set_text("Post Effects On")
+		$VBoxContainer/PostEffects.set_text("POST EFFECTS ON")
 	
 	# change text in speed button
 	speedint = main.speed
-	if(speedint == 10): speed = "normal"
-	elif(speedint == 5): speed = "half" 
-	elif(speedint == 20): speed = "double"
+	if(speedint == 10): speed = "NORMAL"
+	elif(speedint == 5): speed = "HALF" 
+	elif(speedint == 20): speed = "DOUBLE"
 	$VBoxContainer/Difficulty.set_text("SPEED: " + speed)
 	
 	# change text in audio button
-	if(main.audio == 0): audioTxt = "AUDIO: off" 
-	elif(main.audio == 1): audioTxt = "AUDIO: fx only"
-	elif(main.audio == 2): audioTxt = "AUDIO: on"
+	if(main.audio == 0): audioTxt = "AUDIO: OFF" 
+	elif(main.audio == 1): audioTxt = "AUDIO: FX ONLY"
+	elif(main.audio == 2): audioTxt = "AUDIO: ON"
 	$VBoxContainer/Audio.set_text(audioTxt)
 
 
@@ -51,7 +51,7 @@ func _on_reset_score_pressed():
 	var file = FileAccess.open("user://highscore.res", FileAccess.WRITE)
 	file.store_32(0)
 	file.close()
-	$"VBoxContainer/Reset Score".set_text("Highscore reset")
+	$"VBoxContainer/Reset Score".set_text("HIGHSCORE RESET")
 
 
 func _on_tutorial_pressed():
@@ -70,9 +70,9 @@ func _on_difficulty_pressed():
 	main.speed = speedint
 	# change text in button
 	speed = "error"
-	if(speedint == 5): speed = "half" 
-	elif(speedint == 10): speed = "normal"
-	elif(speedint == 20): speed = "double"
+	if(speedint == 5): speed = "HALF" 
+	elif(speedint == 10): speed = "NORMAL"
+	elif(speedint == 20): speed = "DOUBLE"
 	$VBoxContainer/Difficulty.set_text("SPEED: " + speed) #  + " " + str(speedint)
 	# save to file
 	var file = FileAccess.open("user://speed.res", FileAccess.WRITE)
@@ -84,10 +84,10 @@ func _on_post_effects_pressed():
 	var file = FileAccess.open("user://posteffects.res", FileAccess.WRITE)
 	if(postEffects == 0):
 		postEffects = 1
-		$VBoxContainer/PostEffects.set_text("Post Effects On")
+		$VBoxContainer/PostEffects.set_text("POST EFFECTS ON")
 	else:
 		postEffects = 0
-		$VBoxContainer/PostEffects.set_text("Post Effects Off")
+		$VBoxContainer/PostEffects.set_text("POST EFFECTS OFF")
 	file.store_8(postEffects)
 	file.close()
 
@@ -99,7 +99,15 @@ func _on_audio_pressed():
 	file.store_8(main.audio)
 	file.close()
 	# change text in button
-	if(main.audio == 0): audioTxt = "AUDIO: off" 
-	elif(main.audio == 1): audioTxt = "AUDIO: fx only"
-	elif(main.audio == 2): audioTxt = "AUDIO: on"
+	if(main.audio == 0): audioTxt = "AUDIO: OFF" 
+	elif(main.audio == 1): audioTxt = "AUDIO: FX ONLY"
+	elif(main.audio == 2): audioTxt = "AUDIO: ON"
 	$VBoxContainer/Audio.set_text(audioTxt)
+
+
+func _on_stats_pressed():
+	pass # Replace with function body.
+
+
+func _on_ken_mode_pressed():
+	pass # Replace with function body.

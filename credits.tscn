@@ -52,7 +52,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/normal_font = ExtResource("1_rno3s")
-theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 text = "[center]Developed by: Michael Dawe.
 
@@ -65,11 +65,15 @@ Textures by: Michael Dawe.
 Sounds from: Pixabay.com
 
 
-Kindly playtested by:
+Thanks to My unkle kenneth for 
+suggesting the 'KEN' mode.
+
+
+Thanks to all the Playtesters:
 redocrehtona
 
 
-source available on github - michaeldawe/skewer_it."
+source available on github - Michaeldawe/skewer_it."
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
