@@ -11,6 +11,7 @@ func _ready():
 	var totalPieces = 0
 	var totalSkewers = 0
 	var totalMistakes = 0
+	var bestHighscore = 0
 	# set everything
 	if(FileAccess.file_exists("user://maxBonus.res")):
 		var file = FileAccess.open("user://maxBonus.res", FileAccess.READ)
@@ -40,6 +41,12 @@ func _ready():
 		var file = FileAccess.open("user://totalMistakes.res", FileAccess.READ)
 		totalMistakes = file.get_32()
 		file.close()
+	if(FileAccess.file_exists("user://bestHigh.res")):
+		var file = FileAccess.open("user://bestHigh.res", FileAccess.READ)
+		bestHighscore = file.get_32()
+		file.close()
+	if(get_node("/root/main").highscore > bestHighscore):
+		bestHighscore = get_node("/root/main").highscore
 	# assign everything
 	$VBoxContainer/Stats.set_text("
 TOTAL GAME TIME: [right]" + format_seconds(gameTime) + "[/right]
@@ -49,12 +56,12 @@ TOTAL PIECES COLLECTED: [right]" + str(totalPieces) + "[/right]
 TOTAL SKEWERS COMPLETED:        [right]" + str(totalSkewers) + "[/right]
 TOTAL MISTAKES: [right]" + str(totalMistakes) + "[/right]
 HIGHEST BONUS: [right]" + str(maxBonus) + "[/right]
-BEST HIGHSCORE: [right]" + str(int(get_node("/root/main").highscore))
+BEST HIGHSCORE: [right]" + str(bestHighscore)
 )
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 

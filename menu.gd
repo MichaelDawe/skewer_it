@@ -27,12 +27,12 @@ func _on_play_pressed():
 		# load the hud scene
 		var hud = preload("res://hud.tscn").instantiate()
 		main.add_child(hud)
+		# run the play script on the main scene
+		main.play()
 	else:
 		# load the tutorial scene
 		var tutorial = preload("res://tutorial.tscn").instantiate()
 		main.add_child(tutorial)
-	# run the play script on the main scene
-	main.play()
 	# kill the menu scene
 	queue_free()
 

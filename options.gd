@@ -48,11 +48,20 @@ func _on_back_pressed():
 
 
 func _on_reset_score_pressed():
-	var file = FileAccess.open("user://highscore.res", FileAccess.WRITE)
+	var file
+	file = FileAccess.open("user://highscore.res", FileAccess.WRITE)
 	file.store_32(0)
 	file.close()
 	$"VBoxContainer/Reset Score".set_text("HIGHSCORE RESET")
-
+	var bestHighscore = 0
+	if(FileAccess.file_exists("user://bestHigh.res")):
+		file = FileAccess.open("user://bestHigh.res", FileAccess.READ)
+		bestHighscore = file.get_32()
+		file.close()
+	if(main.highscore > bestHighscore):
+		file = FileAccess.open("user://bestHigh.res", FileAccess.WRITE)
+		file.store_32(main.highscore)
+		file.close()
 
 func _on_tutorial_pressed():
 	var tutorial = preload("res://tutorial.tscn").instantiate()
