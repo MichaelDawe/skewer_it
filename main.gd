@@ -40,6 +40,8 @@ var catchYourBreath = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# pass screen size to the post process shader
+	$MainCamera/PostProcess.get_active_material(0).set_shader_parameter("screenSize", Vector2(get_viewport().size.x, get_viewport().size.y))
 	# set audio mode.
 	if(FileAccess.file_exists("user://audio.res")):
 		var file = FileAccess.open("user://audio.res", FileAccess.READ)

@@ -4,11 +4,13 @@
 // Email:countfrolic@gmail.com Twitter:@The_ArtOfCode
 // License under Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
 
+// Partially based on the FXAA tutorial by Jasper Flick available at https://catlikecoding.com/unity/tutorials/custom-srp/fxaa/
+
 shader_type spatial;
 render_mode unshaded;
 
 uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
-uniform sampler2D depth_texture : hint_depth_texture, repeat_disable, filter_nearest;
+//uniform sampler2D depth_texture : hint_depth_texture, repeat_disable, filter_nearest;
 
 uniform float catch;
 uniform float damaged;
@@ -16,6 +18,7 @@ uniform float sparks;
 //uniform float ratio;
 uniform float highscore;
 //uniform bool antialiasOn;
+//uniform vec2 screenSize;
 /*
 float rand(vec2 par){
    return fract(sin(dot(par.xy, vec2(12.9898,78.233))) * 43758.5453);
@@ -45,13 +48,16 @@ void fragment() {
 	//sparkies *= max(sin(SCREEN_UV.y + TIME), 0.0);
 	/*
 	if(antialiasOn) {
+		// get the depth texture
 		float depth = texture(depth_texture, SCREEN_UV).x;
+		// method from godot's tutorial:
 		vec3 ndc = vec3(SCREEN_UV * 2.0 - 1.0, depth);
 		vec4 view = INV_PROJECTION_MATRIX * vec4(ndc, 1.0);
 		view.xyz /= view.w;
 		float linear_depth = -view.z;
 		linear_depth /= 192.0;
-	}
-	*/
+		// sample the depth to detect edges and blur them
+		
+	}*/
 	ALBEDO = col + (sparkies * vec3(1.0, 0.4, 0.05));
 }

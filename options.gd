@@ -106,7 +106,9 @@ func _on_audio_pressed():
 
 
 func _on_stats_pressed():
-	pass # Replace with function body.
+	var stats = preload("res://Stats.tscn").instantiate()
+	main.add_child(stats)
+	queue_free()
 
 
 func _on_ken_mode_pressed():
