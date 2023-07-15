@@ -15,7 +15,7 @@ var highscore = 0.0 # highscore
 var highscoreBeat = false # used to flash the screen when the highscore is beaten, or control music
 var mouseX = 0.0
 var mouseY = 0.0
-var bonus = 1.0 # score multiplier
+var bonus = 0.0 # score multiplier
 var caught = [0, 0, 0, 0, 0, 0] # list of objects already on skewer
 								# there are 5 places, with index 0 used
 								# for when the skewer is empty ahh
@@ -214,9 +214,9 @@ func save_stats():
 	file.store_32(totalGameTime)
 	file.close()
 	# max bonus
-	if(bonus - 1.0 > maxBonus):
+	if(bonus > maxBonus):
 		file = FileAccess.open("user://maxBonus.res", FileAccess.WRITE)
-		file.store_float(bonus - 1.0)
+		file.store_float(bonus)
 		file.close()
 	# total score
 	file = FileAccess.open("user://totalScore.res", FileAccess.WRITE)
@@ -268,7 +268,7 @@ func quit_to_menu():
 	# reset skewer to be hidden
 	$Skewer.position = Vector3(0.0, 0.0, 128)
 	# more stuff copied from the top
-	bonus = 1.0 # score multiplier
+	bonus = 0.0 # score multiplier
 	caught = [0, 0, 0, 0, 0, 0] # list of objects already on skewer
 								# there are 5 places, with index 0 used
 								# for when the skewer is empty ahh
@@ -349,13 +349,13 @@ func reset_vegie(n):
 	n.set_meta("spawned", false)
 
 func score_add():
-	score += 1 * bonus
+	score += 1 + bonus
 	catch += 1
 	# make game speed up over time
 	speedBoost += 0.0015
 	update_skewer()
 	# stats
-	totalScore += 1 * bonus
+	totalScore += 1 + bonus
 	totalPieces += 1
 
 func save_highscore():
@@ -396,12 +396,12 @@ func wrong_piece():
 	health -= 1
 	damaged = 1
 	# stats
-	if(bonus - 1.0 > maxBonus):
+	if(bonus > maxBonus):
 		var file = FileAccess.open("user://maxBonus.res", FileAccess.WRITE)
-		file.store_float(bonus - 1.0)
+		file.store_float(bonus)
 		file.close()
 	# reset bonus
-	bonus = 1.0
+	bonus = 0.0
 	# kill
 	if(health <= 0):
 		# write highscore

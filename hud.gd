@@ -41,7 +41,7 @@ func _notification(what):
 func update_hud():
 	# display score in hud
 	$MarginContainer/Score.set_text("SCORE: " + str(int(main.score)) + 
-									" Bonus: " + str(main.bonus - 1))
+									" Bonus: " + str(main.bonus))
 
 	$MarginContainer/Health.set_text("TRIES: " + str(main.health))
 	if(main.health <= 1.0):
