@@ -214,11 +214,6 @@ func save_stats():
 	file.store_32(totalGameTime)
 	file.close()
 	# max bonus
-	maxBonus = 0.0
-	if(FileAccess.file_exists("user://maxBonus.res")):
-		file = FileAccess.open("user://maxBonus.res", FileAccess.READ)
-		maxBonus = file.get_float()
-		file.close()
 	if(bonus - 1.0 > maxBonus):
 		file = FileAccess.open("user://maxBonus.res", FileAccess.WRITE)
 		file.store_float(bonus - 1.0)
@@ -289,6 +284,11 @@ func quit_to_menu():
 
 func play():
 	# stats
+	# max bonus
+	if(FileAccess.file_exists("user://maxBonus.res")):
+		var file = FileAccess.open("user://maxBonus.res", FileAccess.READ)
+		maxBonus = file.get_float()
+		file.close()
 	# total game time
 	if(FileAccess.file_exists("user://gameTime.res")):
 		var file = FileAccess.open("user://gameTime.res", FileAccess.READ)
@@ -395,6 +395,12 @@ func wrong_piece():
 	# kill game / deduct health
 	health -= 1
 	damaged = 1
+	# stats
+	if(bonus - 1.0 > maxBonus):
+		var file = FileAccess.open("user://maxBonus.res", FileAccess.WRITE)
+		file.store_float(bonus - 1.0)
+		file.close()
+	# reset bonus
 	bonus = 1.0
 	# kill
 	if(health <= 0):
