@@ -46,7 +46,12 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/separator = SubResource("StyleBoxFlat_3ho2a")
 
-[node name="Stats" type="RichTextLabel" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Stats" type="RichTextLabel" parent="VBoxContainer/HBoxContainer"]
 material = SubResource("ShaderMaterial_wsy2u")
 layout_mode = 2
 size_flags_horizontal = 4
@@ -55,16 +60,32 @@ theme_override_fonts/normal_font = ExtResource("1_gs56o")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "TOTAL GAME TIME:
+
 LONGEST GAME:
+
 TOTAL SCORE:
+
 TOTAL PIECES COLLECTED:
+
 TOTAL SKEWERS COMPLETED:
+
 TOTAL MISTAKES:
+
 HIGHEST BONUS:
-HIGHSCORE:
-AVERAGE SCORE:
-TOTAL SCREEN TAPS:
-"
+
+BEST HIGHSCORE:"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Figures" type="RichTextLabel" parent="VBoxContainer/HBoxContainer"]
+material = SubResource("ShaderMaterial_wsy2u")
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/normal_font = ExtResource("1_gs56o")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
 fit_content = true
 scroll_active = false
 autowrap_mode = 0

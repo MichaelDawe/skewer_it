@@ -48,15 +48,22 @@ func _ready():
 	if(get_node("/root/main").highscore > bestHighscore):
 		bestHighscore = get_node("/root/main").highscore
 	# assign everything
-	$VBoxContainer/Stats.set_text("
-TOTAL GAME TIME: [right]" + format_seconds(gameTime) + "[/right]
-LONGEST GAME: [right]" + format_seconds(longestGame) + "[/right]
-TOTAL SCORE: [right]" + str(totalScore) + "[/right]
-TOTAL PIECES COLLECTED: [right]" + str(totalPieces) + "[/right]
-TOTAL SKEWERS COMPLETED:        [right]" + str(totalSkewers) + "[/right]
-TOTAL MISTAKES: [right]" + str(totalMistakes) + "[/right]
-HIGHEST BONUS: [right]" + str(maxBonus) + "[/right]
-BEST HIGHSCORE: [right]" + str(bestHighscore)
+	$VBoxContainer/HBoxContainer/Figures.set_text("[right]" 
++ format_seconds(gameTime) + "
+
+" + format_seconds(longestGame) + "
+
+" + str(totalScore) + "
+
+" + str(totalPieces) + "
+
+" + str(totalSkewers) + "
+
+" + str(totalMistakes) + "
+
+" + str(maxBonus) + "
+
+" + str(bestHighscore)
 )
 
 
