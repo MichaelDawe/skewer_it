@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=3 uid="uid://g54wi6rdpo70"]
+[gd_scene load_steps=99 format=3 uid="uid://g54wi6rdpo70"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_cqorg"]
 [ext_resource type="Shader" path="res://shaders/background.gdshader" id="2_vwy7a"]
@@ -43,7 +43,6 @@
 [ext_resource type="Texture2D" uid="uid://bfnybkrj74qex" path="res://textures/grill (20230709011110).png" id="41_f0b1t"]
 [ext_resource type="AudioStream" uid="uid://c17v5386ga33c" path="res://sounds/pluck.ogg" id="42_p1jm3"]
 [ext_resource type="AudioStream" uid="uid://dv2t4hpp60vv4" path="res://sounds/bad.ogg" id="43_dny22"]
-[ext_resource type="AudioStream" uid="uid://beraxaffogxpt" path="res://sounds/grill.ogg" id="43_t1y34"]
 [ext_resource type="AudioStream" uid="uid://yk3lart6lsr4" path="res://sounds/highscore.ogg" id="44_3ivn3"]
 [ext_resource type="Script" path="res://Music.gd" id="45_qf52m"]
 
@@ -712,13 +711,14 @@ max_polyphony = 5
 bus = &"FX SlowMo"
 
 [node name="GrillFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("43_t1y34")
+stream = ExtResource("42_p1jm3")
 pitch_scale = 0.8
 max_polyphony = 5
 bus = &"FX SlowMo"
 
 [node name="HighscoreFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("44_3ivn3")
+volume_db = 6.0
 
 [node name="BadFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("43_dny22")

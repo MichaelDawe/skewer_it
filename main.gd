@@ -113,13 +113,15 @@ func _process(delta):
 				$GrillFX.bus = "FX SlowMo"
 				$BadFX.bus = "FX SlowMo"
 				$HighscoreFX.bus = "FX SlowMo"
+				$Music.volume_db = -6
 				catchYourBreath = false
 		elif(!catchYourBreath):
-			catchYourBreath = true
 			$GoodFX.bus = "FX"
 			$GrillFX.bus = "FX"
 			$BadFX.bus = "FX"
 			$HighscoreFX.bus = "FX"
+			$Music.volume_db = 0
+			catchYourBreath = true
 		#
 		playTime += delta
 		# run background shading 
