@@ -35,8 +35,8 @@ var grillAnim = false
 var grillAnimStop = false
 var skewerMouseActive = true # stops the mouse control for the skewer while its being animated
 var shaderTime = 0.0 # separate time for shader to seamlessly apply speed effects
-var audio = 2 # 0 = mute, 1 = fx only, 2 = fx and music
-var catchYourBreath = true
+var audio = 0 # 0 = mute, 1 = fx only, 2 = fx and music
+var catchYourBreath = false
 # stats
 var totalGameTime = 0.0
 var maxBonus = 0.0
@@ -54,6 +54,7 @@ func _ready():
 	if(FileAccess.file_exists("user://audio.res")):
 		var file = FileAccess.open("user://audio.res", FileAccess.READ)
 		audio = file.get_8()
+	$Music.process_music_mode(audio)
 	# get screen aspect ratio as a float e.g. 1.777... for a 16 / 9 display
 	ratio = float(get_viewport().size.x) / float(get_viewport().size.y)
 	# set shader background
@@ -108,8 +109,17 @@ func _process(delta):
 		if(backRed > 0.1):
 			if(catchYourBreath):
 				get_node("hud").catch_your_breath()
+				$GoodFX.bus = "FX SlowMo"
+				$GrillFX.bus = "FX SlowMo"
+				$BadFX.bus = "FX SlowMo"
+				$HighscoreFX.bus = "FX SlowMo"
 				catchYourBreath = false
-		else: catchYourBreath = true
+		elif(!catchYourBreath):
+			catchYourBreath = true
+			$GoodFX.bus = "FX"
+			$GrillFX.bus = "FX"
+			$BadFX.bus = "FX"
+			$HighscoreFX.bus = "FX"
 		#
 		playTime += delta
 		# run background shading 
@@ -190,6 +200,8 @@ func play_fx(fx):
 	if(audio > 0):
 		if(fx == 0):
 			$BadFX.play()
+		if(fx == 7):
+			$HighscoreFX.play()
 		else:
 			$GoodFX.pitch_scale = 0.8 + (fx / 5.0)
 			$GoodFX.volume_db = fx
@@ -446,6 +458,7 @@ func process_input(n, event):
 				highscoreFlash += 1
 				highscoreBeat = true
 				get_node("hud").show_highscore()
+				play_fx(7)
 
 func _on_aubergine_input_event(_camera, event, _position, _normal, _shape_idx):
 	if(mode == 1):

@@ -112,13 +112,10 @@ func _on_audio_pressed():
 	elif(main.audio == 1): audioTxt = "AUDIO: FX ONLY"
 	elif(main.audio == 2): audioTxt = "AUDIO: ON"
 	$VBoxContainer/Audio.set_text(audioTxt)
+	get_node("/root/main/Music").process_music_mode(main.audio)
 
 
 func _on_stats_pressed():
 	var stats = preload("res://Stats.tscn").instantiate()
 	main.add_child(stats)
 	queue_free()
-
-
-func _on_ken_mode_pressed():
-	pass # Replace with function body.

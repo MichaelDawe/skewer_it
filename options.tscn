@@ -81,19 +81,6 @@ button_mask = 7
 text = "RESET HIGHSCORE"
 flat = true
 
-[node name="ken mode" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-focus_mode = 0
-theme_override_colors/font_color = Color(0.772549, 0.772549, 0.772549, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_h8oic")
-theme_override_font_sizes/font_size = 100
-button_mask = 7
-text = "KEN MODE OFF"
-flat = true
-
 [node name="Tutorial" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -155,7 +142,6 @@ theme_override_styles/separator = SubResource("StyleBoxFlat_qhcnr")
 [connection signal="pressed" from="VBoxContainer/Audio" to="." method="_on_audio_pressed"]
 [connection signal="pressed" from="VBoxContainer/Difficulty" to="." method="_on_difficulty_pressed"]
 [connection signal="pressed" from="VBoxContainer/Reset Score" to="." method="_on_reset_score_pressed"]
-[connection signal="pressed" from="VBoxContainer/ken mode" to="." method="_on_ken_mode_pressed"]
 [connection signal="pressed" from="VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="VBoxContainer/Stats" to="." method="_on_stats_pressed"]
 [connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
