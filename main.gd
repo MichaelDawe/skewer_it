@@ -35,7 +35,7 @@ var grillAnim = false
 var grillAnimStop = false
 var skewerMouseActive = true # stops the mouse control for the skewer while its being animated
 var shaderTime = 0.0 # separate time for shader to seamlessly apply speed effects
-var audio = 0 # 0 = mute, 1 = fx only, 2 = fx and music
+var audio = 2 # 0 = mute, 1 = fx only, 2 = fx and music
 var catchYourBreath = false
 # stats
 var totalGameTime = 0.0

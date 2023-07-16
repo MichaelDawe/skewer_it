@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=5 format=3 uid="uid://c1rw57tjjece4"]
+[gd_resource type="AudioBusLayout" load_steps=4 format=3 uid="uid://c1rw57tjjece4"]
 
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_jrifc"]
 resource_name = "Reverb"
@@ -7,12 +7,9 @@ damping = 0.8
 spread = 0.6
 dry = 0.8
 
-[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_t14hv"]
-resource_name = "LowPassFilter"
-
 [sub_resource type="AudioEffectPitchShift" id="AudioEffectPitchShift_4sebn"]
 resource_name = "PitchShift"
-pitch_scale = 0.6
+pitch_scale = 0.8
 
 [sub_resource type="AudioEffectDelay" id="AudioEffectDelay_m6euo"]
 resource_name = "Delay"
@@ -20,28 +17,24 @@ tap1_delay_ms = 1200.0
 tap2_active = false
 
 [resource]
-bus/0/volume_db = -0.0393963
+bus/0/volume_db = -6.008
 bus/1/name = &"FX"
 bus/1/solo = false
 bus/1/mute = false
 bus/1/bypass_fx = false
-bus/1/volume_db = 0.0317078
+bus/1/volume_db = -5.99391
 bus/1/send = &"Master"
 bus/1/effect/0/effect = SubResource("AudioEffectReverb_jrifc")
 bus/1/effect/0/enabled = true
-bus/1/effect/1/effect = SubResource("AudioEffectLowPassFilter_t14hv")
-bus/1/effect/1/enabled = true
 bus/2/name = &"FX SlowMo"
 bus/2/solo = false
 bus/2/mute = false
 bus/2/bypass_fx = false
-bus/2/volume_db = -6.008
+bus/2/volume_db = -11.9855
 bus/2/send = &"Master"
 bus/2/effect/0/effect = SubResource("AudioEffectReverb_jrifc")
 bus/2/effect/0/enabled = true
-bus/2/effect/1/effect = SubResource("AudioEffectLowPassFilter_t14hv")
+bus/2/effect/1/effect = SubResource("AudioEffectPitchShift_4sebn")
 bus/2/effect/1/enabled = true
-bus/2/effect/2/effect = SubResource("AudioEffectPitchShift_4sebn")
+bus/2/effect/2/effect = SubResource("AudioEffectDelay_m6euo")
 bus/2/effect/2/enabled = true
-bus/2/effect/3/effect = SubResource("AudioEffectDelay_m6euo")
-bus/2/effect/3/enabled = true
