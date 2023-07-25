@@ -27,6 +27,9 @@ func _on_close_pressed():
 
 
 func _on_menu_pressed():
+	var file = FileAccess.open("user://firstopen.res", FileAccess.WRITE)
+	file.store_var(true)
+	file.close()
 	var menu = preload("res://menu.tscn").instantiate()
 	get_node("/root/main").add_child(menu)
 	queue_free()
