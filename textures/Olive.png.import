@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btqusv8vuxx7c"
-path.s3tc="res://.godot/imported/tofu1 (20230603030406).png-46ce8c0ba79e9e48b3d3a1e324e5ce26.s3tc.ctex"
-path.etc2="res://.godot/imported/tofu1 (20230603030406).png-46ce8c0ba79e9e48b3d3a1e324e5ce26.etc2.ctex"
+uid="uid://w2a1omfmkaeu"
+path.s3tc="res://.godot/imported/Olive.png-98f49bb22aa16e2285236c612bb8dc40.s3tc.ctex"
+path.etc2="res://.godot/imported/Olive.png-98f49bb22aa16e2285236c612bb8dc40.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/tofu1 (20230603030406).png"
-dest_files=["res://.godot/imported/tofu1 (20230603030406).png-46ce8c0ba79e9e48b3d3a1e324e5ce26.s3tc.ctex", "res://.godot/imported/tofu1 (20230603030406).png-46ce8c0ba79e9e48b3d3a1e324e5ce26.etc2.ctex"]
+source_file="res://textures/Olive.png"
+dest_files=["res://.godot/imported/Olive.png-98f49bb22aa16e2285236c612bb8dc40.s3tc.ctex", "res://.godot/imported/Olive.png-98f49bb22aa16e2285236c612bb8dc40.etc2.ctex"]
 
 [params]
 

@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bs7nvsivyiwpd"
-path.s3tc="res://.godot/imported/redpepper (20230628014100).png-b5553ddbf3463436b4fdd332ae2165b6.s3tc.ctex"
-path.etc2="res://.godot/imported/redpepper (20230628014100).png-b5553ddbf3463436b4fdd332ae2165b6.etc2.ctex"
+uid="uid://cv2xm4k8ijoar"
+path.s3tc="res://.godot/imported/Maize.png-ab650426a2dacd85b2c5dfaff7d11329.s3tc.ctex"
+path.etc2="res://.godot/imported/Maize.png-ab650426a2dacd85b2c5dfaff7d11329.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/redpepper (20230628014100).png"
-dest_files=["res://.godot/imported/redpepper (20230628014100).png-b5553ddbf3463436b4fdd332ae2165b6.s3tc.ctex", "res://.godot/imported/redpepper (20230628014100).png-b5553ddbf3463436b4fdd332ae2165b6.etc2.ctex"]
+source_file="res://textures/Maize.png"
+dest_files=["res://.godot/imported/Maize.png-ab650426a2dacd85b2c5dfaff7d11329.s3tc.ctex", "res://.godot/imported/Maize.png-ab650426a2dacd85b2c5dfaff7d11329.etc2.ctex"]
 
 [params]
 

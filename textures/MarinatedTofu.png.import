@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cv2xm4k8ijoar"
-path.s3tc="res://.godot/imported/maize (20230628074548).png-ecf335c84d74d9d3a107155c4ffdb333.s3tc.ctex"
-path.etc2="res://.godot/imported/maize (20230628074548).png-ecf335c84d74d9d3a107155c4ffdb333.etc2.ctex"
+uid="uid://cwirmxdg0aavo"
+path.s3tc="res://.godot/imported/MarinatedTofu.png-7de6d1c775413b7078d3abc697c71e21.s3tc.ctex"
+path.etc2="res://.godot/imported/MarinatedTofu.png-7de6d1c775413b7078d3abc697c71e21.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/maize (20230628074548).png"
-dest_files=["res://.godot/imported/maize (20230628074548).png-ecf335c84d74d9d3a107155c4ffdb333.s3tc.ctex", "res://.godot/imported/maize (20230628074548).png-ecf335c84d74d9d3a107155c4ffdb333.etc2.ctex"]
+source_file="res://textures/MarinatedTofu.png"
+dest_files=["res://.godot/imported/MarinatedTofu.png-7de6d1c775413b7078d3abc697c71e21.s3tc.ctex", "res://.godot/imported/MarinatedTofu.png-7de6d1c775413b7078d3abc697c71e21.etc2.ctex"]
 
 [params]
 

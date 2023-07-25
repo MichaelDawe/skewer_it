@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfnybkrj74qex"
-path.s3tc="res://.godot/imported/grill (20230709011110).png-a2481fcdf17043ba135e4b0293f112c1.s3tc.ctex"
-path.etc2="res://.godot/imported/grill (20230709011110).png-a2481fcdf17043ba135e4b0293f112c1.etc2.ctex"
+uid="uid://bs7nvsivyiwpd"
+path.s3tc="res://.godot/imported/RedPepper.png-845e6e8c61242e6b46d1061ce41127d7.s3tc.ctex"
+path.etc2="res://.godot/imported/RedPepper.png-845e6e8c61242e6b46d1061ce41127d7.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/grill (20230709011110).png"
-dest_files=["res://.godot/imported/grill (20230709011110).png-a2481fcdf17043ba135e4b0293f112c1.s3tc.ctex", "res://.godot/imported/grill (20230709011110).png-a2481fcdf17043ba135e4b0293f112c1.etc2.ctex"]
+source_file="res://textures/RedPepper.png"
+dest_files=["res://.godot/imported/RedPepper.png-845e6e8c61242e6b46d1061ce41127d7.s3tc.ctex", "res://.godot/imported/RedPepper.png-845e6e8c61242e6b46d1061ce41127d7.etc2.ctex"]
 
 [params]
 

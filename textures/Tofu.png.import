@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8dagkhbjie0s"
-path.s3tc="res://.godot/imported/tomato (20230629021339).png-f0dbafb79576f69a523e844c46873339.s3tc.ctex"
-path.etc2="res://.godot/imported/tomato (20230629021339).png-f0dbafb79576f69a523e844c46873339.etc2.ctex"
+uid="uid://btqusv8vuxx7c"
+path.s3tc="res://.godot/imported/Tofu.png-638c944e1942c57a730834be4ef05ed7.s3tc.ctex"
+path.etc2="res://.godot/imported/Tofu.png-638c944e1942c57a730834be4ef05ed7.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/tomato (20230629021339).png"
-dest_files=["res://.godot/imported/tomato (20230629021339).png-f0dbafb79576f69a523e844c46873339.s3tc.ctex", "res://.godot/imported/tomato (20230629021339).png-f0dbafb79576f69a523e844c46873339.etc2.ctex"]
+source_file="res://textures/Tofu.png"
+dest_files=["res://.godot/imported/Tofu.png-638c944e1942c57a730834be4ef05ed7.s3tc.ctex", "res://.godot/imported/Tofu.png-638c944e1942c57a730834be4ef05ed7.etc2.ctex"]
 
 [params]
 

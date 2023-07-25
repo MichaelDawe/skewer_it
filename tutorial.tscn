@@ -55,7 +55,7 @@ theme_override_fonts/normal_font = ExtResource("1_tykps")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "[center]Catch any item you like, but make sure 
-you don't have duplicates on the same skewer!
+you only have one of each item on each skewer!
 
 Place completed skewers on the grill!
 
@@ -64,10 +64,8 @@ You get a multiplier for each skewer you complete!
 You can make 3 mistakes,
 you earn 1 back by completing 4 skewers!
 
-The game will speed up over time, 
+The game will speed up the more you catch, 
 see how long you can play!
-
-See if you can beat your friends' highscores!
 
 And most importantly, have fun!
 

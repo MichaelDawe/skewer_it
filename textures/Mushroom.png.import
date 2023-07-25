@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dblnwp78gjb23"
-path.s3tc="res://.godot/imported/pineapple (20230629021551).png-6984de465a44aafb0a155c81b9eb73d8.s3tc.ctex"
-path.etc2="res://.godot/imported/pineapple (20230629021551).png-6984de465a44aafb0a155c81b9eb73d8.etc2.ctex"
+uid="uid://c3lk06qgdedif"
+path.s3tc="res://.godot/imported/Mushroom.png-22ca10642497981ad1d1383bd1e56d23.s3tc.ctex"
+path.etc2="res://.godot/imported/Mushroom.png-22ca10642497981ad1d1383bd1e56d23.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/pineapple (20230629021551).png"
-dest_files=["res://.godot/imported/pineapple (20230629021551).png-6984de465a44aafb0a155c81b9eb73d8.s3tc.ctex", "res://.godot/imported/pineapple (20230629021551).png-6984de465a44aafb0a155c81b9eb73d8.etc2.ctex"]
+source_file="res://textures/Mushroom.png"
+dest_files=["res://.godot/imported/Mushroom.png-22ca10642497981ad1d1383bd1e56d23.s3tc.ctex", "res://.godot/imported/Mushroom.png-22ca10642497981ad1d1383bd1e56d23.etc2.ctex"]
 
 [params]
 

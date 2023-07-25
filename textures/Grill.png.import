@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3lk06qgdedif"
-path.s3tc="res://.godot/imported/mushroom (20230629032001).png-071b324c50e49abcad7bd664f1f9f818.s3tc.ctex"
-path.etc2="res://.godot/imported/mushroom (20230629032001).png-071b324c50e49abcad7bd664f1f9f818.etc2.ctex"
+uid="uid://bfnybkrj74qex"
+path.s3tc="res://.godot/imported/Grill.png-e56827e56be69c2e0f5d57141d200208.s3tc.ctex"
+path.etc2="res://.godot/imported/Grill.png-e56827e56be69c2e0f5d57141d200208.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/mushroom (20230629032001).png"
-dest_files=["res://.godot/imported/mushroom (20230629032001).png-071b324c50e49abcad7bd664f1f9f818.s3tc.ctex", "res://.godot/imported/mushroom (20230629032001).png-071b324c50e49abcad7bd664f1f9f818.etc2.ctex"]
+source_file="res://textures/Grill.png"
+dest_files=["res://.godot/imported/Grill.png-e56827e56be69c2e0f5d57141d200208.s3tc.ctex", "res://.godot/imported/Grill.png-e56827e56be69c2e0f5d57141d200208.etc2.ctex"]
 
 [params]
 

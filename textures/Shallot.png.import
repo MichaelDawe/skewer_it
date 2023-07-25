@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://p10uyj641lrl"
-path.s3tc="res://.godot/imported/yellowpepper  (20230628014237).png-647d4e21dfc82596cd9dd04265300a7e.s3tc.ctex"
-path.etc2="res://.godot/imported/yellowpepper  (20230628014237).png-647d4e21dfc82596cd9dd04265300a7e.etc2.ctex"
+uid="uid://la7n5rtkoqsg"
+path.s3tc="res://.godot/imported/Shallot.png-c2e281d7ffc03e78c9a61d6e78908146.s3tc.ctex"
+path.etc2="res://.godot/imported/Shallot.png-c2e281d7ffc03e78c9a61d6e78908146.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/yellowpepper  (20230628014237).png"
-dest_files=["res://.godot/imported/yellowpepper  (20230628014237).png-647d4e21dfc82596cd9dd04265300a7e.s3tc.ctex", "res://.godot/imported/yellowpepper  (20230628014237).png-647d4e21dfc82596cd9dd04265300a7e.etc2.ctex"]
+source_file="res://textures/Shallot.png"
+dest_files=["res://.godot/imported/Shallot.png-c2e281d7ffc03e78c9a61d6e78908146.s3tc.ctex", "res://.godot/imported/Shallot.png-c2e281d7ffc03e78c9a61d6e78908146.etc2.ctex"]
 
 [params]
 

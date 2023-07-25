@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ea7gb7atcdnx"
-path.s3tc="res://.godot/imported/greenpepper  (20230628042917).png-3d3dbf66d318d8ce98db4e6efefa9cab.s3tc.ctex"
-path.etc2="res://.godot/imported/greenpepper  (20230628042917).png-3d3dbf66d318d8ce98db4e6efefa9cab.etc2.ctex"
+uid="uid://p10uyj641lrl"
+path.s3tc="res://.godot/imported/YellowPepper.png-68eb449b73c6add932835cb669c8f5a8.s3tc.ctex"
+path.etc2="res://.godot/imported/YellowPepper.png-68eb449b73c6add932835cb669c8f5a8.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/greenpepper  (20230628042917).png"
-dest_files=["res://.godot/imported/greenpepper  (20230628042917).png-3d3dbf66d318d8ce98db4e6efefa9cab.s3tc.ctex", "res://.godot/imported/greenpepper  (20230628042917).png-3d3dbf66d318d8ce98db4e6efefa9cab.etc2.ctex"]
+source_file="res://textures/YellowPepper.png"
+dest_files=["res://.godot/imported/YellowPepper.png-68eb449b73c6add932835cb669c8f5a8.s3tc.ctex", "res://.godot/imported/YellowPepper.png-68eb449b73c6add932835cb669c8f5a8.etc2.ctex"]
 
 [params]
 

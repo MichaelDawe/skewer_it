@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pfyulex635us"
-path.s3tc="res://.godot/imported/skewer (20230701012348).png-bc130a5d1284c73dfbafc58d1a0a8dff.s3tc.ctex"
-path.etc2="res://.godot/imported/skewer (20230701012348).png-bc130a5d1284c73dfbafc58d1a0a8dff.etc2.ctex"
+uid="uid://dg87qykedf6w1"
+path.s3tc="res://.godot/imported/Sausage.png-11fe2909a2d7fc0ca1f8a2ba0d29e50d.s3tc.ctex"
+path.etc2="res://.godot/imported/Sausage.png-11fe2909a2d7fc0ca1f8a2ba0d29e50d.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/skewer (20230701012348).png"
-dest_files=["res://.godot/imported/skewer (20230701012348).png-bc130a5d1284c73dfbafc58d1a0a8dff.s3tc.ctex", "res://.godot/imported/skewer (20230701012348).png-bc130a5d1284c73dfbafc58d1a0a8dff.etc2.ctex"]
+source_file="res://textures/Sausage.png"
+dest_files=["res://.godot/imported/Sausage.png-11fe2909a2d7fc0ca1f8a2ba0d29e50d.s3tc.ctex", "res://.godot/imported/Sausage.png-11fe2909a2d7fc0ca1f8a2ba0d29e50d.etc2.ctex"]
 
 [params]
 

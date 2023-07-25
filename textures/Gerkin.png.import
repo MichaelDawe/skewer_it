@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://la7n5rtkoqsg"
-path.s3tc="res://.godot/imported/shallot (20230629015459).png-3ea32e7a4828b6e3eafb4b0f05b1bf8a.s3tc.ctex"
-path.etc2="res://.godot/imported/shallot (20230629015459).png-3ea32e7a4828b6e3eafb4b0f05b1bf8a.etc2.ctex"
+uid="uid://54n8b0x5u0qy"
+path.s3tc="res://.godot/imported/Gerkin.png-fd9a306373ec8a9e38597e1743eabb57.s3tc.ctex"
+path.etc2="res://.godot/imported/Gerkin.png-fd9a306373ec8a9e38597e1743eabb57.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/shallot (20230629015459).png"
-dest_files=["res://.godot/imported/shallot (20230629015459).png-3ea32e7a4828b6e3eafb4b0f05b1bf8a.s3tc.ctex", "res://.godot/imported/shallot (20230629015459).png-3ea32e7a4828b6e3eafb4b0f05b1bf8a.etc2.ctex"]
+source_file="res://textures/Gerkin.png"
+dest_files=["res://.godot/imported/Gerkin.png-fd9a306373ec8a9e38597e1743eabb57.s3tc.ctex", "res://.godot/imported/Gerkin.png-fd9a306373ec8a9e38597e1743eabb57.etc2.ctex"]
 
 [params]
 

@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://54n8b0x5u0qy"
-path.s3tc="res://.godot/imported/gerkin (20230628011145).png-aef94efc5d766b47cbe92456a64653d8.s3tc.ctex"
-path.etc2="res://.godot/imported/gerkin (20230628011145).png-aef94efc5d766b47cbe92456a64653d8.etc2.ctex"
+uid="uid://b8dagkhbjie0s"
+path.s3tc="res://.godot/imported/Tomato.png-47f4f4c909c7273d9eb9109d65727c76.s3tc.ctex"
+path.etc2="res://.godot/imported/Tomato.png-47f4f4c909c7273d9eb9109d65727c76.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/gerkin (20230628011145).png"
-dest_files=["res://.godot/imported/gerkin (20230628011145).png-aef94efc5d766b47cbe92456a64653d8.s3tc.ctex", "res://.godot/imported/gerkin (20230628011145).png-aef94efc5d766b47cbe92456a64653d8.etc2.ctex"]
+source_file="res://textures/Tomato.png"
+dest_files=["res://.godot/imported/Tomato.png-47f4f4c909c7273d9eb9109d65727c76.s3tc.ctex", "res://.godot/imported/Tomato.png-47f4f4c909c7273d9eb9109d65727c76.etc2.ctex"]
 
 [params]
 

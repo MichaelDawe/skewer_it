@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwirmxdg0aavo"
-path.s3tc="res://.godot/imported/tofu2 (20230628010940).png-6d3b63198e5e661ccf7bcfc89cc2da38.s3tc.ctex"
-path.etc2="res://.godot/imported/tofu2 (20230628010940).png-6d3b63198e5e661ccf7bcfc89cc2da38.etc2.ctex"
+uid="uid://ea7gb7atcdnx"
+path.s3tc="res://.godot/imported/GreenPepper.png-ca8b4933fa17a36902cd58c9dcb38487.s3tc.ctex"
+path.etc2="res://.godot/imported/GreenPepper.png-ca8b4933fa17a36902cd58c9dcb38487.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/tofu2 (20230628010940).png"
-dest_files=["res://.godot/imported/tofu2 (20230628010940).png-6d3b63198e5e661ccf7bcfc89cc2da38.s3tc.ctex", "res://.godot/imported/tofu2 (20230628010940).png-6d3b63198e5e661ccf7bcfc89cc2da38.etc2.ctex"]
+source_file="res://textures/GreenPepper.png"
+dest_files=["res://.godot/imported/GreenPepper.png-ca8b4933fa17a36902cd58c9dcb38487.s3tc.ctex", "res://.godot/imported/GreenPepper.png-ca8b4933fa17a36902cd58c9dcb38487.etc2.ctex"]
 
 [params]
 

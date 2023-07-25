@@ -113,7 +113,8 @@ func _process(delta):
 				$GrillFX.bus = "FX SlowMo"
 				$BadFX.bus = "FX SlowMo"
 				$HighscoreFX.bus = "FX SlowMo"
-				$Music.volume_db = -6
+				$Music.volume_db = -3
+				$Music.set_pitch_scale(0.6)
 				catchYourBreath = false
 		elif(!catchYourBreath):
 			$GoodFX.bus = "FX"
@@ -121,6 +122,7 @@ func _process(delta):
 			$BadFX.bus = "FX"
 			$HighscoreFX.bus = "FX"
 			$Music.volume_db = 0
+			$Music.set_pitch_scale(1.0)
 			catchYourBreath = true
 		#
 		playTime += delta

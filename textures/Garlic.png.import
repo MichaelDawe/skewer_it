@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4o75wuiclry5"
-path.s3tc="res://.godot/imported/aubergine  (20230628020424).png-beed6bedf08792bf25351853a901c0c4.s3tc.ctex"
-path.etc2="res://.godot/imported/aubergine  (20230628020424).png-beed6bedf08792bf25351853a901c0c4.etc2.ctex"
+uid="uid://sytdl5fhtgjm"
+path.s3tc="res://.godot/imported/Garlic.png-8de4be3d2f677375a2d5446377023f67.s3tc.ctex"
+path.etc2="res://.godot/imported/Garlic.png-8de4be3d2f677375a2d5446377023f67.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/aubergine  (20230628020424).png"
-dest_files=["res://.godot/imported/aubergine  (20230628020424).png-beed6bedf08792bf25351853a901c0c4.s3tc.ctex", "res://.godot/imported/aubergine  (20230628020424).png-beed6bedf08792bf25351853a901c0c4.etc2.ctex"]
+source_file="res://textures/Garlic.png"
+dest_files=["res://.godot/imported/Garlic.png-8de4be3d2f677375a2d5446377023f67.s3tc.ctex", "res://.godot/imported/Garlic.png-8de4be3d2f677375a2d5446377023f67.etc2.ctex"]
 
 [params]
 
