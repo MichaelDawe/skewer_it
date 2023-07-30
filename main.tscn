@@ -64,7 +64,7 @@ shader = ExtResource("38_reqji")
 shader_parameter/catch = 0.0
 shader_parameter/damaged = 0.0
 shader_parameter/sparks = 0.0
-shader_parameter/highscore = null
+shader_parameter/highscore = 0.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_sw2bk"]
 material = SubResource("ShaderMaterial_ac0uo")
@@ -712,9 +712,8 @@ bus = &"FX SlowMo"
 
 [node name="GrillFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("42_r2n88")
+volume_db = 6.0
 pitch_scale = 0.8
-max_polyphony = 5
-bus = &"FX SlowMo"
 
 [node name="HighscoreFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("43_6cv70")
