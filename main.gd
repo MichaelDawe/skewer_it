@@ -83,7 +83,6 @@ func _ready():
 	for n in $Vegies.get_children():
 		reset_vegie(n)
 		# pass ratio to shader
-		n.get_child(0).get_active_material(0).set_shader_parameter("ratio", ratio)
 		n.get_child(0).get_active_material(0).set_shader_parameter("background", background)
 	# reset skewer to be hidden
 	$Skewer.position = Vector3(0.0, 0.0, 128)
@@ -139,7 +138,6 @@ func _process(delta):
 			# set location in shader for pickup effects
 			n.get_child(0).get_active_material(0).set_shader_parameter("pozition", n.position.z)
 			n.get_child(0).get_active_material(0).set_shader_parameter("background", background)
-			n.get_child(0).get_active_material(0).set_shader_parameter("t", shaderTime)
 			# process postion and rotation
 			var rotationMeta = n.get_meta("rotation")
 			if(n.get_meta("spawned")):
@@ -154,7 +152,7 @@ func _process(delta):
 				n.rotate(Vector3(0, 1, 0), rotationMeta[1] * delta * finalSpeed)
 				n.rotate(Vector3(0, 0, 1), rotationMeta[2] * delta * finalSpeed)
 				
-				if(n.position.z > 104): # send objects home ('kill' them)
+				if(n.position.z > 128): # send objects home ('kill' them) # was 104
 					reset_vegie(n)
 		# process grill
 		if(grillAnim):
@@ -172,7 +170,10 @@ func _process(delta):
 					
 		# spawn new item
 		if(spawnNowQ > spawnInterval / finalSpeed):
-			$Vegies.get_child(randi_range(0, 14)).set_meta("spawned", true)
+			var v = $Vegies.get_child(randi_range(0, 14))
+			while(v.get_meta("spawned")):
+				v = $Vegies.get_child(randi_range(0, 14))
+			v.set_meta("spawned", true)
 			spawnNowQ = 0.0
 		
 		# render skewer
@@ -357,11 +358,26 @@ func reset_vegie(n):
 	n.scale = Vector3(0.1, 0.1, 0.1)
 	# spawn in random location
 	n.position.z = 0
-	n.position.x = (randf() * 60) - 30
-	n.position.y = (randf() * 60) - 30
+	var posX = (randf() * 55) - 30 #55 + 5 = 60
+	var posY = (randf() * 55) - 30
+	# add space in center for X
+	if(posX > 0.0):
+		posX += 5
+	else:
+		posX -= 5
+	# add space in center for Y
+	if(posY > 0.0):
+		posY += 5
+	else:
+		posY -= 5
+	# assign values
+	n.position.x = posX
+	n.position.y = posY
 	# assign random rotation 
 	n.set_meta("rotation", Vector3(randf(), randf(), randf()))
 	n.set_meta("spawned", false)
+	# DEBUG
+	#speedBoost = 10.0
 
 func score_add():
 	score += 1 + bonus
@@ -447,14 +463,12 @@ func wrong_piece():
 func process_input(n, event):
 	if(event is InputEventMouse):
 		var nZ = n.position.z
-		if(nZ > 64 and nZ < 96):
+		if(nZ > 64): # and nZ < 96
 			# make it a bit easier to catch items when you want to without affecting when you don't want them
-			if(nZ > 90):
+			if(nZ > 108): #was 90
 				if(n.get_meta("number") not in caught and caughtPos < 5):
 					reset_vegie(n)
 					score_update(n)
-				else:
-					pass # is this nessesary?
 			else:
 				reset_vegie(n)
 				score_update(n)

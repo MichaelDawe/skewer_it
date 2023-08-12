@@ -8,7 +8,6 @@ shader_type spatial;
 render_mode unshaded;
 
 uniform vec3 background;
-uniform float ratio;
 uniform float t;
 
 float random(vec2 par){
@@ -22,7 +21,7 @@ vec2 random2(vec2 par){
 
 void fragment() {
     float layers = 6.0;
-    float scale = 16.0;
+    float scale = 25.0;
 	
 	float stars;
     float depth;
@@ -38,8 +37,8 @@ void fragment() {
         depth = fract(i/layers + t);
         
         //Get uv from the fragment coordinates and depth
-    	uv.x = (0.5 - SCREEN_UV.x) * ratio;
-    	uv.y = 0.5 - SCREEN_UV.y;
+    	uv.x = 0.5 - UV.x;
+    	uv.y = 0.5 - UV.y;
     	uv *= mix(scale, 0.0, depth);
         
         //The local cell
