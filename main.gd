@@ -37,6 +37,7 @@ var skewerMouseActive = true # stops the mouse control for the skewer while its 
 var shaderTime = 0.0 # separate time for shader to seamlessly apply speed effects
 var audio = 2 # 0 = mute, 1 = fx only, 2 = fx and music
 var catchYourBreath = false
+var postProcess = false
 # stats
 var totalGameTime = 0.0
 var maxBonus = 0.0
@@ -48,8 +49,6 @@ var totalMistakes = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# pass screen size to the post process shader
-	$MainCamera/PostProcess.get_active_material(0).set_shader_parameter("screenSize", Vector2(get_viewport().size.x, get_viewport().size.y))
 	# set audio mode.
 	if(FileAccess.file_exists("user://audio.res")):
 		var file = FileAccess.open("user://audio.res", FileAccess.READ)
@@ -63,13 +62,13 @@ func _ready():
 	if(FileAccess.file_exists("user://posteffects.res")):
 		var file = FileAccess.open("user://posteffects.res", FileAccess.READ)
 		if(file.get_8() == 1):
-			$MainCamera/PostProcess.visible = true
+			postProcess = true
 		file.close()
 	else:
 		var file = FileAccess.open("user://posteffects.res", FileAccess.WRITE)
 		file.store_8(1)
 		file.close()
-		$MainCamera/PostProcess.visible = true
+		postProcess = true
 	# read difficutly from file
 	if(FileAccess.file_exists("user://speed.res")):
 		var file = FileAccess.open("user://speed.res", FileAccess.READ)
@@ -187,17 +186,41 @@ func _process(delta):
 		
 			
 	# process shader effects
-	if($MainCamera/PostProcess.visible):
-		$MainCamera/PostProcess.get_active_material(0).set_shader_parameter("catch", catch)
+	if(postProcess):
+		$MainCamera/Background.get_active_material(0).set_shader_parameter("catch", catch)
+		$Grill/Grill.get_active_material(0).set_shader_parameter("catch", catch)
+		$Skewer.get_active_material(0).set_shader_parameter("catch", catch)
+		for n in $Skewer.get_children():
+			n.get_active_material(0).set_shader_parameter("catch", catch)
+		for n in $Vegies.get_children():
+			n.get_child(0).get_active_material(0).set_shader_parameter("catch", catch)
 		if(catch > 0.0): catch -= delta * 2
 		else: catch = 0.0
-		$MainCamera/PostProcess.get_active_material(0).set_shader_parameter("damaged", damaged)
+		$MainCamera/Background.get_active_material(0).set_shader_parameter("damaged", damaged)
+		$Grill/Grill.get_active_material(0).set_shader_parameter("damaged", damaged)
+		$Skewer.get_active_material(0).set_shader_parameter("damaged", damaged)
+		for n in $Skewer.get_children():
+			n.get_active_material(0).set_shader_parameter("damaged", damaged)
+		for n in $Vegies.get_children():
+			n.get_child(0).get_active_material(0).set_shader_parameter("damaged", damaged)
 		if(damaged > 0.0): damaged -= delta * 2
 		else: damaged = 0.0
-		$MainCamera/PostProcess.get_active_material(0).set_shader_parameter("sparks", sparks)
+		$MainCamera/Background.get_active_material(0).set_shader_parameter("sparks", sparks)
+		$Grill/Grill.get_active_material(0).set_shader_parameter("sparks", sparks)
+		$Skewer.get_active_material(0).set_shader_parameter("sparks", sparks)
+		for n in $Skewer.get_children():
+			n.get_active_material(0).set_shader_parameter("sparks", sparks)
+		for n in $Vegies.get_children():
+			n.get_child(0).get_active_material(0).set_shader_parameter("sparks", sparks)
 		if(sparks > 0.0): sparks -= delta
 		else: sparks = 0.0
-		$MainCamera/PostProcess.get_active_material(0).set_shader_parameter("highscore", highscoreFlash)
+		$MainCamera/Background.get_active_material(0).set_shader_parameter("highscore", highscoreFlash)
+		$Grill/Grill.get_active_material(0).set_shader_parameter("highscore", highscoreFlash)
+		$Skewer.get_active_material(0).set_shader_parameter("highscore", highscoreFlash)
+		for n in $Skewer.get_children():
+			n.get_active_material(0).set_shader_parameter("highscore", highscoreFlash)
+		for n in $Vegies.get_children():
+			n.get_child(0).get_active_material(0).set_shader_parameter("highscore", highscoreFlash)
 		if(highscoreFlash > 0.0): highscoreFlash -= delta
 		else: highscoreFlash = 0.0
 
@@ -343,9 +366,9 @@ func play():
 	if(FileAccess.file_exists("user://posteffects.res")):
 		var file = FileAccess.open("user://posteffects.res", FileAccess.READ)
 		if(file.get_8() == 1):
-			$MainCamera/PostProcess.visible = true
+			postProcess = true
 		else:
-			$MainCamera/PostProcess.visible = false
+			postProcess = false
 		file.close()
 	speedBoost = speed / 10.0
 	get_node("hud").update_hud()
@@ -358,18 +381,18 @@ func reset_vegie(n):
 	n.scale = Vector3(0.1, 0.1, 0.1)
 	# spawn in random location
 	n.position.z = 0
-	var posX = (randf() * 55) - 30 #55 + 5 = 60
-	var posY = (randf() * 55) - 30
+	var posX = (randf() - 0.5) * 54
+	var posY = (randf() - 0.5) * 54
 	# add space in center for X
 	if(posX > 0.0):
-		posX += 5
+		posX += 3
 	else:
-		posX -= 5
+		posX -= 3
 	# add space in center for Y
 	if(posY > 0.0):
-		posY += 5
+		posY += 3
 	else:
-		posY -= 5
+		posY -= 3
 	# assign values
 	n.position.x = posX
 	n.position.y = posY

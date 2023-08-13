@@ -20,8 +20,8 @@ config/icon="res://textures/icon.png"
 
 [display]
 
-window/size/viewport_width=1000
-window/size/viewport_height=1000
+window/size/viewport_width=1024
+window/size/viewport_height=1024
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/handheld/orientation=4
