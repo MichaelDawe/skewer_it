@@ -20,7 +20,7 @@ void fragment() {
 	col *= 1.0 + (vec3(1.0, 0.8, 0.4) * highscore * vig);
 	col = mix(col, (col * vec3(1.0, 0.0, 0.0)) + vec3(0.4, 0.0, 0.0), vig * damaged);
 	
-	col += ((1.0 - UV.y) * sparks * vec3(1.0, 0.4, 0.05));
+	col += SCREEN_UV.y * sparks * vec3(1.0, 0.4, 0.05);
 	
 	ALBEDO = col;
 }
