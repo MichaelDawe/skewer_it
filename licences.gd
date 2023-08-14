@@ -12,8 +12,8 @@ func _process(_delta):
 
 
 func _on_back_pressed():
-	var credits = preload("res://credits.tscn").instantiate()
-	get_node("/root/main").add_child(credits)
+	var options = preload("res://options.tscn").instantiate()
+	get_node("/root/main").add_child(options)
 	queue_free()
 
 

@@ -73,8 +73,8 @@ func _process(_delta):
 
 
 func _on_menu_pressed():
-	var menu = preload("res://menu.tscn").instantiate()
-	get_node("/root/main").add_child(menu)
+	var options = preload("res://options.tscn").instantiate()
+	get_node("/root/main").add_child(options)
 	queue_free()
 
 func format_seconds(s):

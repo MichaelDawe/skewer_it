@@ -105,7 +105,7 @@ theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_gs56o")
 theme_override_font_sizes/font_size = 100
 button_mask = 7
-text = "Menu"
+text = "BACK"
 flat = true
 
 [node name="BottomSpacer" type="HSeparator" parent="VBoxContainer"]
