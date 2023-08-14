@@ -115,5 +115,11 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/separator = SubResource("StyleBoxFlat_qyhg5")
 
+[node name="Version" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Version 0.3"
+fit_content = true
+
 [connection signal="pressed" from="VBoxContainer/Licences" to="." method="_on_licences_pressed"]
 [connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]
