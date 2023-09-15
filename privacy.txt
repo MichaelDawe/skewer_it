@@ -1,6 +1,6 @@
 Privacy policy
 
-General
+General:
 
 Skewer It! is developed by Michael Dawe.
 
@@ -10,16 +10,16 @@ By playing Skewer It!, you agree that your personal information will be handled 
 
 The app has no internet access, so it is not sending anything outside the device whatsoever.
 
-Information being collected
+Information being collected:
 
-Simple Flashlight does not collect any personal identifiable information.
+Skewer It! does not collect any personal identifiable information.
 
-Changes to the Policy
+Changes to the Policy:
 
 If the Policy changes, the modification date below will be updated. The Policy may change from time to time, so please be sure to check back periodically.
 
-Last modified: 08/07/2023.
+Last modified: 15/09/2023.
 
-Contact
+Contact:
 
 If you have any questions about the Policy, please contact me via michaeldawe012@gmail.com
