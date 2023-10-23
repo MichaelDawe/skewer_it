@@ -125,9 +125,11 @@ func _process(delta):
 		#
 		playTime += delta
 		# run background shading 
-		# 165*2 seconds = five minutes and 30 seconds
-		# 5 minutes between slow mo sessions and 30 seconds of slow mo
-		backRed = clamp((sin(((playTime - 165) / 165) * PI) - 0.9) * 8.0, 0.0, 0.6)
+		# 90*2 seconds = 3 minutes
+		# 2:30 minutes between slow mo sessions and 30 seconds of slow mo
+		backRed = clamp(
+			(sin(((playTime - 90) / 90) * PI) - 0.8333) 
+			* 6.0, 0.0, 0.6)
 		background = Vector3(backRed, 0.2, 0.6 - (backRed / 2.0))
 		$MainCamera/Background.get_active_material(0).set_shader_parameter("background", background)
 		# spawning counter
@@ -406,7 +408,7 @@ func score_add():
 	score += 1 + bonus
 	catch += 1
 	# make game speed up over time
-	speedBoost += 0.0015
+	speedBoost += 0.002
 	update_skewer()
 	# stats
 	totalScore += 1 + bonus

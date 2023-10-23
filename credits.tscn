@@ -118,7 +118,7 @@ theme_override_styles/separator = SubResource("StyleBoxFlat_qyhg5")
 [node name="Version" type="RichTextLabel" parent="VBoxContainer"]
 layout_mode = 2
 bbcode_enabled = true
-text = "[center]Version 1.0"
+text = "[center]Version 1.1"
 fit_content = true
 
 [connection signal="pressed" from="VBoxContainer/Licences" to="." method="_on_licences_pressed"]
