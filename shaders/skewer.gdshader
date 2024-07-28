@@ -22,5 +22,5 @@ void fragment() {
 	
 	col += SCREEN_UV.y * sparks * vec3(1.0, 0.4, 0.05);
 	
-	ALBEDO = col;
+	ALBEDO = clamp(col, 0.0, 1.0);
 }
